@@ -1,0 +1,15 @@
+SRCS = \
+	Application.cpp \
+	ChordMenuItem.cpp \
+	ChordParser.cpp \
+	InternalSynth.cpp \
+	Keyboard.cpp \
+	Keyboard2d.cpp \
+	KeyTable.cpp \
+	MidiOut.cpp \
+	Scope.cpp \
+	Settings.cpp \
+	StatusWindow.cpp \
+	View.cpp
+
+# not used:	Keyboard3d.cpp

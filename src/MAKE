@@ -1,0 +1,4 @@
+if  [ "$FOLDER_PATH" != "" ] ; then cd "$FOLDER_PATH"; fi
+make
+echo =========================================================
+read
