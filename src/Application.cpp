@@ -368,7 +368,7 @@ void AppWindow::PopulatePortMenus()
 void AppWindow::GetSynthEntries() {
 	BPath synthdir;
 	// This *will* be == B_SYNTH_DIRECTORY, but may not be on all systems yet:
-	find_directory(B_COMMON_DATA_DIRECTORY, &synthdir);
+	find_directory(B_SYSTEM_DATA_DIRECTORY, &synthdir);
 	synthdir.Append("synth");
 	BDirectory dir(synthdir.Path());
 	if (dir.InitCheck() == B_OK) {
