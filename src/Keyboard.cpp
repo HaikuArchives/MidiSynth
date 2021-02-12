@@ -1,5 +1,3 @@
 #include "Keyboard.h"
 
-Keyboard::Keyboard(View *view) {
-	this->view = view;
-}
+Keyboard::Keyboard(View *view) { this->view = view; }
