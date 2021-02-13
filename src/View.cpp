@@ -122,22 +122,22 @@ View::FocusKeyboard()
 void
 View::SetKeyboard(int index)
 {
-	if (currentKeyboard != index)
+	if (currentKeyboard != index) {
 		if (currentKeyboard == 0)
 			RemoveChild((Keyboard2D*) keyboard);
 #if 0
 		else
 			RemoveChild((Keyboard3D*)keyboard);
 #endif
-	delete keyboard;
-	currentKeyboard = index;
-	BRect rect = Bounds();
-	rect.top = subViewTop;
-	if (currentKeyboard == 0) {
-		Keyboard2D* k2d = new Keyboard2D(this, rect, 3, 2);
-		keyboard = k2d;
-		AddChild(k2d);
-	}
+		delete keyboard;
+		currentKeyboard = index;
+		BRect rect = Bounds();
+		rect.top = subViewTop;
+		if (currentKeyboard == 0) {
+			Keyboard2D* k2d = new Keyboard2D(this, rect, 3, 2);
+			keyboard = k2d;
+			AddChild(k2d);
+		}
 #if 0
 	    else {
 			Keyboard3D *k3d = new Keyboard3D(this, rect);
@@ -146,6 +146,7 @@ View::SetKeyboard(int index)
 			k3d->Render();
 		}
 #endif
+	}
 }
 
 
@@ -182,14 +183,15 @@ View::NotePlaying(uchar note)
 void
 View::SetOctave(uchar octave)
 {
-	if (noteOffset != octave * 12)
+	if (noteOffset != octave * 12) {
 		noteOffset = octave * 12;
-	if (currentKeyboard == 0)
-		((Keyboard2D*) keyboard)->Invalidate();
+		if (currentKeyboard == 0)
+			((Keyboard2D*) keyboard)->Invalidate();
 #if 0
 		else
 			((Keyboard3D*)keyboard)->Invalidate();
 #endif
+	}
 };
 
 
@@ -278,17 +280,18 @@ View::NoteOn(uchar key, uchar source, bool map)
 
 	if (chord.enabled && (old != notePlaying[note].device)) {
 		uchar n;
-		for (int i = 0; i < chord.len; i++)
+		for (int i = 0; i < chord.len; i++) {
 			n = note + chord.notes[i];
-		if (n > 127)
-			return;
-		old = notePlaying[n].device;
-		notePlaying[n].device |= CHORD;
-		notePlaying[n].count++;
-		if (!old) {
-			midiOut->SprayNoteOn(
+			if (n > 127)
+				return;
+			old = notePlaying[n].device;
+			notePlaying[n].device |= CHORD;
+			notePlaying[n].count++;
+			if (!old) {
+				midiOut->SprayNoteOn(
 				channel, n, channels[channel].velocity, system_time());
-			keyboard->NoteOn(n);
+				keyboard->NoteOn(n);
+			}
 		}
 	}
 }
@@ -423,12 +426,13 @@ View::SetChord(const char* chord)
 	int i;
 	ClearChord();
 
-	for (i = 0; (i < 255) && (chord[i] != '\0'); i++)
+	for (i = 0; (i < 255) && (chord[i] != '\0'); i++) {
 		if (i == 0)
 			this->chord.notes[0] = DecodeChord(chord[0]);
 		else
 			this->chord.notes[i]
 				= this->chord.notes[i - 1] + DecodeChord(chord[i]);
+	}
 
 	if (i > 0) {
 		this->chord.len = i;
@@ -467,11 +471,13 @@ void
 View::PitchBend(uchar channel, uchar lsb, uchar msb, bigtime_t time)
 {
 	midiOut->SprayPitchBend(channel, lsb, msb, time);
-	if (msb != channels[channel].pitch)
+	if (msb != channels[channel].pitch) {
 		SetPitchBend(channel, msb);
-	if (ANIMATE_KEYS && (channel == this->channel) && Window()->Lock()) {
-		pitchBendSlider->SetValue(msb);
-		Window()->Unlock();
+		if (ANIMATE_KEYS && (channel == this->channel) && Window()->Lock()) {
+			pitchBendSlider->SetValue(msb);
+			Window()->Unlock();
+		}
+		
 	}
 }
 
@@ -513,11 +519,12 @@ View::ControlChange(
 	uchar channel, uchar controlNumber, uchar controlValue, bigtime_t time)
 {
 	midiOut->SprayControlChange(channel, controlNumber, controlValue, time);
-	if ((controlNumber == B_PAN) && (controlValue != channels[channel].pan))
+	if ((controlNumber == B_PAN) && (controlValue != channels[channel].pan)) {
 		SetPan(channel, controlValue);
-	if (ANIMATE_KEYS && (channel == this->channel) && Window()->Lock()) {
-		panSlider->SetValue(127 - controlValue);
-		Window()->Unlock();
+		if (ANIMATE_KEYS && (channel == this->channel) && Window()->Lock()) {
+			panSlider->SetValue(127 - controlValue);
+			Window()->Unlock();
+		}
 	}
 }
 

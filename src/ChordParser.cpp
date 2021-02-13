@@ -48,11 +48,12 @@ SkipWhiteSpaces(BFile& file)
 char
 Skip(char ch, BFile& file)
 {
-	while ((ch == '#') || isspace(ch))
+	while ((ch == '#') || isspace(ch)) {
 		if (ch == '#')
 			ch = SkipComment(file);
 		else
 			ch = SkipWhiteSpaces(file);
+	}
 	return ch;
 }
 

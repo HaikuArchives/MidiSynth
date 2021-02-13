@@ -304,13 +304,14 @@ Keyboard2D::PressedKey(BPoint point)
 	if (x >= frameWidth)
 		return 255;
 
-	if (y >= height)
+	if (y >= height) {
 		if (y < height + gap)
 			return 255;
 		else {
 			note = kpl;
 			y -= height + 9;
 		}
+	}
 	int octave = x / (width * 7);
 	if (octave > octaves)
 		return 255;

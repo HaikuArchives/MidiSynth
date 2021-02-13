@@ -212,34 +212,37 @@ AppWindow::AppWindow(BRect aRect)
 	// Channel
 	menu = new BMenu("Channel");
 	menu->SetRadioMode(true);
-	for (i = 1; i <= 16; i++)
+	for (i = 1; i <= 16; i++) {
 		if (i == 10)
 			sprintf(string, "10 [Drums]");
 		else
 			sprintf(string, "%d", i);
-	menu->AddItem(
-		item = new BMenuItem(string, new BMessage(MENU_CHANNEL + i - 1)));
-	if (i == 1)
-		item->SetMarked(true);
+		menu->AddItem(
+			item = new BMenuItem(string, new BMessage(MENU_CHANNEL + i - 1)));
+		if (i == 1)
+			item->SetMarked(true);
+	}
 	menubar->AddItem(menu);
 
 	// Group
 	groupMenu = menu = new BMenu("Group");
-	for (i = 0; i < INSTR_GROUPS; i++)
+	for (i = 0; i < INSTR_GROUPS; i++) {
 		menu->AddItem(item
 			= new BMenuItem(instrGroups[i], new BMessage(MENU_GROUPS + i)));
-	if (i == 0)
-		item->SetMarked(true);
+		if (i == 0)
+			item->SetMarked(true);
+	}
 	menu->SetRadioMode(true);
 	menubar->AddItem(menu);
 	// Instruments
 	for (i = 0; i < INSTR_GROUPS; i++) {
 		instrumentMenu[i] = menu = new BMenu("Instrument");
-		for (j = instrIndizes[i].from; j <= instrIndizes[i].to; j++)
+		for (j = instrIndizes[i].from; j <= instrIndizes[i].to; j++) {
 			menu->AddItem(item = new BMenuItem(instruments[j],
 							  new BMessage(MENU_INSTRUMENTS + j)));
-		if (j == instrIndizes[i].from)
-			item->SetMarked(true);
+			if (j == instrIndizes[i].from)
+				item->SetMarked(true);
+		}
 		menu->SetRadioMode(true);
 	}
 	menubar->AddItem(instrGroup = instrumentMenu[0]);
@@ -247,20 +250,21 @@ AppWindow::AppWindow(BRect aRect)
 	// Octave
 	menu = new BMenu("Octave");
 	menu->SetRadioMode(true);
-	for (i = 1; i <= 11; i++)
+	for (i = 1; i <= 11; i++) {
 		sprintf(string, "%d", i);
-	menu->AddItem(
-		item = new BMenuItem(string, new BMessage(MENU_OCTAVE + i - 1)));
-	if (i == 4)
-		item->SetMarked(true);
+		menu->AddItem(
+			item = new BMenuItem(string, new BMessage(MENU_OCTAVE + i - 1)));
+		if (i == 4)
+			item->SetMarked(true);
+	}
 	menubar->AddItem(menu);
 	/*  // Keyboard
-			menu = new BMenu("Keyboard");
-			menu->SetRadioMode(true);
-			menu->AddItem(item = new BMenuItem("2D", new
-	   BMessage(MENU_KEYBOARD_2D))); item->SetMarked(true); menu->AddItem(item =
-	   new BMenuItem("3D", new BMessage(MENU_KEYBOARD_3D)));
-			menubar->AddItem(menu);
+		menu = new BMenu("Keyboard");
+		menu->SetRadioMode(true);
+		menu->AddItem(item = new BMenuItem("2D", new
+		BMessage(MENU_KEYBOARD_2D))); item->SetMarked(true); menu->AddItem(item =
+		new BMenuItem("3D", new BMessage(MENU_KEYBOARD_3D)));
+		menubar->AddItem(menu);
 	*/
 	// Port
 	midiInPortMenu = new BMenu("Midi In");
@@ -461,8 +465,12 @@ AppWindow::FindPatch(const char* patch)
 
 #ifndef __HAIKU__
 // Patches to load first if available
-static const char* patches[5]
-	= {"Patches300.hsb", "Patches111.hsb", "Patches.hsb", "big_synth.sy", NULL};
+static const char* patches[5] = {
+	"Patches300.hsb",
+	"Patches111.hsb",
+	"Patches.hsb",
+	"big_synth.sy",
+	NULL};
 #endif
 
 
@@ -605,10 +613,11 @@ AppWindow::PopulateInstrumentMenus()
 {
 	uchar instr = view->GetInstrument(view->GetChannel());
 	int group;
-	for (group = 0; group < INSTR_GROUPS; group++)
+	for (group = 0; group < INSTR_GROUPS; group++) {
 		if ((instrIndizes[group].from <= instr)
 			&& (instrIndizes[group].to >= instr))
 			break;
+	}
 
 	BMenuItem* item = groupMenu->FindItem((uint32) group + MENU_GROUPS);
 	if (item != NULL)
@@ -949,12 +958,13 @@ AppWindow::BuildLimiterThreshholdMenu(BMenu* menu)
 	BMenuItem* item;
 	char string[4];
 	menu->SetRadioMode(true);
-	for (int i = 1; i <= 32; i++)
+	for (int i = 1; i <= 32; i++) {
 		sprintf(string, "%d", i);
-	menu->AddItem(
-		item = new BMenuItem(string, NewMessage(MENU_LIMITER_THRESHHOLD, i)));
-	if (i == settings.GetLimiterThreshhold())
-		item->SetMarked(true);
+		menu->AddItem(
+			item = new BMenuItem(string, NewMessage(MENU_LIMITER_THRESHHOLD, i)));
+		if (i == settings.GetLimiterThreshhold())
+			item->SetMarked(true);
+	}
 }
 
 
@@ -1133,22 +1143,24 @@ AppWindow::MessageReceived(BMessage* message)
 			BMidiRoster* midiManager = BMidiRoster::MidiRoster();
 			int32 id = message->FindInt32("port_id");
 			BMidiProducer* pro = midiManager->FindProducer(id);
-			if (pro)
+			if (pro) {
 				if (pro->IsConnected(view))
 					pro->Disconnect(view);
 				else
 					pro->Connect(view);
+			}
 		} break;
 		case MENU_OUTPORT:
 		{
 			BMidiRoster* midiManager = BMidiRoster::MidiRoster();
 			int32 id = message->FindInt32("port_id");
 			BMidiConsumer* con = midiManager->FindConsumer(id);
-			if (con)
+			if (con) {
 				if (view->midiOut->IsConnected(con))
 					view->midiOut->Disconnect(con);
 				else
 					view->midiOut->Connect(con);
+			}
 		} break;
 		case MENU_SYNTH_ENABLED:
 			OnSynthesizerEnabled();
