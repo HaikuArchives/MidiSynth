@@ -14,14 +14,15 @@
 
 class View;
 
-class Keyboard {
+class Keyboard
+{
 protected:
-  View *view;
+	View* view;
 
 public:
-  Keyboard(View *view);
-  virtual void NoteOn(uchar note) = 0;
-  virtual void NoteOff(uchar note) = 0;
+	Keyboard(View* view);
+	virtual void NoteOn(uchar note) = 0;
+	virtual void NoteOff(uchar note) = 0;
 };
 
 #include "View.h"

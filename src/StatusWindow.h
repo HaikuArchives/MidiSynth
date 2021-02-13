@@ -13,8 +13,9 @@
 #include <String.h>
 #include <Window.h>
 
-class StatusWindow : public BWindow {
+class StatusWindow : public BWindow
+{
 public:
-  StatusWindow(const char *text, BRect);
+	StatusWindow(const char* text, BRect);
 };
 #endif

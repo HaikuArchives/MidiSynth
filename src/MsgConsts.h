@@ -33,9 +33,9 @@
 #define MENU_KEYBOARD_OCTAVES 'KBOC'
 #define MENU_KEYBOARD_ROWS 'KBRS'
 
-#define MENU_GROUPS 100      // to 115
-#define MENU_OCTAVE 120      // to 132
-#define MENU_CHANNEL 180     // to 195
+#define MENU_GROUPS 100 // to 115
+#define MENU_OCTAVE 120 // to 132
+#define MENU_CHANNEL 180 // to 195
 #define MENU_INSTRUMENTS 200 // to 328
 #define MENU_SYNTH_ENABLED 340
 #define MENU_CHORD 341

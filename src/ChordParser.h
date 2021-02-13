@@ -14,8 +14,8 @@
 #include <Menu.h>
 #include <stdio.h>
 
-char NextChar(BFile &file);
-char Skip(char ch, BFile &file);
-char LoadChord(char ch, BFile &file, BMenu *menu);
+char NextChar(BFile& file);
+char Skip(char ch, BFile& file);
+char LoadChord(char ch, BFile& file, BMenu* menu);
 
 #endif
