@@ -213,6 +213,7 @@ void
 Keyboard2D::Draw(BRect updateRect)
 {
 	BRect rect = Bounds();
+	FillRect(rect, B_SOLID_HIGH);
 	int i;
 	int note = view->GetNoteOffset();
 

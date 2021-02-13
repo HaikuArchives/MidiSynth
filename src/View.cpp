@@ -19,7 +19,7 @@ View::View(BRect rect, int16 octaves, int16 rows)
 	BView(rect, NULL, B_FOLLOW_ALL, B_WILL_DRAW),
 	BMidiLocalConsumer(APPLICATION " " VERSION)
 {
-
+	SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));
 	midiOut = new MidiOut(APPLICATION " " VERSION);
 	midiOut->Register();
 	Register();
@@ -477,7 +477,6 @@ View::PitchBend(uchar channel, uchar lsb, uchar msb, bigtime_t time)
 			pitchBendSlider->SetValue(msb);
 			Window()->Unlock();
 		}
-		
 	}
 }
 
