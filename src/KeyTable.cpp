@@ -146,12 +146,12 @@ KeyTable::Key2Note(int32 key, int32 modifiers)
 		return 255;
 }
 
-typedef struct Data {
+struct Data {
 	uchar note;
 	int16 index;
 };
 
-typedef struct WData {
+struct WData {
 	uchar note;
 	int16 index;
 };

@@ -16,7 +16,7 @@
 // ---------------------------------------------------------------------------
 // Constructor/Destructor
 
-CInternalSynth::CInternalSynth(char* name)
+CInternalSynth::CInternalSynth(char const* name)
 	:
 	BMidiLocalConsumer(name),
 	m_midiSynth(NULL)

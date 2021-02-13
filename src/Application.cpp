@@ -26,7 +26,7 @@
 
 static const char* settingsFilename = "MidiSynth";
 
-static char* instruments[128] = {
+static char const* instruments[128] = {
 	// Pianos (0-7)
 	"Acoustic Grand", "Bright Grand", "Electric Grand", "Honky Tonk",
 	"Electric Piano", "Electric Piano 2", "Harpsichord", "Clavichord",
@@ -77,7 +77,7 @@ static char* instruments[128] = {
 	"Fret Noise", "Breath Noise", "Seashore", "Bird Tweet", "Telephone",
 	"Helicopter", "Applause", "Gunshot"};
 
-static char* instrGroups[INSTR_GROUPS] = {"Pianos", "Tuned Idiophones",
+static char const* instrGroups[INSTR_GROUPS] = {"Pianos", "Tuned Idiophones",
 	"Organs", "Guitars", "Basses", "Strings and Timpani",
 	"Ensemble Strings and Voices", "Brass", "Reeds", "Pipes", "Synth Leads",
 	"Synth Pads", "Musical Effects", "Ethnic", "Percussion", "Sound Effects"};

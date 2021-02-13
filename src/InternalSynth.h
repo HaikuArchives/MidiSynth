@@ -26,7 +26,7 @@ class CInternalSynth : public BMidiLocalConsumer
 {
 
 public: // Constructor/Destructor
-	CInternalSynth(char* name);
+	CInternalSynth(char const* name);
 
 	~CInternalSynth();
 
