@@ -32,7 +32,7 @@ protected:
 	// MidiDevices devices;
 	BList synthEntries;
 
-	BDirectory keyMapPath;
+	BDirectory keyMapDir;
 	BMenu* keyMapMenu;
 	bool remapKeys;
 	BFilePanel* savePanel;

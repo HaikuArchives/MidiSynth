@@ -24,7 +24,8 @@
 #define INSTR_GROUPS 16
 #define INSTRUMENTS 128
 
-static const char* settingsFilename = "MidiSynth";
+static const char settingsFolder[] = "MidiSynth";
+static const char settingsFilename[] = "MidiSynth";
 
 static char const* instruments[128] = {
 	// Pianos (0-7)
@@ -125,14 +126,13 @@ AppWindow::AppWindow(BRect aRect)
 	// Save Panel
 	savePanel = new BFilePanel(B_SAVE_PANEL, new BMessenger(this));
 
-	app_info ai;
-	if (B_OK == be_app->GetAppInfo(&ai)) {
-		BEntry entry(&ai.ref);
-		BDirectory path;
-		entry.GetParent(&path);
-		if (B_OK != keyMapPath.SetTo(&path, "KeyMappings"))
-			keyMapPath = path;
-		savePanel->SetPanelDirectory(&keyMapPath);
+	BPath path;
+	if (find_directory(B_USER_SETTINGS_DIRECTORY, &path) == B_OK) {
+		path.Append(settingsFolder);
+		BDirectory dir(path.Path());
+		if (B_OK != keyMapDir.SetTo(&dir, "KeyMappings"))
+			keyMapDir = dir;
+		savePanel->SetPanelDirectory(&keyMapDir);
 	}
 
 	LoadSettings();
@@ -305,17 +305,21 @@ AppWindow::LoadSettings()
 {
 	BPath path;
 	if (find_directory(B_USER_SETTINGS_DIRECTORY, &path) == B_OK) {
-		path.Append(settingsFilename);
-		BFile file(path.Path(), B_READ_ONLY);
-		if (file.InitCheck() == B_OK) {
-			BMessage archive;
-			archive.Unflatten(&file);
-			GlobalSettings* s =
-				(GlobalSettings*) GlobalSettings::Instantiate(&archive);
+		status_t ret = path.Append(settingsFolder);
+		if (ret == B_OK)
+			ret = path.Append(settingsFilename);
+		if (ret == B_OK) {
+			BFile file(path.Path(), B_READ_ONLY);
+			if (file.InitCheck() == B_OK) {
+				BMessage archive;
+				archive.Unflatten(&file);
+				GlobalSettings* s =
+					(GlobalSettings*) GlobalSettings::Instantiate(&archive);
 
-			if (s != NULL) {
-				settings = *s;
-				delete s;
+				if (s != NULL) {
+					settings = *s;
+					delete s;
+				}
 			}
 		}
 	}
@@ -327,13 +331,20 @@ AppWindow::SaveSettings()
 {
 	BPath path;
 	if (settings.HasChanged()
-		&& find_directory(B_USER_SETTINGS_DIRECTORY, &path) == B_OK)
-		path.Append(settingsFilename);
-	BFile file(path.Path(), B_WRITE_ONLY | B_CREATE_FILE | B_ERASE_FILE);
-	if (file.InitCheck() == B_OK) {
-		BMessage archive;
-		settings.Archive(&archive);
-		archive.Flatten(&file);
+		&& find_directory(B_USER_SETTINGS_DIRECTORY, &path) == B_OK) {
+		status_t ret = path.Append(settingsFolder);
+		if (ret == B_OK)
+			ret = create_directory(path.Path(), 0777);
+		if (ret == B_OK)
+			ret = path.Append(settingsFilename);
+		if (ret == B_OK) {
+			BFile file(path.Path(), B_WRITE_ONLY | B_CREATE_FILE | B_ERASE_FILE);
+			if (file.InitCheck() == B_OK) {
+				BMessage archive;
+				settings.Archive(&archive);
+				archive.Flatten(&file);
+			}
+		}
 	}
 }
 
@@ -532,12 +543,11 @@ AppWindow::LoadPatch()
 void
 AppWindow::LoadChords(BMenu* menu)
 {
-	app_info ai;
-	if (B_OK == be_app->GetAppInfo(&ai)) {
-		BDirectory dir;
-		BEntry entry(&ai.ref);
-		entry.GetParent(&dir);
-		BFile file(&dir, "Chords", B_READ_ONLY);
+	BPath path;
+	if (find_directory(B_USER_SETTINGS_DIRECTORY, &path) == B_OK) {
+		path.Append(settingsFolder);
+		path.Append("Chords");
+		BFile file(path.Path(), B_READ_ONLY);
 		if (file.InitCheck() == B_OK) {
 			char ch = NextChar(file);
 			while (ch != EOF) {
@@ -693,7 +703,7 @@ AppWindow::BuildKeyMapMenu(BMenu* menu)
 	while (NULL != (item = menu->RemoveItem((int32) 0)))
 		delete item;
 
-	BDirectory dir(keyMapPath);
+	BDirectory dir(keyMapDir);
 	if (dir.InitCheck() == B_OK) {
 		BEntry e;
 		char name[B_FILE_NAME_LENGTH];
@@ -766,7 +776,7 @@ AppWindow::OnSave(BMessage* msg)
 void
 AppWindow::LoadKeyMap(const char* map)
 {
-	BFile file(&keyMapPath, map, B_READ_ONLY);
+	BFile file(&keyMapDir, map, B_READ_ONLY);
 	if (file.InitCheck() == B_OK) {
 		if (!view->GetKeyTable()->Read(file)) {
 			BAlert* help = new BAlert(
