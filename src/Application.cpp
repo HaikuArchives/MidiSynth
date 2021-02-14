@@ -181,14 +181,6 @@ AppWindow::AppWindow(BRect aRect)
 	// Max Synth Voices
 	BuildMaxSynthVoicesMenu(submenu = new BMenu("Max Synth Voices"));
 	menu->AddItem(submenu);
-#ifndef __HAIKU__
-	// Interpolation
-	BuildInterpolationMenu(submenu = new BMenu("Interpolation"));
-	menu->AddItem(submenu);
-	// Limiter Threshhold
-	BuildLimiterThreshholdMenu(submenu = new BMenu("Limiter Threshhold"));
-	menu->AddItem(submenu);
-#endif
 	menu->AddSeparatorItem();
 	// Key Map Menu
 	menu->AddItem(keyMapMenu = new BMenu("Key Mappings"));
@@ -463,16 +455,6 @@ AppWindow::FindPatch(const char* patch)
 	return NULL;
 }
 
-#ifndef __HAIKU__
-// Patches to load first if available
-static const char* patches[5] = {
-	"Patches300.hsb",
-	"Patches111.hsb",
-	"Patches.hsb",
-	"big_synth.sy",
-	NULL};
-#endif
-
 
 bool
 AppWindow::LoadPatch(BEntry* entry)
@@ -495,21 +477,14 @@ AppWindow::LoadPatch(BEntry* entry)
 	if (ok) {
 		// init be_synth
 		be_synth->SetSamplingRate(settings.GetSamplingRate());
-#ifndef __HAIKU__
-		be_synth->SetInterpolation(settings.GetInterpolation());
-#endif
 		// if (settings.GetReverb() == B_REVERB_NONE)
 		//	be_synth->EnableReverb(false);
 		// else {
 		//	be_synth->EnableReverb(true);
 		be_synth->SetReverb(settings.GetReverb());
 		//}
-		be_synth->SetVoiceLimits(settings.GetMaxSynthVoices(), 0,
-#ifndef __HAIKU__
-			settings.GetLimiterThreshhold());
-#else
-			0);
-#endif
+		be_synth->SetVoiceLimits(settings.GetMaxSynthVoices(), 0, 0);
+
 		midiSynth->SetVolume(settings.GetMainVolume());
 		view->SetMainVolume(settings.GetMainVolume());
 		for (int i = 0; i < 16; i++)
@@ -544,27 +519,6 @@ AppWindow::LoadPatch()
 		patchMenu->FindItem("<Default>")->SetMarked(true);
 		return;
 	}
-#if 0
-// Old BeOS version
-	// try one of the default patches
-	for(i = 0; patches[i] != NULL; i++) {
-		entry = FindPatch(patches[i]);
-		if ( entry && LoadPatch(entry)) {
-			i = synthEntries.IndexOf(entry);
-			patchMenu->ItemAt(i)->SetMarked(true);
-			return;
-		}
-	}
-	// take first available patch
-	i = 0;
-	while (NULL != (entry = (BEntry*)synthEntries.ItemAt(i))) {
-		if ( entry && LoadPatch(entry)) {
-			i = synthEntries.IndexOf(entry);
-			patchMenu->ItemAt(i)->SetMarked(true);
-			return;
-		}
-	}
-#endif
 
 	// no patches available, turn off synthesizer support
 	midiSynthEnabled = false;
@@ -896,32 +850,6 @@ AppWindow::OnSamplingRate(BMessage* msg)
 	}
 }
 
-#ifndef __HAIKU__
-// Interpolation
-void
-AppWindow::BuildInterpolationMenu(BMenu* menu)
-{
-	int32 current = settings.GetInterpolation();
-	menu->SetRadioMode(true);
-	AddMenuItem(
-		menu, "Drop Sample", MENU_INTERPOLATION, B_DROP_SAMPLE, current);
-	AddMenuItem(menu, "2 Point Interpolation", MENU_INTERPOLATION,
-		B_2_POINT_INTERPOLATION, current);
-	AddMenuItem(menu, "Linear Interpolation", MENU_INTERPOLATION,
-		B_LINEAR_INTERPOLATION, current);
-}
-
-
-void
-AppWindow::OnInterpolation(BMessage* msg)
-{
-	int32 data;
-	if (B_OK == msg->FindInt32("data", &data)) {
-		be_synth->SetInterpolation((interpolation_mode) data);
-		settings.SetInterpolation((interpolation_mode) data);
-	}
-}
-#endif
 
 // Max Synth Voices
 void
@@ -950,34 +878,6 @@ AppWindow::OnMaxSynthVoices(BMessage* msg)
 	}
 }
 
-#ifndef __HAIKU__
-// Limiter Threshhold
-void
-AppWindow::BuildLimiterThreshholdMenu(BMenu* menu)
-{
-	BMenuItem* item;
-	char string[4];
-	menu->SetRadioMode(true);
-	for (int i = 1; i <= 32; i++) {
-		sprintf(string, "%d", i);
-		menu->AddItem(
-			item = new BMenuItem(string, NewMessage(MENU_LIMITER_THRESHHOLD, i)));
-		if (i == settings.GetLimiterThreshhold())
-			item->SetMarked(true);
-	}
-}
-
-
-void
-AppWindow::OnLimiterThreshhold(BMessage* msg)
-{
-	int32 data;
-	if (B_OK == msg->FindInt32("data", &data)) {
-		be_synth->SetVoiceLimits(be_synth->MaxSynthVoices(), 0, data);
-		settings.SetLimiterThreshhold(data);
-	}
-}
-#endif
 
 // Keyboard
 void
@@ -1217,15 +1117,6 @@ AppWindow::MessageReceived(BMessage* message)
 		case MENU_MAX_SYNTH_VOICES:
 			OnMaxSynthVoices(message);
 			break;
-
-#ifndef __HAIKU__
-		case MENU_INTERPOLATION:
-			OnInterpolation(message);
-			break;
-		case MENU_LIMITER_THRESHHOLD:
-			OnLimiterThreshhold(message);
-			break;
-#endif
 
 		case MENU_KEYBOARD_OCTAVES:
 			OnKeyboardOctaves(message);

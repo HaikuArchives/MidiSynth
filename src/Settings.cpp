@@ -15,13 +15,7 @@
 #define DEFAULT_MAX_SYNTH_VOICES	28
 #define DEFAULT_REVERB				B_REVERB_BALLROOM
 #define DEFAULT_MAIN_VOLUME			1.00
-#ifndef __HAIKU__
-#define DEFAULT_SAMPLING_RATE		22050
-#define DEFAULT_INTERPOLATION		B_LINEAR_INTERPOLATION
-#define DEFAULT_LIMITER_THRESHHOLD	7
-#else
 #define DEFAULT_SAMPLING_RATE		48000
-#endif
 #define DEFAULT_KEYBOARD_OCTAVES	3
 #define DEFAULT_KEYBOARD_ROWS		2
 #define DEFAULT_WINDOW_POS_X		100
@@ -43,10 +37,6 @@ GlobalSettings::GlobalSettings()
 	samplingRate(DEFAULT_SAMPLING_RATE),
 	maxSynthVoices(DEFAULT_MAX_SYNTH_VOICES),
 	reverb(DEFAULT_REVERB),
-#ifndef __HAIKU__
-	interpolation(DEFAULT_INTERPOLATION),
-	limiterThreshhold(DEFAULT_LIMITER_THRESHHOLD),
-#endif
 	keyboardOctaves(DEFAULT_KEYBOARD_OCTAVES),
 	keyboardRows(DEFAULT_KEYBOARD_ROWS),
 	windowPos(DEFAULT_WINDOW_POS_X, DEFAULT_WINDOW_POS_Y),
@@ -154,39 +144,6 @@ GlobalSettings::GetMaxSynthVoices() const
 {
 	return maxSynthVoices;
 }
-
-#ifndef __HAIKU__
-
-
-void
-GlobalSettings::SetInterpolation(interpolation_mode im)
-{
-	changed |= im != interpolation;
-	interpolation = im;
-}
-
-
-interpolation_mode
-GlobalSettings::GetInterpolation() const
-{
-	return interpolation;
-}
-
-
-void
-GlobalSettings::SetLimiterThreshhold(int16 threshhold)
-{
-	changed |= limiterThreshhold != threshhold;
-	limiterThreshhold = threshhold;
-}
-
-
-int16
-GlobalSettings::GetLimiterThreshhold() const
-{
-	return limiterThreshhold;
-}
-#endif
 
 
 void
@@ -314,16 +271,6 @@ GlobalSettings::GlobalSettings(BMessage* archive)
 	else
 		reverb = DEFAULT_REVERB;
 
-#ifndef __HAIKU__
-	if (B_OK == archive->FindInt16("interpolation", &i))
-		interpolation = (interpolation_mode) i;
-	else
-		interpolation = DEFAULT_INTERPOLATION;
-
-	if (B_OK != archive->FindInt16("threshhold", &limiterThreshhold))
-		limiterThreshhold = DEFAULT_LIMITER_THRESHHOLD;
-#endif
-
 	if (B_OK != archive->FindInt16("octaves", &keyboardOctaves))
 		keyboardOctaves = DEFAULT_KEYBOARD_OCTAVES;
 
@@ -361,10 +308,6 @@ GlobalSettings::Archive(BMessage* archive, bool deep) const
 	archive->AddInt32("samplingRate", samplingRate);
 	archive->AddInt16("maxSynthVoices", maxSynthVoices);
 	archive->AddInt16("reverb", reverb);
-#ifndef __HAIKU__
-	archive->AddInt16("interpolation", interpolation);
-	archive->AddInt16("threshhold", limiterThreshhold);
-#endif
 	archive->AddInt16("octaves", keyboardOctaves);
 	archive->AddInt16("rows", keyboardRows);
 	archive->AddPoint("winPos", windowPos);

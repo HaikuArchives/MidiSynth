@@ -25,10 +25,6 @@ class _EXPORT GlobalSettings : public BArchivable
 	int32 samplingRate;
 	int16 maxSynthVoices;
 	reverb_mode reverb;
-#ifndef __HAIKU__
-	interpolation_mode interpolation;
-	int16 limiterThreshhold;
-#endif
 	int16 keyboardOctaves, keyboardRows;
 	BPoint windowPos;
 	float windowWidth, windowHeight;
@@ -57,14 +53,6 @@ public:
 
 	void SetMaxSynthVoices(int16 voices);
 	int16 GetMaxSynthVoices() const;
-
-#ifndef __HAIKU__
-	void SetInterpolation(interpolation_mode im);
-	interpolation_mode GetInterpolation() const;
-
-	void SetLimiterThreshhold(int16 threshhold);
-	int16 GetLimiterThreshhold() const;
-#endif
 
 	void SetKeyboardOctaves(int16 octaves);
 	int16 GetKeyboardOctaves() const;
