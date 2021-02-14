@@ -3,7 +3,8 @@
  * Distributed under the terms of the GPLv2 license.
  *
  * Author:
- *	Michael Pfeiffer et al.
+ *	2000-2013, Michael Pfeiffer et al.
+ *  2021 Humdinger, humdingerb@gmail.com
  *
  */
 
@@ -12,6 +13,7 @@
 #include "ChordParser.h"
 #include "InternalSynth.h"
 #include "Keyboard2d.h"
+#include <LayoutBuilder.h>
 #include "MsgConsts.h"
 #include "Scope.h"
 #include "StatusWindow.h"
@@ -142,13 +144,9 @@ AppWindow::AppWindow(BRect aRect)
 	settings.GetWindowSize(w, h);
 	MoveTo(settings.GetWindowPosition());
 	ResizeTo(w, h);
-	aRect.SetLeftTop(settings.GetWindowPosition());
-	aRect.right = aRect.left + w;
-	aRect.bottom = aRect.top + h;
 
 	// add menu bar
-	BRect rect = BRect(0, 0, aRect.Width(), aRect.Height());
-	menubar = new BMenuBar(rect, "menu_bar");
+	menubar = new BMenuBar("menu_bar");
 	midiSynthEnabled = false;
 	remapKeys = false;
 
@@ -167,7 +165,7 @@ AppWindow::AppWindow(BRect aRect)
 	menu->AddSeparatorItem();
 	// Synthesizer
 	menu->AddItem(item = new BMenuItem("Disable Synthesizer",
-					  new BMessage(MENU_SYNTH_ENABLED), 'S'));
+		new BMessage(MENU_SYNTH_ENABLED), 'S'));
 	patchMenu = new BMenu("Patches");
 	patchMenu->SetRadioMode(true);
 	SetPatchesMenu(patchMenu);
@@ -270,13 +268,16 @@ AppWindow::AppWindow(BRect aRect)
 	item->SetMarked(true);
 	LoadChords(menu);
 	menubar->AddItem(menu);
-	AddChild(menubar);
+
 	// add view
-	aRect = Bounds();
-	aRect.top = menubar->Bounds().Height() + 1;
-	view = NULL;
-	AddChild(view = new View(aRect, settings.GetKeyboardOctaves(),
-				 settings.GetKeyboardRows()));
+	view = new View(settings.GetKeyboardOctaves(),
+		settings.GetKeyboardRows());
+
+	BLayoutBuilder::Group<>(this, B_VERTICAL)
+		.Add(menubar)
+		.Add(view)
+		.End();
+
 	// Load default instrument definition file
 	LoadPatch();
 	// Load Key Mapping

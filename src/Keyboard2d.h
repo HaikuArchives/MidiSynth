@@ -32,7 +32,7 @@ class Keyboard2D : public BView, public Keyboard
 		rows, gap;
 
 public:
-	Keyboard2D(View* view, BRect rect, int16 octaves, int16 rows);
+	Keyboard2D(View* view, int16 octaves, int16 rows);
 	void FrameResized(float w, float h);
 
 	void SetOctaves(int n);

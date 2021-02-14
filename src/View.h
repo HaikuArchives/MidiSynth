@@ -57,7 +57,7 @@ class View : public BView, public BMidiLocalConsumer /* for Midi input */
 public:
 	MidiOut* midiOut;
 
-	View(BRect rect, int16 octaves, int16 rows);
+	View(int16 octaves, int16 rows);
 	~View();
 	uchar Key2Note(uchar key);
 	uchar NotePlaying(uchar note);

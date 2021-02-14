@@ -14,19 +14,17 @@
 #include <math.h>
 
 
-Keyboard2D::Keyboard2D(View* view, BRect rect, int16 octaves, int16 rows)
+Keyboard2D::Keyboard2D(View* view, int16 octaves, int16 rows)
 	:
-	BView(rect, NULL, B_FOLLOW_LEFT_RIGHT | B_FOLLOW_TOP_BOTTOM,
-		B_WILL_DRAW | B_NAVIGABLE | B_FRAME_EVENTS | B_FULL_UPDATE_ON_RESIZE),
+	BView(NULL, B_WILL_DRAW | B_SUPPORTS_LAYOUT | B_FULL_UPDATE_ON_RESIZE),
 	Keyboard(view),
 	octaves(octaves),
 	rows(rows)
 {
-	FrameResized(rect.Width(), rect.Height());
 	SetViewColor(B_TRANSPARENT_COLOR);
 	mouseTracking = false;
 
-	SetLowColor(255, 255, 255, 255);
+	SetLowColor(ui_color(B_PANEL_BACKGROUND_COLOR));
 }
 
 

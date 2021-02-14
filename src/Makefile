@@ -8,7 +8,7 @@
 ## file:///system/develop/documentation/makefile-engine.html
 
 # The name of the binary.
-NAME = MidiSynth
+NAME = ../../MidiSynth
 
 # The type of binary, must be one of:
 #	APP:	Application

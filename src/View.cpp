@@ -4,19 +4,22 @@
  *
  * Author:
  *	Michael Pfeiffer et al.
+ *  2021 Humdinger, humdingerb@gmail.com
  *
  */
 
 #include "View.h"
 #include "Keyboard2d.h"
+#include <LayoutBuilder.h>
 #include "MsgConsts.h"
+#include <SeparatorView.h>
 #include <ctype.h>
 // #include <stdio.h>
 
 // View
-View::View(BRect rect, int16 octaves, int16 rows)
+View::View(int16 octaves, int16 rows)
 	:
-	BView(rect, NULL, B_FOLLOW_ALL, B_WILL_DRAW),
+	BView("options", B_WILL_DRAW | B_SUPPORTS_LAYOUT),
 	BMidiLocalConsumer(APPLICATION " " VERSION)
 {
 	SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));
@@ -43,67 +46,63 @@ View::View(BRect rect, int16 octaves, int16 rows)
 	}
 
 	// set interface elements
-	rect.OffsetTo(0, 0);
-	pitchBendSlider = new BSlider(rect, "pitchBend", "Pitch Bend",
-		new BMessage(MSG_PITCH_BEND_CHANGED), 0, 127);
+	pitchBendSlider = new BSlider("pitchBend", "Pitch",
+		new BMessage(MSG_PITCH_BEND_CHANGED), 0, 127, B_VERTICAL);
 	pitchBendSlider->SetValue(64);
 	pitchBendSlider->SetLimitLabels("Low", "High");
 	pitchBendSlider->SetModificationMessage(
 		new BMessage(MSG_PITCH_BEND_CHANGED));
-	AddChild(pitchBendSlider);
-	pitchBendSlider->ResizeTo(WIDTH * 10.5, pitchBendSlider->Bounds().Height());
 
-	BRect bounds = pitchBendSlider->Bounds();
-	rect.SetLeftTop(BPoint(bounds.right, 0));
-	volumeSlider = new BSlider(rect, "volumeSlider", "Synthesizer Volume",
-		new BMessage(MSG_VOLUME_CHANGED), 0, 100);
+	volumeSlider = new BSlider("volumeSlider", "Volume",
+		new BMessage(MSG_VOLUME_CHANGED), 0, 100, B_VERTICAL);
 	volumeSlider->SetValue(100);
 	volumeSlider->SetLimitLabels("Off", "Max");
 	volumeSlider->SetModificationMessage(new BMessage(MSG_VOLUME_CHANGED));
-	AddChild(volumeSlider);
-	volumeSlider->ResizeTo(WIDTH * 10.5, volumeSlider->Bounds().Height());
 
-	rect.SetLeftTop(BPoint(0, volumeSlider->Bounds().Height() + 1));
-	velocitySlider = new BSlider(rect, "velocitySlider", "Velocity",
-		new BMessage(MSG_VELOCITY_CHANGED), 0, 127);
+	velocitySlider = new BSlider("velocitySlider", "Velocity",
+		new BMessage(MSG_VELOCITY_CHANGED), 0, 127, B_VERTICAL);
 	velocitySlider->SetValue(127);
 	velocitySlider->SetLimitLabels("Min", "Max");
 	velocitySlider->SetModificationMessage(new BMessage(MSG_VELOCITY_CHANGED));
-	AddChild(velocitySlider);
-	velocitySlider->ResizeTo(WIDTH * 10.5, velocitySlider->Bounds().Height());
-#if 0
-	rect.SetLeftTop(BPoint(bounds.right, volumeSlider->Bounds().Height()+1));
-	chPressureSlider = new BSlider(rect, "chPressureSlider", "Channel Pressure",
-		new BMessage(MSG_CH_PRESSURE_CHANGED), 0, 127);
-	chPressureSlider->SetValue(127);
-	chPressureSlider->SetLimitLabels("Min", "Max");
-	chPressureSlider->SetModificationMessage(new BMessage(MSG_CH_PRESSURE_CHANGED));
-	AddChild(chPressureSlider);
-	chPressureSlider->ResizeTo(WIDTH*10.5, chPressureSlider->Bounds().Height());
-#else
+
+//#if 0
+//	rect.SetLeftTop(BPoint(bounds.right, volumeSlider->Bounds().Height()+1));
+//	chPressureSlider = new BSlider("chPressureSlider", "Channel Pressure",
+//		new BMessage(MSG_CH_PRESSURE_CHANGED), 0, 127);
+//	chPressureSlider->SetValue(127);
+//	chPressureSlider->SetLimitLabels("Min", "Max");
+//	chPressureSlider->SetModificationMessage(new BMessage(MSG_CH_PRESSURE_CHANGED));
+//	AddChild(chPressureSlider);
+//	chPressureSlider->ResizeTo(WIDTH*10.5, chPressureSlider->Bounds().Height());
+//#else
 	chPressureSlider = NULL;
-#endif
-#if 1
-	rect.SetLeftTop(BPoint(bounds.right, volumeSlider->Bounds().Height() + 1));
+//#endif
+//#if 1
 	panSlider = new BSlider(
-		rect, "panSlider", "Pan", new BMessage(MSG_PAN_CHANGED), 0, 127);
+		"panSlider", NULL, new BMessage(MSG_PAN_CHANGED), 0, 127, B_HORIZONTAL);
 	panSlider->SetValue(63);
 	panSlider->SetLimitLabels("Left", "Right");
 	panSlider->SetModificationMessage(new BMessage(MSG_PAN_CHANGED));
-	AddChild(panSlider);
-	panSlider->ResizeTo(WIDTH * 10.5, panSlider->Bounds().Height());
-#else
-	panSlider = NULL;
-#endif
-
-	rect.SetLeftTop(BPoint(0, volumeSlider->Bounds().Height() + 1));
-	subViewTop = 2 + volumeSlider->Bounds().Height()
-		+ velocitySlider->Bounds().Height();
-	rect.top = subViewTop;
-	Keyboard2D* k2d = new Keyboard2D(this, rect, octaves, rows);
+//#else
+//	panSlider = NULL;
+//#endif
+	Keyboard2D* k2d = new Keyboard2D(this, octaves, rows);
 	keyboard = k2d;
 	currentKeyboard = 0;
-	AddChild(k2d);
+
+	BLayoutBuilder::Group<>(this, B_HORIZONTAL, B_USE_WINDOW_SPACING)
+		.AddGroup(B_VERTICAL, B_USE_SMALL_SPACING)
+			.SetInsets(B_USE_WINDOW_SPACING, 0, 0, B_USE_WINDOW_SPACING)
+			.AddGroup(B_HORIZONTAL, B_USE_SMALL_SPACING)
+				.Add(pitchBendSlider)
+				.Add(volumeSlider)
+				.Add(velocitySlider)
+				.End()
+			.Add(new BSeparatorView(B_HORIZONTAL))
+			.Add(panSlider)
+			.End()
+		.Add(k2d)
+		.End();
 }
 
 
@@ -134,7 +133,7 @@ View::SetKeyboard(int index)
 		BRect rect = Bounds();
 		rect.top = subViewTop;
 		if (currentKeyboard == 0) {
-			Keyboard2D* k2d = new Keyboard2D(this, rect, 3, 2);
+			Keyboard2D* k2d = new Keyboard2D(this, 3, 2);
 			keyboard = k2d;
 			AddChild(k2d);
 		}
