@@ -9,10 +9,15 @@
 
 #include "Scope.h"
 #include "MsgConsts.h"
+
 #include <Bitmap.h>
+#include <Catalog.h>
 #include <MessageQueue.h>
 #include <Synth.h>
 
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "Scope"
 
 Scope::Scope(BRect rect)
 	:
@@ -119,7 +124,7 @@ Scope::Pulse()
 // ScopeWindow
 ScopeWindow::ScopeWindow(BLooper* looper, GlobalSettings* settings, BRect rect)
 	:
-	BWindow(rect, "Scope", B_FLOATING_WINDOW_LOOK, B_NORMAL_WINDOW_FEEL,
+	BWindow(rect, B_TRANSLATE("Scope"), B_FLOATING_WINDOW_LOOK, B_NORMAL_WINDOW_FEEL,
 		B_NOT_RESIZABLE),
 	mSettings(settings),
 	mLooper(looper)

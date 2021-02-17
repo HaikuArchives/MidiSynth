@@ -12,6 +12,7 @@
 
 #define APPLICATION "MidiSynth"
 #define VERSION "1.7 (Haiku)"
+#define SIGNATURE "application/x-vnd.midisynth"
 
 #define MSG_INVALIDATE 1000
 #define MSG_SCOPE_CLOSED_NOTIFY 'SClN'

@@ -8,13 +8,19 @@
  *
  */
 
-#include "View.h"
 #include "Keyboard2d.h"
-#include <LayoutBuilder.h>
 #include "MsgConsts.h"
+#include "View.h"
+
+#include <Catalog.h>
+#include <LayoutBuilder.h>
 #include <SeparatorView.h>
+
 #include <ctype.h>
 // #include <stdio.h>
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "Sliders"
 
 // View
 View::View(int16 octaves, int16 rows, BView* popView)
@@ -46,29 +52,29 @@ View::View(int16 octaves, int16 rows, BView* popView)
 	}
 
 	// set interface elements
-	pitchBendSlider = new BSlider("pitchBend", "Pitch",
+	pitchBendSlider = new BSlider("pitchBend", B_TRANSLATE("Pitch"),
 		new BMessage(MSG_PITCH_BEND_CHANGED), 0, 127, B_VERTICAL);
 	pitchBendSlider->SetHashMarks(B_HASH_MARKS_BOTH);
 	pitchBendSlider->SetHashMarkCount(3);
 	pitchBendSlider->SetValue(64);
-	pitchBendSlider->SetLimitLabels("Low", "High");
+	pitchBendSlider->SetLimitLabels(B_TRANSLATE("Low"), B_TRANSLATE("High"));
 	pitchBendSlider->SetModificationMessage(
 		new BMessage(MSG_PITCH_BEND_CHANGED));
 
-	volumeSlider = new BSlider("volumeSlider", "Volume",
+	volumeSlider = new BSlider("volumeSlider", B_TRANSLATE("Volume"),
 		new BMessage(MSG_VOLUME_CHANGED), 0, 100, B_VERTICAL);
 	volumeSlider->SetHashMarks(B_HASH_MARKS_BOTH);
 	volumeSlider->SetHashMarkCount(11);
 	volumeSlider->SetValue(100);
-	volumeSlider->SetLimitLabels("Off", "Max");
+	volumeSlider->SetLimitLabels(B_TRANSLATE("Off"), B_TRANSLATE("Max"));
 	volumeSlider->SetModificationMessage(new BMessage(MSG_VOLUME_CHANGED));
 
-	velocitySlider = new BSlider("velocitySlider", "Velocity",
+	velocitySlider = new BSlider("velocitySlider", B_TRANSLATE("Velocity"),
 		new BMessage(MSG_VELOCITY_CHANGED), 0, 127, B_VERTICAL);
 	velocitySlider->SetHashMarks(B_HASH_MARKS_BOTH);
 	velocitySlider->SetHashMarkCount(11);
 	velocitySlider->SetValue(127);
-	velocitySlider->SetLimitLabels("Min", "Max");
+	velocitySlider->SetLimitLabels(B_TRANSLATE("Min"), B_TRANSLATE("Max"));
 	velocitySlider->SetModificationMessage(new BMessage(MSG_VELOCITY_CHANGED));
 
 //#if 0
@@ -89,7 +95,7 @@ View::View(int16 octaves, int16 rows, BView* popView)
 	panSlider->SetHashMarks(B_HASH_MARKS_BOTTOM);
 	panSlider->SetHashMarkCount(3);
 	panSlider->SetValue(63);
-	panSlider->SetLimitLabels("Left", "Right");
+	panSlider->SetLimitLabels(B_TRANSLATE("Left"), B_TRANSLATE("Right"));
 	panSlider->SetModificationMessage(new BMessage(MSG_PAN_CHANGED));
 //#else
 //	panSlider = NULL;
@@ -105,8 +111,8 @@ View::View(int16 octaves, int16 rows, BView* popView)
 			.Add(new BSeparatorView(B_HORIZONTAL))
 			.AddGroup(B_HORIZONTAL, B_USE_SMALL_SPACING)
 				.Add(pitchBendSlider)
-				.Add(volumeSlider)
 				.Add(velocitySlider)
+				.Add(volumeSlider)
 				.End()
 			.Add(new BSeparatorView(B_HORIZONTAL))
 			.Add(panSlider)

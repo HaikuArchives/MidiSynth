@@ -13,15 +13,22 @@
 #include "ChordParser.h"
 #include "InternalSynth.h"
 #include "Keyboard2d.h"
-#include <LayoutBuilder.h>
 #include "MsgConsts.h"
 #include "Scope.h"
 #include "StatusWindow.h"
+
+#include <AboutWindow.h>
+#include <Catalog.h>
+#include <LayoutBuilder.h>
 #include <MidiRoster.h>
 #include <Roster.h>
 #include <StorageKit.h>
 #include <SupportKit.h>
+
 #include <ctype.h>
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "Instruments"
 
 #define INSTR_GROUPS 16
 #define INSTRUMENTS 128
@@ -31,65 +38,102 @@ static const char settingsFilename[] = "MidiSynth";
 
 static char const* instruments[128] = {
 	// Pianos (0-7)
-	"Acoustic Grand", "Bright Grand", "Electric Grand", "Honky Tonk",
-	"Electric Piano", "Electric Piano 2", "Harpsichord", "Clavichord",
+	B_TRANSLATE("Acoustic grand"), B_TRANSLATE("Bright grand"),
+	B_TRANSLATE("Electric grand"), B_TRANSLATE("Honky tonk"),
+	B_TRANSLATE("Electric piano"), B_TRANSLATE("Electric piano 2"),
+	B_TRANSLATE("Harpsichord"), B_TRANSLATE("Clavichord"),
 	// Tuned Idiophones (8-15)
-	"Celesta", "Glockenspiel", "Music Box", "Vibraphone", "Marimba",
-	"Xylophone", "Tubular Bells", "Dulcimer",
+	B_TRANSLATE("Celesta"), B_TRANSLATE("Glockenspiel"),
+	B_TRANSLATE("Music box"), B_TRANSLATE("Vibraphone"), B_TRANSLATE("Marimba"),
+	B_TRANSLATE("Xylophone"), B_TRANSLATE("Tubular bells"),
+	B_TRANSLATE("Dulcimer"),
 	// Organs (16-23)
-	"Drawbar Organ", "Percussive Organ", "Rock Organ", "Church Organ",
-	"Reed Organ", "Accordion", "Harmonica", "Tango Accordion",
+	B_TRANSLATE("Drawbar organ"), B_TRANSLATE("Percussive organ"),
+	B_TRANSLATE("Rock organ"), B_TRANSLATE("Church Organ"),
+	B_TRANSLATE("Reed organ"), B_TRANSLATE("Accordion"),
+	B_TRANSLATE("Harmonica"), B_TRANSLATE("Tango Accordion"),
 	// Guitars (24-31)
-	"Acoustic Guitar Nylon", "Acoustic Guitar Steel", "Electric Guitar Jazz",
-	"Electric Guitar Clean", "Electric Guitar Muted", "Overdriven Guitar",
-	"Distortion Guitar", "Guitar Harmonics",
+	B_TRANSLATE("Acoustic guitar nylon"), B_TRANSLATE("Acoustic guitar steel"),
+	B_TRANSLATE("Electric guitar jazz"), B_TRANSLATE("Electric guitar clean"),
+	B_TRANSLATE("Electric guitar muted"), B_TRANSLATE("Overdriven guitar"),
+	B_TRANSLATE("Distortion guitar"), B_TRANSLATE("Guitar harmonics"),
 	// Basses (32-39)
-	"Acoustic Bass", "Electric Bass Finger", "Electric Bass Pick",
-	"Fretless Bass", "Slap Bass 1", "Slap Bass 2", "Synth Bass 1",
-	"Synth Bass 2",
+	B_TRANSLATE("Acoustic bass"), B_TRANSLATE("Electric bass finger"),
+	B_TRANSLATE("Electric bass pick"), B_TRANSLATE("Fretless bass"),
+	B_TRANSLATE("Slap bass 1"), B_TRANSLATE("Slap bass 2"),
+	B_TRANSLATE("Synth bass 1"), B_TRANSLATE("Synth bass 2"),
 	// Strings And Timpani (40-47)
-	"Violin", "Viola", "Cello", "Contrabass", "Tremolo Strings",
-	"Pizzicato Strings", "Orchestral Strings", "Timpani",
+	B_TRANSLATE("Violin"), B_TRANSLATE("Viola"), B_TRANSLATE("Cello"),
+	B_TRANSLATE("Contrabass"), B_TRANSLATE("Tremolo strings"),
+	B_TRANSLATE("Pizzicato strings"), B_TRANSLATE("Orchestral strings"),
+	B_TRANSLATE("Timpani"),
 	// Ensemble Strings And Voices (48-55)
-	"String Ensemble 1", "String Ensemble 2", "Synth Strings 1",
-	"Synth Strings 2", "Voice Aah", "Voice Ooh", "Synth Voice", "Orchestra Hit",
+	B_TRANSLATE("String ensemble 1"), B_TRANSLATE("String ensemble 2"),
+	B_TRANSLATE("Synth strings 1"), B_TRANSLATE("Synth strings 2"),
+	B_TRANSLATE("Voice aah"), B_TRANSLATE("Voice ooh"),
+	B_TRANSLATE("Synth voice"), B_TRANSLATE("Orchestra hit"),
 	// Brass (56-63)
-	"Trumpet", "Trombone", "Tuba", "Muted Trumpet", "French Horn",
-	"Brass Section", "Synth Brass 1", "Synth Brass 2",
+	B_TRANSLATE("Trumpet"), B_TRANSLATE("Trombone"), B_TRANSLATE("Tuba"),
+	B_TRANSLATE("Muted trumpet"), B_TRANSLATE("French horn"),
+	B_TRANSLATE("Brass section"), B_TRANSLATE("Synth brass 1"),
+	B_TRANSLATE("Synth brass 2"),
 	// Reeds (64-71)
-	"Soprano Sax", "Alto Sax", "Tenor Sax", "Baritone Sax", "Oboe",
-	"English Horn", "Bassoon", "Clarinet",
+	B_TRANSLATE("Soprano sax"), B_TRANSLATE("Alto sax"),
+	B_TRANSLATE("Tenor sax"), B_TRANSLATE("Baritone sax"), B_TRANSLATE("Oboe"),
+	B_TRANSLATE("English horn"), B_TRANSLATE("Bassoon"), B_TRANSLATE("Clarinet"),
 	// Pipes (72-79)
-	"Piccolo", "Flute", "Recorder", "Pan Flute", "Blown Bottle", "Shakuhachi",
-	"Whistle", "Ocarina",
+	B_TRANSLATE("Piccolo"), B_TRANSLATE("Flute"), B_TRANSLATE("Recorder"),
+	B_TRANSLATE("Pan flute"), B_TRANSLATE("Blown bottle"),
+	B_TRANSLATE("Shakuhachi"), B_TRANSLATE("Whistle"), B_TRANSLATE("Ocarina"),
 	// Synth Leads (80-87)
-	"Square Wave", "Sawtooth Wave", "Calliope", "Chiff", "Charang", "Voice",
-	"Fifths", "Bass Lead",
+	B_TRANSLATE("Square wave"), B_TRANSLATE("Sawtooth wave"),
+	B_TRANSLATE("Calliope"), B_TRANSLATE("Chiff"), B_TRANSLATE("Charang"),
+	B_TRANSLATE("Voice"), B_TRANSLATE("Fifths"), B_TRANSLATE("Bass lead"),
 	// Synth Pads (88-95)
-	"New Age", "Warm", "Polysynth", "Choir", "Bowed", "Metallic", "Halo",
-	"Sweep",
+	B_TRANSLATE("New age"), B_TRANSLATE("Warm"), B_TRANSLATE("Polysynth"),
+	B_TRANSLATE("Choir"), B_TRANSLATE("Bowed"), B_TRANSLATE("Metallic"),
+	B_TRANSLATE("Halo"), B_TRANSLATE("Sweep"),
 	// Musical Effects (96-103)
-	"Fx1", "Fx2", "Fx3", "Fx4", "Fx5", "Fx6", "Fx7", "Fx8",
+	B_TRANSLATE("Fx1"), B_TRANSLATE("Fx2"), B_TRANSLATE("Fx3"),
+	B_TRANSLATE("Fx4"), B_TRANSLATE("Fx5"), B_TRANSLATE("Fx6"),
+	B_TRANSLATE("Fx7"), B_TRANSLATE("Fx8"),
 	// Ethnic (104-111)
-	"Sitar", "Banjo", "Shamisen", "Koto", "Kalimba", "Bagpipe", "Fiddle",
-	"Shanai",
+	B_TRANSLATE("Sitar"), B_TRANSLATE("Banjo"), B_TRANSLATE("Shamisen"),
+	B_TRANSLATE("Koto"), B_TRANSLATE("Kalimba"), B_TRANSLATE("Bagpipe"),
+	B_TRANSLATE("Fiddle"), B_TRANSLATE("Shanai"),
 	// Percussion (112-119)
-	"Tinkle Bell", "Agogo", "Steel Drums", "Woodblock", "Taiko Drums",
-	"Melodic Tom", "Synth Drum", "Reverse Cymbal",
+	B_TRANSLATE("Tinkle bell"), B_TRANSLATE("Agogo"),
+	B_TRANSLATE("Steel drums"), B_TRANSLATE("Woodblock"),
+	B_TRANSLATE("Taiko drums"), B_TRANSLATE("Melodic tom"),
+	B_TRANSLATE("Synth drum"), B_TRANSLATE("Reverse cymbal"),
 	// Sound Effects (120-127)
-	"Fret Noise", "Breath Noise", "Seashore", "Bird Tweet", "Telephone",
-	"Helicopter", "Applause", "Gunshot"};
+	B_TRANSLATE("Fret noise"), B_TRANSLATE("Breath noise"),
+	B_TRANSLATE("Seashore"), B_TRANSLATE("Bird tweet"),
+	B_TRANSLATE("Telephone"), B_TRANSLATE("Helicopter"),
+	B_TRANSLATE("Applause"), B_TRANSLATE("Gunshot")};
 
-static char const* instrGroups[INSTR_GROUPS] = {"Pianos", "Tuned Idiophones",
-	"Organs", "Guitars", "Basses", "Strings and Timpani",
-	"Ensemble Strings and Voices", "Brass", "Reeds", "Pipes", "Synth Leads",
-	"Synth Pads", "Musical Effects", "Ethnic", "Percussion", "Sound Effects"};
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "Groups"
+
+static char const* instrGroups[INSTR_GROUPS] = {B_TRANSLATE("Pianos"),
+	B_TRANSLATE("Tuned idiophones"), B_TRANSLATE("Organs"),
+	B_TRANSLATE("Guitars"), B_TRANSLATE("Basses"),
+	B_TRANSLATE("Strings and timpani"),
+	B_TRANSLATE("Ensemble strings and voices"), B_TRANSLATE("Brass"),
+	B_TRANSLATE("Reeds"), B_TRANSLATE("Pipes"), B_TRANSLATE("Synth leads"),
+	B_TRANSLATE("Synth pads"), B_TRANSLATE("Musical effects"),
+	B_TRANSLATE("Ethnic"), B_TRANSLATE("Percussion"),
+	B_TRANSLATE("Sound effects")};
 
 static struct {
 	uchar from, to;
-} instrIndizes[INSTR_GROUPS] = {{0, 7}, {8, 15}, {16, 23}, {24, 31}, {32, 39},
+}
+instrIndizes[INSTR_GROUPS] = {{0, 7}, {8, 15}, {16, 23}, {24, 31}, {32, 39},
 	{40, 47}, {48, 55}, {56, 63}, {64, 71}, {72, 79}, {80, 87}, {88, 95},
 	{96, 103}, {104, 111}, {112, 119}, {120, 127}};
+
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "Application"
 
 // function prototypes
 static BMessage* NewMessage(int32 what, int32 data);
@@ -119,11 +163,11 @@ AddMenuItem(
 
 AppWindow::AppWindow(BRect aRect)
 	:
-	BWindow(aRect, "MidiSynth", B_TITLED_WINDOW,
+	BWindow(aRect, B_TRANSLATE_SYSTEM_NAME("MidiSynth"), B_TITLED_WINDOW,
 		B_ASYNCHRONOUS_CONTROLS | B_NOT_ZOOMABLE)
 {
 	SetSizeLimits(460, 10000, 155, 10000);
-	midiSynth = new CInternalSynth("MidiSynth");
+	midiSynth = new CInternalSynth(B_TRANSLATE_SYSTEM_NAME("MidiSynth"));
 	midiSynth->Init();
 
 	// Save Panel
@@ -158,55 +202,60 @@ AppWindow::AppWindow(BRect aRect)
 
 	GetSynthEntries();
 
-	midiSynthMenu = menu = new BMenu("MidiSynth");
+	midiSynthMenu = menu = new BMenu(B_TRANSLATE_SYSTEM_NAME("MidiSynth"));
 
 	// Reset
-	menu->AddItem(new BMenuItem("Reset", new BMessage(MENU_RESET), 'R'));
-	menu->AddItem(
-		scopeMenu = new BMenuItem("Scope", new BMessage(MENU_SCOPE), 'V'));
+	menu->AddItem(new BMenuItem(B_TRANSLATE("Reset"), new BMessage(MENU_RESET),
+		'R'));
+	menu->AddItem(scopeMenu = new BMenuItem(B_TRANSLATE("Scope"),
+		new BMessage(MENU_SCOPE), 'V'));
 	menu->AddSeparatorItem();
 
 	// Synthesizer
-	menu->AddItem(item = new BMenuItem("Disable Synthesizer",
+	menu->AddItem(item = new BMenuItem(B_TRANSLATE("Disable synthesizer"),
 		new BMessage(MENU_SYNTH_ENABLED), 'S'));
-	patchMenu = new BMenu("Patches");
+	patchMenu = new BMenu(B_TRANSLATE("Patches"));
 	patchMenu->SetRadioMode(true);
 	SetPatchesMenu(patchMenu);
 	menu->AddItem(patchMenu);
 
 	// Reverb
-	BuildReverbMenu(submenu = new BMenu("Reverb"));
+	BuildReverbMenu(submenu = new BMenu(B_TRANSLATE("Reverb")));
 	menu->AddItem(submenu);
 	// Sampling Rate
-	BuildSamplingRateMenu(submenu = new BMenu("Sampling Rate"));
+	BuildSamplingRateMenu(submenu = new BMenu(B_TRANSLATE("Sampling rate")));
 	menu->AddItem(submenu);
 
 	// Max Synth Voices
-	BuildMaxSynthVoicesMenu(submenu = new BMenu("Max Synth Voices"));
+	BuildMaxSynthVoicesMenu(submenu = new BMenu(B_TRANSLATE("Max synth voices")));
 	menu->AddItem(submenu);
 	menu->AddSeparatorItem();
 
 	// Key Map Menu
-	menu->AddItem(keyMapMenu = new BMenu("Key Mappings"));
+	menu->AddItem(keyMapMenu = new BMenu(B_TRANSLATE("Key mappings")));
 	keyMapMenu->SetRadioMode(true);
 	BuildKeyMapMenu(keyMapMenu);
 
-	menu->AddItem(
-		new BMenuItem("Remap Keys", new BMessage(MENU_REMAP_KEYS), 'R'));
+	menu->AddItem(new BMenuItem(B_TRANSLATE("Remap keys"),
+		new BMessage(MENU_REMAP_KEYS),'R'));
 	menu->AddSeparatorItem();
+
 	// Keyboard
-	BuildKeyboardOctavesMenu(submenu = new BMenu("Keyboard Octaves"));
+	BuildKeyboardOctavesMenu(submenu = new BMenu(B_TRANSLATE("Keyboard octaves")));
 	menu->AddItem(submenu);
-	BuildKeyboardRowsMenu(submenu = new BMenu("Keyboard Rows"));
+	BuildKeyboardRowsMenu(submenu = new BMenu(B_TRANSLATE("Keyboard rows")));
 	menu->AddItem(submenu);
 	menu->AddSeparatorItem();
-	//
-	menu->AddItem(new BMenuItem("About ...", new BMessage(B_ABOUT_REQUESTED)));
+
+	menu->AddItem(new BMenuItem(B_TRANSLATE("About" B_UTF8_ELLIPSIS),
+		new BMessage(B_ABOUT_REQUESTED)));
 	menu->AddSeparatorItem();
-	menu->AddItem(new BMenuItem("Quit", new BMessage(B_QUIT_REQUESTED), 'Q'));
+	menu->AddItem(new BMenuItem(B_TRANSLATE("Quit"),
+		new BMessage(B_QUIT_REQUESTED), 'Q'));
 	menubar->AddItem(menu);
+
 	// Channel
-	menu = new BMenu("Channel");
+	menu = new BMenu(B_TRANSLATE("Channel"));
 	menu->SetRadioMode(true);
 	for (i = 1; i <= 16; i++) {
 		if (i == 10)
@@ -243,7 +292,7 @@ AppWindow::AppWindow(BRect aRect)
 	}
 
 	// Octave
-	menu = new BMenu("Octave");
+	menu = new BMenu(B_TRANSLATE("Octave"));
 	menu->SetRadioMode(true);
 	for (i = 1; i <= 11; i++) {
 		sprintf(string, "%d", i);
@@ -263,20 +312,21 @@ AppWindow::AppWindow(BRect aRect)
 	*/
 
 	// Port
-	midiInPortMenu = new BMenu("Midi In");
+	midiInPortMenu = new BMenu(B_TRANSLATE("Midi in"));
 	menubar->AddItem(midiInPortMenu);
-	midiOutPortMenu = new BMenu("Midi Out");
+	midiOutPortMenu = new BMenu(B_TRANSLATE("Midi out"));
 	menubar->AddItem(midiOutPortMenu);
 
 	// Chords
 	chordMenu = menu = new BMenu("Chord");
 	menu->SetLabelFromMarked(true);
-	menu->AddItem(item = new BMenuItem("Off", new BMessage(MENU_CHORD)));
+	menu->AddItem(item = new BMenuItem(B_TRANSLATE_COMMENT("Off", "Chord off"),
+		new BMessage(MENU_CHORD)));
 	item->SetMarked(true);
 	LoadChords(menu);
 
 	// add popup menu view
-	BMenuField* chordField = new BMenuField("Chord:", chordMenu);
+	BMenuField* chordField = new BMenuField(B_TRANSLATE("Chord:"), chordMenu);
 	BMenuField* groupField = new BMenuField(NULL, groupMenu);
 	instrumentField = new BMenuField(NULL, instrGroup = instrumentMenu[0]);
 
@@ -443,7 +493,8 @@ AppWindow::SetPatchesMenu(BMenu* menu)
 	BMessage* msg = new BMessage(MENU_PATCH_SELECTED);
 	// Initial default choice:
 	msg->AddInt16("index", -1);
-	menu->AddItem(new BMenuItem("<Default>", msg));
+	menu->AddItem(new BMenuItem(B_TRANSLATE_COMMENT("<Default>", "Default patch"),
+		msg));
 
 	char name[B_FILE_NAME_LENGTH];
 	while (NULL != (e = (BEntry*) synthEntries.ItemAt(i))) {
@@ -498,7 +549,8 @@ AppWindow::LoadPatch(BEntry* entry)
 	StatusWindow* status = NULL;
 
 	if (entry == NULL) { // Use Synth default
-		status = new StatusWindow("Default", Frame());
+		status = new StatusWindow(B_TRANSLATE_COMMENT("Default", "Default patch"), 
+			Frame());
 		ok = midiSynth->LoadSynthData();
 	} else if (entry->Exists() && (entry->GetRef(&e) == B_OK)) {
 		char name[B_FILE_NAME_LENGTH];
@@ -550,7 +602,8 @@ AppWindow::LoadPatch()
 		return;
 	}
 	if (LoadPatch(NULL)) { // check that default works
-		patchMenu->FindItem("<Default>")->SetMarked(true);
+		patchMenu->FindItem(B_TRANSLATE_COMMENT("<Default>", "Default patch"))
+			->SetMarked(true);
 		return;
 	}
 
@@ -641,7 +694,7 @@ AppWindow::OnChordSelected()
 	BMenuItem* item = chordMenu->FindMarked();
 	if (item != NULL) {
 		const char* text = item->Label();
-		if (strcmp(text, "Off") == 0)
+		if (strcmp(text, B_TRANSLATE_COMMENT("Off", "Chord off")) == 0)
 			view->ClearChord();
 		else
 			view->SetChord(((ChordMenuItem*) item)->Chord());
@@ -715,9 +768,9 @@ AppWindow::OnSynthesizerEnabled()
 		return;
 
 	if (midiSynthEnabled)
-		item->SetLabel("Disable Synthesizer");
+		item->SetLabel(B_TRANSLATE("Disable synthesizer"));
 	else
-		item->SetLabel("Enable Synthesizer");
+		item->SetLabel(B_TRANSLATE("Enable synthesizer"));
 
 	patchMenu->SetEnabled(midiSynthEnabled);
 }
@@ -751,20 +804,20 @@ AppWindow::OnRemapKeys()
 	if (item != NULL) {
 		remapKeys = !remapKeys;
 		if (remapKeys) {
-			BAlert* help = new BAlert("Help",
-				"To remap a key first click with your mouse on a key on the "
-				" graphical keyboard then hit the key on the keyboard.\n"
+			BAlert* help = new BAlert(B_TRANSLATE("Help"), B_TRANSLATE(
+				"To remap a key, first click with your mouse on a key on the "
+				"graphical keyboard, then hit the key on the keyboard.\n"
 				"You can immediately test the changes. "
-				"When you are finished select the menu item Done Remap "
-				"Keys in the MidiSynth menu.",
-				"Ok");
+				"When you are finished, select the menu item 'Done remapping' "
+				"from the 'MidiSynth' menu."),
+				B_TRANSLATE("OK"));
 			help->Go();
-			item->SetLabel("Done Remap Keys");
+			item->SetLabel("Done remapping");
 			item->SetShortcut('D', 0);
 			view->BeginRemapKeys();
 		} else {
 			savePanel->Show();
-			item->SetLabel("Remap Keys");
+			item->SetLabel("Remap keys");
 			item->SetShortcut('R', 0);
 			view->EndRemapKeys();
 		}
@@ -788,11 +841,10 @@ AppWindow::OnSave(BMessage* msg)
 		settings.SetKeyMap(name.String());
 		BuildKeyMapMenu(keyMapMenu);
 	} else {
-		BAlert* help = new BAlert("File Error",
-			"Error opening key map file for writing. Use "
-			"another file name or click on Cancel in the "
-			"save file panel.",
-			"Ok");
+		BAlert* help = new BAlert(B_TRANSLATE("File error"), B_TRANSLATE(
+			"Couldn't save key map file. Please try another file name "
+			"or click on 'Cancel' in the save panel."),
+			B_TRANSLATE("OK"));
 		help->Go();
 		savePanel->Show();
 	}
@@ -805,14 +857,17 @@ AppWindow::LoadKeyMap(const char* map)
 	BFile file(&keyMapDir, map, B_READ_ONLY);
 	if (file.InitCheck() == B_OK) {
 		if (!view->GetKeyTable()->Read(file)) {
-			BAlert* help = new BAlert(
-				"File Error", "This is no valid key map file.", "Ok");
+			BAlert* help = new BAlert(B_TRANSLATE("File error"), B_TRANSLATE(
+				"This is no valid key map file."),
+				B_TRANSLATE("OK"));
 			help->Go();
 			view->GetKeyTable()->DefaultKeyTable();
 		}
 	} else {
 		BAlert* help
-			= new BAlert("File Error", "Error opening key map file.", "Ok");
+			= new BAlert(B_TRANSLATE("File error"), B_TRANSLATE(
+				"Error opening key map file."),
+				B_TRANSLATE("OK"));
 		help->Go();
 	}
 }
@@ -836,12 +891,18 @@ AppWindow::BuildReverbMenu(BMenu* menu)
 {
 	int32 current = settings.GetReverb();
 	menu->SetRadioMode(true);
-	AddMenuItem(menu, "Off", MENU_REVERB, B_REVERB_NONE, current);
-	AddMenuItem(menu, "Closet", MENU_REVERB, B_REVERB_CLOSET, current);
-	AddMenuItem(menu, "Garage", MENU_REVERB, B_REVERB_GARAGE, current);
-	AddMenuItem(menu, "Ballroom", MENU_REVERB, B_REVERB_BALLROOM, current);
-	AddMenuItem(menu, "Cavern", MENU_REVERB, B_REVERB_CAVERN, current);
-	AddMenuItem(menu, "Dungeon", MENU_REVERB, B_REVERB_DUNGEON, current);
+	AddMenuItem(menu, B_TRANSLATE("Off"), MENU_REVERB, B_REVERB_NONE,
+		current);
+	AddMenuItem(menu, B_TRANSLATE("Closet"), MENU_REVERB, B_REVERB_CLOSET,
+		current);
+	AddMenuItem(menu, B_TRANSLATE("Garage"), MENU_REVERB, B_REVERB_GARAGE,
+		current);
+	AddMenuItem(menu, B_TRANSLATE("Ballroom"), MENU_REVERB, B_REVERB_BALLROOM,
+		current);
+	AddMenuItem(menu, B_TRANSLATE("Cavern"), MENU_REVERB, B_REVERB_CAVERN,
+		current);
+	AddMenuItem(menu, B_TRANSLATE("Dungeon"), MENU_REVERB, B_REVERB_DUNGEON,
+		current);
 }
 
 
@@ -1210,21 +1271,29 @@ AppWindow::QuitRequested()
 void
 AppWindow::AboutRequested()
 {
-	BAlert* about = new BAlert(APPLICATION,
-		APPLICATION " " VERSION "\n"
-					"is free software under the GPL.\n\n"
-					"Written 1999, 2000.\n\n"
-					"By Michael Pfeiffer.\n\n"
-					"Midi Kit contributions from Dan Walton.\n\n"
-					"Haiku adjustments (2013) by Pete Goodeve.\n",
-		"Close");
-	about->Go();
+	BAboutWindow* about = new BAboutWindow(
+		B_TRANSLATE_SYSTEM_NAME("MidiSynth"), SIGNATURE);
+	const char* extraCopyrights[] = {
+		"2013 Pete Goodeve",
+		"2020 Humdinger",
+		NULL
+	};
+	const char* authors[] = {
+		B_TRANSLATE("Michael Pfeiffer (original author)"),
+		"Dan Walton",
+		"Pete Goodeve",
+		"Humdinger",
+		NULL
+	};
+	about->AddCopyright(1999, "Michael Pfeiffer", extraCopyrights);
+	about->AddAuthors(authors);
+	about->Show();
 }
 
 
 App::App()
 	:
-	BApplication("application/x-vnd.midisynth")
+	BApplication(SIGNATURE)
 {
 	BRect aRect;
 	// set up a rectangle and instantiate a new window
