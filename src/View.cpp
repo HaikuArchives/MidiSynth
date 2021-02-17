@@ -225,7 +225,7 @@ View::PitchBendChanged()
 void
 View::PanChanged()
 {
-	uchar pan = 127 - panSlider->Value();
+	uchar pan = panSlider->Value();
 	midiOut->SprayControlChange(channel, B_PAN, pan, system_time());
 	SetPan(channel, pan);
 }
