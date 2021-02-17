@@ -17,7 +17,7 @@
 // #include <stdio.h>
 
 // View
-View::View(int16 octaves, int16 rows)
+View::View(int16 octaves, int16 rows, BView* popView)
 	:
 	BView("options", B_WILL_DRAW | B_SUPPORTS_LAYOUT),
 	BMidiLocalConsumer(APPLICATION " " VERSION)
@@ -93,6 +93,8 @@ View::View(int16 octaves, int16 rows)
 	BLayoutBuilder::Group<>(this, B_HORIZONTAL, B_USE_WINDOW_SPACING)
 		.AddGroup(B_VERTICAL, B_USE_SMALL_SPACING)
 			.SetInsets(B_USE_WINDOW_SPACING, 0, 0, B_USE_WINDOW_SPACING)
+			.Add(popView)
+			.Add(new BSeparatorView(B_HORIZONTAL))
 			.AddGroup(B_HORIZONTAL, B_USE_SMALL_SPACING)
 				.Add(pitchBendSlider)
 				.Add(volumeSlider)

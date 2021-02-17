@@ -125,6 +125,7 @@ AppWindow::AppWindow(BRect aRect)
 	SetSizeLimits(460, 10000, 155, 10000);
 	midiSynth = new CInternalSynth("MidiSynth");
 	midiSynth->Init();
+
 	// Save Panel
 	savePanel = new BFilePanel(B_SAVE_PANEL, new BMessenger(this));
 
@@ -158,11 +159,13 @@ AppWindow::AppWindow(BRect aRect)
 	GetSynthEntries();
 
 	midiSynthMenu = menu = new BMenu("MidiSynth");
+
 	// Reset
 	menu->AddItem(new BMenuItem("Reset", new BMessage(MENU_RESET), 'R'));
 	menu->AddItem(
 		scopeMenu = new BMenuItem("Scope", new BMessage(MENU_SCOPE), 'V'));
 	menu->AddSeparatorItem();
+
 	// Synthesizer
 	menu->AddItem(item = new BMenuItem("Disable Synthesizer",
 		new BMessage(MENU_SYNTH_ENABLED), 'S'));
@@ -170,16 +173,19 @@ AppWindow::AppWindow(BRect aRect)
 	patchMenu->SetRadioMode(true);
 	SetPatchesMenu(patchMenu);
 	menu->AddItem(patchMenu);
+
 	// Reverb
 	BuildReverbMenu(submenu = new BMenu("Reverb"));
 	menu->AddItem(submenu);
 	// Sampling Rate
 	BuildSamplingRateMenu(submenu = new BMenu("Sampling Rate"));
 	menu->AddItem(submenu);
+
 	// Max Synth Voices
 	BuildMaxSynthVoicesMenu(submenu = new BMenu("Max Synth Voices"));
 	menu->AddItem(submenu);
 	menu->AddSeparatorItem();
+
 	// Key Map Menu
 	menu->AddItem(keyMapMenu = new BMenu("Key Mappings"));
 	keyMapMenu->SetRadioMode(true);
@@ -222,8 +228,8 @@ AppWindow::AppWindow(BRect aRect)
 		if (i == 0)
 			item->SetMarked(true);
 	}
-	menu->SetRadioMode(true);
-	menubar->AddItem(menu);
+	menu->SetLabelFromMarked(true);
+
 	// Instruments
 	for (i = 0; i < INSTR_GROUPS; i++) {
 		instrumentMenu[i] = menu = new BMenu("Instrument");
@@ -233,9 +239,8 @@ AppWindow::AppWindow(BRect aRect)
 			if (j == instrIndizes[i].from)
 				item->SetMarked(true);
 		}
-		menu->SetRadioMode(true);
+		menu->SetLabelFromMarked(true);
 	}
-	menubar->AddItem(instrGroup = instrumentMenu[0]);
 
 	// Octave
 	menu = new BMenu("Octave");
@@ -256,22 +261,41 @@ AppWindow::AppWindow(BRect aRect)
 		new BMenuItem("3D", new BMessage(MENU_KEYBOARD_3D)));
 		menubar->AddItem(menu);
 	*/
+
 	// Port
 	midiInPortMenu = new BMenu("Midi In");
 	menubar->AddItem(midiInPortMenu);
 	midiOutPortMenu = new BMenu("Midi Out");
 	menubar->AddItem(midiOutPortMenu);
+
 	// Chords
 	chordMenu = menu = new BMenu("Chord");
-	menu->SetRadioMode(true);
+	menu->SetLabelFromMarked(true);
 	menu->AddItem(item = new BMenuItem("Off", new BMessage(MENU_CHORD)));
 	item->SetMarked(true);
 	LoadChords(menu);
-	menubar->AddItem(menu);
+
+	// add popup menu view
+	BMenuField* chordField = new BMenuField("Chord:", chordMenu);
+	BMenuField* groupField = new BMenuField(NULL, groupMenu);
+	instrumentField = new BMenuField(NULL, instrGroup = instrumentMenu[0]);
+
+	BFont font(be_plain_font);
+	float stringwidth = font.StringWidth("Ensemble Strings and Voices") + 32;
+
+	groupField->SetExplicitMinSize(BSize(stringwidth, 0));
+
+	popView = BLayoutBuilder::Group<>()
+		.AddGroup(B_VERTICAL, B_USE_SMALL_SPACING)
+			.Add(chordField)
+			.Add(groupField)
+			.Add(instrumentField)
+			.End()
+		.View();
 
 	// add view
-	view = new View(settings.GetKeyboardOctaves(),
-		settings.GetKeyboardRows());
+	view = new View(settings.GetKeyboardOctaves(), settings.GetKeyboardRows(),
+		popView);
 
 	BLayoutBuilder::Group<>(this, B_VERTICAL)
 		.Add(menubar)
@@ -280,10 +304,8 @@ AppWindow::AppWindow(BRect aRect)
 
 	// Load default instrument definition file
 	LoadPatch();
-	// Load Key Mapping
 	LoadKeyMap(settings.GetKeyMap());
 
-	// make window visible
 	Show();
 
 	// Scope Window
@@ -598,9 +620,9 @@ AppWindow::PopulateInstrumentMenus()
 void
 AppWindow::ChangeInstrumentMenu(int group)
 {
-	menubar->RemoveItem(instrGroup);
+	instrumentField->MenuBar()->RemoveItem(instrGroup);
 	instrGroup = instrumentMenu[group];
-	menubar->AddItem(instrGroup, 3);
+	instrumentField->MenuBar()->AddItem(instrGroup);
 }
 
 
@@ -634,8 +656,11 @@ AppWindow::OnInstrumentChanged(BMessage* message)
 		&& (message->what < MENU_GROUPS + INSTR_GROUPS)) {
 		BMenu* menu = instrumentMenu[message->what - MENU_GROUPS];
 		BMenuItem* item = menu->FindMarked();
-		if (item != NULL)
+		if (item != NULL) {
+			// Group changed, force update Instrument menu
+			ChangeInstrumentMenu(message->what - MENU_GROUPS);
 			PostMessage(item->Message());
+		}
 		return true;
 	}
 	return false;
@@ -1159,16 +1184,16 @@ AppWindow::QuitRequested()
 {
 	SaveSettings();
 
+	instrumentField->MenuBar()->RemoveItem(instrGroup);
+	for (int i = 0; i < INSTR_GROUPS; i++)
+		delete instrumentMenu[i];
+
 	midiSynth->Release();
 	view->midiOut->Release();
 
 	view->LockLooper();
 	view->RemoveSelf();
 	view->Release();
-
-	menubar->RemoveItem(instrGroup);
-	for (int i = 0; i < INSTR_GROUPS; i++)
-		delete instrumentMenu[i];
 
 	BEntry* entry;
 	for (int32 i = 0; (entry = (BEntry*) synthEntries.ItemAt(i)) != NULL; i++)

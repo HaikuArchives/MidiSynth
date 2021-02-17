@@ -46,6 +46,8 @@ protected:
 	bool midiSynthEnabled;
 
 	BMenuBar* menubar;
+	BView* popView;
+	BMenuField* instrumentField;
 	View* view;
 
 public:
