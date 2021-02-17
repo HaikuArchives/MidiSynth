@@ -48,6 +48,8 @@ View::View(int16 octaves, int16 rows, BView* popView)
 	// set interface elements
 	pitchBendSlider = new BSlider("pitchBend", "Pitch",
 		new BMessage(MSG_PITCH_BEND_CHANGED), 0, 127, B_VERTICAL);
+	pitchBendSlider->SetHashMarks(B_HASH_MARKS_BOTH);
+	pitchBendSlider->SetHashMarkCount(3);
 	pitchBendSlider->SetValue(64);
 	pitchBendSlider->SetLimitLabels("Low", "High");
 	pitchBendSlider->SetModificationMessage(
@@ -55,12 +57,16 @@ View::View(int16 octaves, int16 rows, BView* popView)
 
 	volumeSlider = new BSlider("volumeSlider", "Volume",
 		new BMessage(MSG_VOLUME_CHANGED), 0, 100, B_VERTICAL);
+	volumeSlider->SetHashMarks(B_HASH_MARKS_BOTH);
+	volumeSlider->SetHashMarkCount(11);
 	volumeSlider->SetValue(100);
 	volumeSlider->SetLimitLabels("Off", "Max");
 	volumeSlider->SetModificationMessage(new BMessage(MSG_VOLUME_CHANGED));
 
 	velocitySlider = new BSlider("velocitySlider", "Velocity",
 		new BMessage(MSG_VELOCITY_CHANGED), 0, 127, B_VERTICAL);
+	velocitySlider->SetHashMarks(B_HASH_MARKS_BOTH);
+	velocitySlider->SetHashMarkCount(11);
 	velocitySlider->SetValue(127);
 	velocitySlider->SetLimitLabels("Min", "Max");
 	velocitySlider->SetModificationMessage(new BMessage(MSG_VELOCITY_CHANGED));
@@ -80,6 +86,8 @@ View::View(int16 octaves, int16 rows, BView* popView)
 //#if 1
 	panSlider = new BSlider(
 		"panSlider", NULL, new BMessage(MSG_PAN_CHANGED), 0, 127, B_HORIZONTAL);
+	panSlider->SetHashMarks(B_HASH_MARKS_BOTTOM);
+	panSlider->SetHashMarkCount(3);
 	panSlider->SetValue(63);
 	panSlider->SetLimitLabels("Left", "Right");
 	panSlider->SetModificationMessage(new BMessage(MSG_PAN_CHANGED));
