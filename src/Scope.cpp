@@ -125,7 +125,7 @@ Scope::Pulse()
 ScopeWindow::ScopeWindow(BLooper* looper, GlobalSettings* settings, BRect rect)
 	:
 	BWindow(rect, B_TRANSLATE("Scope"), B_FLOATING_WINDOW_LOOK,
-		B_NORMAL_WINDOW_FEEL, NULL),
+		B_NORMAL_WINDOW_FEEL, B_OUTLINE_RESIZE),
 	mSettings(settings),
 	mLooper(looper)
 {
