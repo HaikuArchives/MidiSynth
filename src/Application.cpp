@@ -1,5 +1,5 @@
 /*
- * Copyright 2000-2013. All rights reserved.
+ * Copyright 2000-2021. All rights reserved.
  * Distributed under the terms of the GPLv2 license.
  *
  * Author:
@@ -21,8 +21,10 @@
 #include <Catalog.h>
 #include <LayoutBuilder.h>
 #include <MidiRoster.h>
+#include <PathFinder.h>
 #include <Roster.h>
 #include <StorageKit.h>
+#include <StringList.h>
 #include <SupportKit.h>
 
 #include <ctype.h>
@@ -472,15 +474,22 @@ AppWindow::PopulatePortMenus()
 void
 AppWindow::GetSynthEntries()
 {
-	BPath synthdir;
-	// This *will* be == B_SYNTH_DIRECTORY, but may not be on all systems yet:
-	find_directory(B_SYSTEM_DATA_DIRECTORY, &synthdir);
-	synthdir.Append("synth");
-	BDirectory dir(synthdir.Path());
-	if (dir.InitCheck() == B_OK) {
-		BEntry e;
-		while (dir.GetNextEntry(&e) == B_OK)
-			synthEntries.AddItem(new BEntry(e));
+	BPath path;
+	BStringList paths;
+	BPathFinder pathFinder;
+	BEntry entry;
+	status_t error = pathFinder.FindPaths(B_FIND_PATH_DATA_DIRECTORY,
+		"synth", paths);
+
+	for (int i = 0; i < paths.CountStrings(); ++i) {
+		if (error == B_OK && path.SetTo(paths.StringAt(i)) == B_OK) {
+			BDirectory dir(path.Path());
+			if (dir.InitCheck() == B_OK) {
+				BEntry entry;
+				while (dir.GetNextEntry(&entry) == B_OK)
+					synthEntries.AddItem(new BEntry(entry));
+			}
+		}
 	}
 }
 
@@ -549,7 +558,7 @@ AppWindow::LoadPatch(BEntry* entry)
 	StatusWindow* status = NULL;
 
 	if (entry == NULL) { // Use Synth default
-		status = new StatusWindow(B_TRANSLATE_COMMENT("Default", "Default patch"), 
+		status = new StatusWindow(B_TRANSLATE_COMMENT("Default", "Default patch"),
 			Frame());
 		ok = midiSynth->LoadSynthData();
 	} else if (entry->Exists() && (entry->GetRef(&e) == B_OK)) {
