@@ -11,7 +11,7 @@
 #include <Message.h>
 
 #define DEFAULT_KEY_MAP				"Default"
-#define DEFAULT_PATCH				"Patches300.hsb"
+#define DEFAULT_PATCH				"TimGM6mb.sf2"
 #define DEFAULT_MAX_SYNTH_VOICES	28
 #define DEFAULT_REVERB				B_REVERB_BALLROOM
 #define DEFAULT_MAIN_VOLUME			1.00

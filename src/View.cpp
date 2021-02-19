@@ -45,7 +45,7 @@ View::View(int16 octaves, int16 rows, BView* popView)
 
 	for (int i = 0; i < 16; i++) {
 		channels[i].pressure = 127;
-		channels[i].velocity = 127;
+		channels[i].velocity = 64;
 		channels[i].pitch = 64;
 		channels[i].pan = 63;
 		channels[i].instrument = 0;
@@ -73,7 +73,7 @@ View::View(int16 octaves, int16 rows, BView* popView)
 		new BMessage(MSG_VELOCITY_CHANGED), 0, 127, B_VERTICAL);
 	velocitySlider->SetHashMarks(B_HASH_MARKS_BOTH);
 	velocitySlider->SetHashMarkCount(11);
-	velocitySlider->SetValue(127);
+	velocitySlider->SetValue(64);
 	velocitySlider->SetLimitLabels(B_TRANSLATE("Min"), B_TRANSLATE("Max"));
 	velocitySlider->SetModificationMessage(new BMessage(MSG_VELOCITY_CHANGED));
 
