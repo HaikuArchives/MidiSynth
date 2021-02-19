@@ -1,4 +1,4 @@
-1	English	application/x-vnd.midisynth	4287666718
+1	English	application/x-vnd.midisynth	1793042153
 Seashore	Instruments		Seashore
 Sitar	Instruments		Sitar
 Synth brass 2	Instruments		Synth brass 2
@@ -31,6 +31,7 @@ Electric grand	Instruments		Electric grand
 Right	Sliders		Rechts
 Timpani	Instruments		Timpani
 Shakuhachi	Instruments		Shakuhachi
+MidiSynth status	StatusWindow		MidiSynth Status
 Midi in	Application		Midi in
 Electric guitar jazz	Instruments		Electric guitar jazz
 Recorder	Instruments		Recorder
@@ -107,6 +108,7 @@ Metallic	Instruments		Metallic
 Ballroom	Application		Ballsaal
 OK	Application		OK
 Pizzicato strings	Instruments		Pizzicato strings
+Loading instrument definition file: %file%	StatusWindow		Instrumenten Definitionsdatei '%file%' wird geladen
 <Default>	Application	Default patch	<Standard>
 Glockenspiel	Instruments		Glockenspiel
 Fx2	Instruments		Fx2

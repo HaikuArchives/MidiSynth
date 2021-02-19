@@ -1,36 +1,37 @@
 /*
- * Copyright 2000-2013. All rights reserved.
+ * Copyright 2000-2021. All rights reserved.
  * Distributed under the terms of the GPLv2 license.
  *
  * Author:
- *	Michael Pfeiffer et al.
+ *	2000-2013, Michael Pfeiffer et al.
+ *  2021 Humdinger, humdingerb@gmail.com
  *
  */
 
 #include "StatusWindow.h"
 #include "AppDefs.h"
+
+#include <Catalog.h>
+#include <LayoutBuilder.h>
 #include <StringView.h>
 
+#undef B_TRANSLATION_CONTEXT
+#define B_TRANSLATION_CONTEXT "StatusWindow"
 
 StatusWindow::StatusWindow(const char* text, BRect aRect)
 	:
-	BWindow(aRect, "MidiSynth Status", B_BORDERED_WINDOW,
+	BWindow(aRect, B_TRANSLATE("MidiSynth status"), B_BORDERED_WINDOW,
 		B_NOT_RESIZABLE | B_NOT_ZOOMABLE | B_NOT_CLOSABLE)
 {
-	BString s("Loading Instrument Definition File: ");
-	s += text;
+	BString s(B_TRANSLATE("Loading instrument definition file: %file%"));
+	s.ReplaceFirst ("%file%", text);
 
-	aRect.OffsetBy(aRect.Width() / 2, aRect.Height() / 2);
-	float width = 300, height = 30;
-	aRect.SetRightBottom(BPoint(aRect.left + width, aRect.top + height));
-	aRect.OffsetBy(-aRect.Width() / 2, -aRect.Height() / 2);
-
-	BStringView* view
-		= new BStringView(BRect(0, 0, width, 20), "label", s.String());
+	BStringView* view = new BStringView("label", s.String());
 	view->SetAlignment(B_ALIGN_CENTER);
-	AddChild(view);
+	BLayoutBuilder::Group<>(this, B_VERTICAL)
+		.Add(view)
+		.End();
 
-	MoveTo(aRect.left, aRect.top);
-	ResizeTo(aRect.Width(), aRect.Height());
+	CenterIn(aRect);
 	Show();
 }
