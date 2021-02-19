@@ -23,7 +23,7 @@ StatusWindow::StatusWindow(const char* text, BRect aRect)
 	BWindow(aRect, B_TRANSLATE("MidiSynth status"), B_BORDERED_WINDOW,
 		B_NOT_RESIZABLE | B_NOT_ZOOMABLE | B_NOT_CLOSABLE)
 {
-	BString s(B_TRANSLATE("Loading instrument definition file: %file%"));
+	BString s(B_TRANSLATE("Loading SoundFont: %file%"));
 	s.ReplaceFirst ("%file%", text);
 
 	BStringView* view = new BStringView("label", s.String());

@@ -216,7 +216,7 @@ AppWindow::AppWindow(BRect aRect)
 	// Synthesizer
 	menu->AddItem(item = new BMenuItem(B_TRANSLATE("Disable synthesizer"),
 		new BMessage(MENU_SYNTH_ENABLED), 'S'));
-	patchMenu = new BMenu(B_TRANSLATE("Patches"));
+	patchMenu = new BMenu(B_TRANSLATE("SoundFont"));
 	patchMenu->SetRadioMode(true);
 	SetPatchesMenu(patchMenu);
 	menu->AddItem(patchMenu);
@@ -502,8 +502,8 @@ AppWindow::SetPatchesMenu(BMenu* menu)
 	BMessage* msg = new BMessage(MENU_PATCH_SELECTED);
 	// Initial default choice:
 	msg->AddInt16("index", -1);
-	menu->AddItem(new BMenuItem(B_TRANSLATE_COMMENT("<Default>", "Default patch"),
-		msg));
+	menu->AddItem(new BMenuItem(B_TRANSLATE_COMMENT("<Default>",
+		"Default SoundFont"), msg));
 
 	char name[B_FILE_NAME_LENGTH];
 	while (NULL != (e = (BEntry*) synthEntries.ItemAt(i))) {
@@ -558,8 +558,8 @@ AppWindow::LoadPatch(BEntry* entry)
 	StatusWindow* status = NULL;
 
 	if (entry == NULL) { // Use Synth default
-		status = new StatusWindow(B_TRANSLATE_COMMENT("Default", "Default patch"),
-			Frame());
+		status = new StatusWindow(B_TRANSLATE_COMMENT("Default",
+			"Default SoundFont"), Frame());
 		ok = midiSynth->LoadSynthData();
 	} else if (entry->Exists() && (entry->GetRef(&e) == B_OK)) {
 		char name[B_FILE_NAME_LENGTH];
@@ -611,8 +611,8 @@ AppWindow::LoadPatch()
 		return;
 	}
 	if (LoadPatch(NULL)) { // check that default works
-		patchMenu->FindItem(B_TRANSLATE_COMMENT("<Default>", "Default patch"))
-			->SetMarked(true);
+		patchMenu->FindItem(B_TRANSLATE_COMMENT("<Default>",
+			"Default SoundFont"))->SetMarked(true);
 		return;
 	}
 

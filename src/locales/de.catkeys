@@ -1,4 +1,4 @@
-1	English	application/x-vnd.midisynth	1793042153
+1	English	application/x-vnd.midisynth	515652711
 Seashore	Instruments		Seashore
 Sitar	Instruments		Sitar
 Synth brass 2	Instruments		Synth brass 2
@@ -32,6 +32,7 @@ Right	Sliders		Rechts
 Timpani	Instruments		Timpani
 Shakuhachi	Instruments		Shakuhachi
 MidiSynth status	StatusWindow		MidiSynth Status
+Loading SoundFont: %file%	StatusWindow		Lade SoundFont: %file%
 Midi in	Application		Midi in
 Electric guitar jazz	Instruments		Electric guitar jazz
 Recorder	Instruments		Recorder
@@ -54,6 +55,7 @@ Tango Accordion	Instruments		Tango Accordion
 Calliope	Instruments		Calliope
 Tuned idiophones	Groups		Gestimmte Idiophone
 Warm	Instruments		Warm
+SoundFont	Application		SoundFont
 Acoustic bass	Instruments		Acoustic bass
 Church Organ	Instruments		Church Organ
 Left	Sliders		Links
@@ -81,7 +83,6 @@ High	Sliders		Hoch
 Tremolo strings	Instruments		Tremolo strings
 Muted trumpet	Instruments		Muted trumpet
 Reeds	Groups		Holzbläser
-Patches	Application		Patches
 Brass section	Instruments		Brass section
 Music box	Instruments		Music box
 Garage	Application		Garage
@@ -107,9 +108,8 @@ Michael Pfeiffer (original author)	Application		Michael Pfeiffer (ursprüngliche
 Metallic	Instruments		Metallic
 Ballroom	Application		Ballsaal
 OK	Application		OK
+Default	Application	Default SoundFont	Standard
 Pizzicato strings	Instruments		Pizzicato strings
-Loading instrument definition file: %file%	StatusWindow		Instrumenten Definitionsdatei '%file%' wird geladen
-<Default>	Application	Default patch	<Standard>
 Glockenspiel	Instruments		Glockenspiel
 Fx2	Instruments		Fx2
 Dungeon	Application		Verlies
@@ -172,7 +172,6 @@ Slap bass 1	Instruments		Slap bass 1
 Reed organ	Instruments		Reed organ
 Synth bass 1	Instruments		Synth bass 1
 Bassoon	Instruments		Bassoon
-Default	Application	Default patch	Standard
 Organs	Groups		Orgeln
 Bird tweet	Instruments		Bird tweet
 Electric piano	Instruments		Electric piano
@@ -180,6 +179,7 @@ Trombone	Instruments		Trombone
 Reverb	Application		Hall
 Ocarina	Instruments		Ocarina
 Clavichord	Instruments		Clavichord
+<Default>	Application	Default SoundFont	<Standard>
 Acoustic guitar nylon	Instruments		Acoustic guitar nylon
 Tenor sax	Instruments		Tenor sax
 Marimba	Instruments		Marimba
