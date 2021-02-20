@@ -1081,7 +1081,7 @@ AppWindow::OnScope()
 	if (scopeMenu->IsMarked() && scopeWindow) {
 		scopeWindow->PostMessage(B_QUIT_REQUESTED);
 		scopeWindow = NULL;
-	} else if (!scopeMenu->IsMarked() && scopeWindow == NULL)
+	} else if (!scopeMenu->IsMarked() && (scopeWindow == NULL))
 		OpenScopeWindow();
 }
 
