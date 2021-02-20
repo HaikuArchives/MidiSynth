@@ -22,6 +22,7 @@
 #define DEFAULT_WINDOW_POS_Y		100
 #define DEFAULT_WINDOW_WIDTH		460
 #define DEFAULT_WINDOW_HEIGHT		404
+#define DEFAULT_SCOPE_VISIBLE		false
 #define DEFAULT_SCOPE_WINDOW_POS_X	570
 #define DEFAULT_SCOPE_WINDOW_POS_Y	100
 #define DEFAULT_SCOPE_WINDOW_WIDTH	300
@@ -42,6 +43,7 @@ GlobalSettings::GlobalSettings()
 	windowPos(DEFAULT_WINDOW_POS_X, DEFAULT_WINDOW_POS_Y),
 	windowWidth(DEFAULT_WINDOW_WIDTH),
 	windowHeight(DEFAULT_WINDOW_HEIGHT),
+	scopeVisible(DEFAULT_SCOPE_VISIBLE),
 	scopeWindowPos(DEFAULT_SCOPE_WINDOW_POS_X, DEFAULT_SCOPE_WINDOW_POS_Y),
 	scopeWindowWidth(DEFAULT_SCOPE_WINDOW_WIDTH),
 	scopeWindowHeight(DEFAULT_SCOPE_WINDOW_HEIGHT)
@@ -209,6 +211,21 @@ GlobalSettings::GetWindowSize(float& w, float& h) const
 
 
 void
+GlobalSettings::SetScopeVisible(bool b)
+{
+	changed = true;
+	scopeVisible = b;
+}
+
+
+bool
+GlobalSettings::GetScopeVisible() const
+{
+	return scopeVisible;
+}
+
+
+void
 GlobalSettings::SetScopeWindowPosition(BPoint p)
 {
 	changed = true;
@@ -286,6 +303,9 @@ GlobalSettings::GlobalSettings(BMessage* archive)
 	if (B_OK != archive->FindFloat("winHeight", &windowHeight))
 		scopeWindowHeight = DEFAULT_SCOPE_WINDOW_HEIGHT;
 
+	if (B_OK != archive->FindBool("scopeVisible", &scopeVisible))
+		scopeVisible = DEFAULT_SCOPE_VISIBLE;
+
 	if (B_OK != archive->FindPoint("scopePos", &scopeWindowPos))
 		scopeWindowPos
 			= BPoint(DEFAULT_SCOPE_WINDOW_POS_X, DEFAULT_SCOPE_WINDOW_POS_Y);
@@ -313,6 +333,7 @@ GlobalSettings::Archive(BMessage* archive, bool deep) const
 	archive->AddPoint("winPos", windowPos);
 	archive->AddFloat("winWidth", windowWidth);
 	archive->AddFloat("winHeight", windowHeight);
+	archive->AddBool("scopeVisible", scopeVisible);
 	archive->AddPoint("scopePos", scopeWindowPos);
 	archive->AddFloat("scopeWidth", scopeWindowWidth);
 	archive->AddFloat("scopeHeight", scopeWindowHeight);

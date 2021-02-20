@@ -361,7 +361,8 @@ AppWindow::AppWindow(BRect aRect)
 	Show();
 
 	// Scope Window
-	OpenScopeWindow();
+	if (settings.GetScopeVisible())
+		OpenScopeWindow();
 
 	if (Lock()) {
 		view->FocusKeyboard();
@@ -1080,7 +1081,7 @@ AppWindow::OnScope()
 	if (scopeMenu->IsMarked() && scopeWindow) {
 		scopeWindow->PostMessage(B_QUIT_REQUESTED);
 		scopeWindow = NULL;
-	} else if (!scopeMenu->IsMarked() && !scopeWindow)
+	} else if (!scopeMenu->IsMarked() && scopeWindow == NULL)
 		OpenScopeWindow();
 }
 
@@ -1252,6 +1253,10 @@ AppWindow::MessageReceived(BMessage* message)
 bool
 AppWindow::QuitRequested()
 {
+	bool state = scopeMenu->IsMarked();
+	if (settings.GetScopeVisible() != state)
+		settings.SetScopeVisible(state);
+
 	SaveSettings();
 
 	instrumentField->MenuBar()->RemoveItem(instrGroup);

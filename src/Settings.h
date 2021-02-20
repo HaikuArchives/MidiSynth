@@ -29,6 +29,7 @@ class _EXPORT GlobalSettings : public BArchivable
 	BPoint windowPos;
 	float windowWidth, windowHeight;
 
+	bool scopeVisible;
 	BPoint scopeWindowPos;
 	float scopeWindowWidth, scopeWindowHeight;
 
@@ -65,6 +66,9 @@ public:
 
 	void SetWindowSize(float w, float h);
 	void GetWindowSize(float& w, float& h) const;
+
+	void SetScopeVisible(bool b);
+	bool GetScopeVisible() const;
 
 	void SetScopeWindowPosition(BPoint p);
 	BPoint GetScopeWindowPosition() const;
