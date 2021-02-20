@@ -166,7 +166,8 @@ AddMenuItem(
 AppWindow::AppWindow(BRect aRect)
 	:
 	BWindow(aRect, B_TRANSLATE_SYSTEM_NAME("MidiSynth"), B_TITLED_WINDOW,
-		B_ASYNCHRONOUS_CONTROLS | B_NOT_ZOOMABLE)
+		B_ASYNCHRONOUS_CONTROLS | B_NOT_ZOOMABLE),
+	scopeWindow(NULL)
 {
 	SetSizeLimits(460, 10000, 155, 10000);
 	midiSynth = new CInternalSynth(B_TRANSLATE_SYSTEM_NAME("MidiSynth"));
