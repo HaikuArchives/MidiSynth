@@ -1,4 +1,4 @@
-1	English	application/x-vnd.midisynth	515652711
+1	English	application/x-vnd.midisynth	2156118450
 Seashore	Instruments		Seashore
 Sitar	Instruments		Sitar
 Synth brass 2	Instruments		Synth brass 2
@@ -46,6 +46,7 @@ Bagpipe	Instruments		Bagpipe
 Fx6	Instruments		Fx6
 Charang	Instruments		Charang
 Keyboard octaves	Application		Tastatur Oktaven
+Reset Midi	Application		Reset Midi
 Drawbar organ	Instruments		Drawbar organ
 Celesta	Instruments		Celesta
 Halo	Instruments		Halo
@@ -184,7 +185,6 @@ Acoustic guitar nylon	Instruments		Acoustic guitar nylon
 Tenor sax	Instruments		Tenor sax
 Marimba	Instruments		Marimba
 Bowed	Instruments		Bowed
-Reset	Application		Rücksetzen
 Key mappings	Application		Tastenbelegung
 Electric piano 2	Instruments		Electric piano 2
 Oboe	Instruments		Oboe

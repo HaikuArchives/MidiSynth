@@ -207,8 +207,8 @@ AppWindow::AppWindow(BRect aRect)
 	midiSynthMenu = menu = new BMenu(B_TRANSLATE_SYSTEM_NAME("MidiSynth"));
 
 	// Reset
-	menu->AddItem(new BMenuItem(B_TRANSLATE("Reset"), new BMessage(MENU_RESET),
-		'R'));
+	menu->AddItem(new BMenuItem(B_TRANSLATE("Reset Midi"),
+		new BMessage(MENU_RESET), 'R'));
 	menu->AddItem(scopeMenu = new BMenuItem(B_TRANSLATE("Scope"),
 		new BMessage(MENU_SCOPE), 'V'));
 	menu->AddSeparatorItem();
@@ -239,7 +239,7 @@ AppWindow::AppWindow(BRect aRect)
 	BuildKeyMapMenu(keyMapMenu);
 
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Remap keys"),
-		new BMessage(MENU_REMAP_KEYS),'R'));
+		new BMessage(MENU_REMAP_KEYS)));
 	menu->AddSeparatorItem();
 
 	// Keyboard
