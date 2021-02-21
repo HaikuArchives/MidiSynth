@@ -29,8 +29,7 @@ static char
 SkipComment(BFile& file)
 {
 	char ch;
-	while (((ch = NextChar(file)) != EOF) && (ch != '\n'))
-		;
+	while (((ch = NextChar(file)) != EOF) && (ch != '\n'));
 	return ch;
 }
 
@@ -39,8 +38,7 @@ static char
 SkipWhiteSpaces(BFile& file)
 {
 	char ch;
-	while (isspace(ch = NextChar(file)) && (ch != EOF))
-		;
+	while (isspace(ch = NextChar(file)) && (ch != EOF));
 	return ch;
 }
 
