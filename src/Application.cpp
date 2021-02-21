@@ -169,7 +169,7 @@ AppWindow::AppWindow(BRect aRect)
 		B_ASYNCHRONOUS_CONTROLS | B_NOT_ZOOMABLE),
 	scopeWindow(NULL)
 {
-	SetSizeLimits(460, 10000, 155, 10000);
+	SetSizeLimits(460, 10000, 330, 10000);
 	midiSynth = new CInternalSynth(B_TRANSLATE_SYSTEM_NAME("MidiSynth"));
 	midiSynth->Init();
 
