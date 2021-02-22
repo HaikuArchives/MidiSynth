@@ -111,7 +111,7 @@ public:
 	void Invalidate(void);
 	bool LockLooper(void)
 	{ // ambiguous in Haiku
-		BView::LockLooper();
+		return BView::LockLooper();
 	}
 
 	void NoteOn(uchar note, uchar source, bool map);
