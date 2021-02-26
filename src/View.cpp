@@ -15,6 +15,7 @@
 #include <Catalog.h>
 #include <LayoutBuilder.h>
 #include <SeparatorView.h>
+#include <SplitView.h>
 
 #include <ctype.h>
 // #include <stdio.h>
@@ -104,20 +105,27 @@ View::View(int16 octaves, int16 rows, BView* popView)
 	keyboard = k2d;
 	currentKeyboard = 0;
 
-	BLayoutBuilder::Group<>(this, B_HORIZONTAL, B_USE_WINDOW_SPACING)
-		.AddGroup(B_VERTICAL, B_USE_SMALL_SPACING)
-			.SetInsets(B_USE_WINDOW_SPACING, 0, 0, B_USE_WINDOW_SPACING)
-			.Add(popView)
-			.Add(new BSeparatorView(B_HORIZONTAL))
-			.AddGroup(B_HORIZONTAL, B_USE_SMALL_SPACING)
-				.Add(pitchBendSlider)
-				.Add(velocitySlider)
-				.Add(volumeSlider)
+	BSplitView* splitView = new BSplitView(B_HORIZONTAL, B_USE_SMALL_SPACING);
+
+	BLayoutBuilder::Group<>(this, B_HORIZONTAL)
+		.AddSplit(splitView)
+			.AddGroup(B_VERTICAL)
+				.SetInsets(B_USE_WINDOW_SPACING, 0, 0, B_USE_WINDOW_SPACING)
+				.Add(popView)
+				.Add(new BSeparatorView(B_HORIZONTAL))
+				.AddGroup(B_HORIZONTAL, B_USE_SMALL_SPACING)
+					.Add(pitchBendSlider)
+					.Add(velocitySlider)
+					.Add(volumeSlider)
+					.End()
+				.Add(new BSeparatorView(B_HORIZONTAL))
+				.Add(panSlider)
 				.End()
-			.Add(new BSeparatorView(B_HORIZONTAL))
-			.Add(panSlider)
-			.End()
-		.Add(k2d)
+			.AddGroup(B_VERTICAL)
+				.Add(k2d)
+				.SetInsets(0, 0, 0, B_USE_WINDOW_SPACING)
+				.End()
+		.SetInsets(B_USE_SMALL_INSETS)
 		.End();
 }
 
