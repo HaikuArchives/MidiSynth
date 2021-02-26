@@ -18,7 +18,7 @@
 #include <SplitView.h>
 
 #include <ctype.h>
-// #include <stdio.h>
+#include <algorithm>
 
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "Sliders"
@@ -62,14 +62,6 @@ View::View(int16 octaves, int16 rows, BView* popView)
 	pitchBendSlider->SetModificationMessage(
 		new BMessage(MSG_PITCH_BEND_CHANGED));
 
-	volumeSlider = new BSlider("volumeSlider", B_TRANSLATE("Volume"),
-		new BMessage(MSG_VOLUME_CHANGED), 0, 100, B_VERTICAL);
-	volumeSlider->SetHashMarks(B_HASH_MARKS_BOTH);
-	volumeSlider->SetHashMarkCount(11);
-	volumeSlider->SetValue(100);
-	volumeSlider->SetLimitLabels(B_TRANSLATE("Off"), B_TRANSLATE("Max"));
-	volumeSlider->SetModificationMessage(new BMessage(MSG_VOLUME_CHANGED));
-
 	velocitySlider = new BSlider("velocitySlider", B_TRANSLATE("Velocity"),
 		new BMessage(MSG_VELOCITY_CHANGED), 0, 127, B_VERTICAL);
 	velocitySlider->SetHashMarks(B_HASH_MARKS_BOTH);
@@ -77,6 +69,14 @@ View::View(int16 octaves, int16 rows, BView* popView)
 	velocitySlider->SetValue(64);
 	velocitySlider->SetLimitLabels(B_TRANSLATE("Min"), B_TRANSLATE("Max"));
 	velocitySlider->SetModificationMessage(new BMessage(MSG_VELOCITY_CHANGED));
+
+	volumeSlider = new BSlider("volumeSlider", B_TRANSLATE("Volume"),
+		new BMessage(MSG_VOLUME_CHANGED), 0, 100, B_VERTICAL);
+	volumeSlider->SetHashMarks(B_HASH_MARKS_BOTH);
+	volumeSlider->SetHashMarkCount(11);
+	volumeSlider->SetValue(100);
+	volumeSlider->SetLimitLabels(B_TRANSLATE("Off"), B_TRANSLATE("Max"));
+	volumeSlider->SetModificationMessage(new BMessage(MSG_VOLUME_CHANGED));
 
 //#if 0
 //	rect.SetLeftTop(BPoint(bounds.right, volumeSlider->Bounds().Height()+1));
@@ -95,7 +95,7 @@ View::View(int16 octaves, int16 rows, BView* popView)
 		"panSlider", NULL, new BMessage(MSG_PAN_CHANGED), 0, 127, B_HORIZONTAL);
 	panSlider->SetHashMarks(B_HASH_MARKS_BOTTOM);
 	panSlider->SetHashMarkCount(3);
-	panSlider->SetValue(63);
+	panSlider->SetValue(64);
 	panSlider->SetLimitLabels(B_TRANSLATE("Left"), B_TRANSLATE("Right"));
 	panSlider->SetModificationMessage(new BMessage(MSG_PAN_CHANGED));
 //#else
@@ -132,6 +132,81 @@ View::View(int16 octaves, int16 rows, BView* popView)
 
 View::~View()
 {
+}
+
+
+void
+View::MessageReceived(BMessage* message)
+{
+	switch (message->what) {
+		case B_MOUSE_WHEEL_CHANGED:
+		{
+			BPoint pt;
+			uint32 buttons;
+			GetMouse(&pt, &buttons, false);
+			BView* wheelView = Window()->FindView(pt);
+			if (wheelView == NULL)
+				break;
+
+			float deltaY = 0.0f;
+			if (message->FindFloat("be:wheel_delta_y", &deltaY) != B_OK
+				|| deltaY == 0.0f)
+					break;
+
+			if (pitchBendSlider->Frame().Contains(pt)) {
+				// round to multiple of 8, or we won't hit the hash marks
+				// if the slider knob was manually put between hash marks
+				int32 pitch = (pitchBendSlider->Value() & (-8));
+				if (deltaY < 0)
+					std::min(pitch += 8, 128);
+				else
+					std::max(pitch -= 8, 0);
+
+				pitchBendSlider->SetValue(pitch);
+				Window()->PostMessage(MSG_PITCH_BEND_CHANGED);
+				break;
+			} else if (velocitySlider->Frame().Contains(pt)) {
+				int32 velocity = (velocitySlider->Value() & (-8));;
+				if (deltaY < 0)
+					std::min(velocity += 8, 128);
+				else
+					std::max(velocity -= 8, 0);
+
+				velocitySlider->SetValue(velocity);
+				Window()->PostMessage(MSG_VELOCITY_CHANGED);
+				break;
+			} else if (volumeSlider->Frame().Contains(pt)) {
+				int32 volume = volumeSlider->Value();
+				int32 a = (volume / 10) * 10; // round to nearest multiple of 10
+				int32 b = a + 10;
+				volume = (volume - a > b - volume)? b : a;
+				if (deltaY < 0)
+					std::min(volume += 10, 100);
+				else
+					std::max(volume -= 10, 0);
+
+				volumeSlider->SetValue(volume);
+				Window()->PostMessage(MSG_VOLUME_CHANGED);
+				break;
+			} else if (panSlider->Frame().Contains(pt)) {
+				int32 pan = (panSlider->Value() & (-8));
+				if (deltaY < 0)
+					std::min(pan += 8, 128);
+				else
+					std::max(pan -= 8, 0);
+
+				panSlider->SetValue(pan);
+				Window()->PostMessage(MSG_PAN_CHANGED);
+				break;
+			}
+			break;
+		}
+		{
+			default:
+				BView::MessageReceived(message);
+				break;
+		}
+	}
 }
 
 

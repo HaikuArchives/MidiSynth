@@ -58,11 +58,13 @@ public:
 	MidiOut* midiOut;
 
 	View(int16 octaves, int16 rows, BView* popView);
-	~View();
+	virtual ~View();
+	virtual void MessageReceived(BMessage* message);
+
 	uchar Key2Note(uchar key);
 	uchar NotePlaying(uchar note);
 	inline int GetNoteOffset() { return noteOffset; }
-#if 0 
+#if 0
 	void KeyDown(const char *bytes, int32 numBytes);
 	void KeyUp(const char *bytes, int32 numBytes);
 #endif
