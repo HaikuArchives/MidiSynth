@@ -308,6 +308,17 @@ View::PitchBendChanged()
 	uchar pitch = pitchBendSlider->Value();
 	midiOut->SprayPitchBend(channel, 0, pitch, system_time());
 	SetPitchBend(channel, pitch);
+
+	rgb_color high = { 0, 0, 255, 255 };
+	rgb_color low = { 200, 0, 0, 255 };
+	rgb_color bar = ui_color(B_PANEL_BACKGROUND_COLOR);
+
+	if (pitch > 64)
+		bar = mix_color(ui_color(B_PANEL_BACKGROUND_COLOR), high, pitch);
+	else if (pitch < 64)
+		bar = mix_color(ui_color(B_PANEL_BACKGROUND_COLOR), low, 128 - pitch);
+
+	pitchBendSlider->SetBarColor(bar);
 }
 
 
@@ -317,6 +328,17 @@ View::PanChanged()
 	uchar pan = panSlider->Value();
 	midiOut->SprayControlChange(channel, B_PAN, pan, system_time());
 	SetPan(channel, pan);
+
+	rgb_color left = { 0, 255, 0, 255 };
+	rgb_color right = { 200, 0, 0, 255 };
+	rgb_color bar = ui_color(B_PANEL_BACKGROUND_COLOR);
+
+	if (pan > 64)
+		bar = mix_color(ui_color(B_PANEL_BACKGROUND_COLOR), left, pan);
+	else if (pan < 64)
+		bar = mix_color(ui_color(B_PANEL_BACKGROUND_COLOR), right, 128 - pan);
+
+	panSlider->SetBarColor(bar);
 }
 
 
