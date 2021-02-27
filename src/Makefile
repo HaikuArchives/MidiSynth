@@ -34,6 +34,7 @@ APP_MIME_SIG = application/x-vnd.midisynth
 SRCS = Application.cpp \
 	ChordMenuItem.cpp \
 	ChordParser.cpp \
+	FKeyCatcher.cpp \
 	InternalSynth.cpp \
 	Keyboard.cpp \
 	Keyboard2d.cpp \

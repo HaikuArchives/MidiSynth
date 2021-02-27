@@ -11,6 +11,7 @@
 #include "Application.h"
 #include "ChordMenuItem.h"
 #include "ChordParser.h"
+#include "FKeyCatcher.h"
 #include "InternalSynth.h"
 #include "Keyboard2d.h"
 #include "MsgConsts.h"
@@ -323,8 +324,8 @@ AppWindow::AppWindow(BRect aRect)
 	// Chords
 	chordMenu = menu = new BMenu("Chord");
 	menu->SetLabelFromMarked(true);
-	menu->AddItem(item = new BMenuItem(B_TRANSLATE_COMMENT("Off", "Chord off"),
-		new BMessage(MENU_CHORD)));
+	menu->AddItem(item = new BMenuItem(B_TRANSLATE_COMMENT("F1 - Off",
+		"Function key 1 for Chord off"), new BMessage(MENU_CHORD)));
 	item->SetMarked(true);
 	LoadChords(menu);
 
@@ -354,6 +355,11 @@ AppWindow::AppWindow(BRect aRect)
 		.Add(menubar)
 		.Add(view)
 		.End();
+
+	// Catch F-Keys to set a chord
+	FKeyCatcher* catcher = new FKeyCatcher(chordMenu);
+	AddChild(catcher);
+	catcher->Hide();
 
 	// Load default instrument definition file
 	LoadPatch();

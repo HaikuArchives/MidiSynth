@@ -13,21 +13,21 @@
 # a - z, A-Z for 10 to 35
 
 # e.g. 345
-# When a key is pressed which plays note n, the notes n+3, n+3+4, and n+3+4+5 
+# When a key is pressed which plays note n, the notes n+3, n+3+4, and n+3+4+5
 # will be played also. (Note: In the Midi specification each note is
 # representated by a number value between 0 and 127)
 
-# begin of chord defintions:
-43	"Major"
-345	"Minor"
+# begin of chord defintions (F1 = "Off" setting):
+43	"F2 - Major"
+345	"F3 - Minor"
 #543	"543"
 #77	"77"
 #cc	"cc"
-343	"Minor7"
-433	"Dominant7"	
-335	"Diminished"
-334	"Minor7 flat 5"
-432	"Major6"
-434	"Major7"
-444	"Augmented"
+343	"F4 - Minor7"
+433	"F5 - Dominant7"
+335	"F6 - Diminished"
+334	"F7 - Minor7 flat 5"
+432	"F8 - Major6"
+434	"F9 - Major7"
+444	"F10 - Augmented"
 # end
