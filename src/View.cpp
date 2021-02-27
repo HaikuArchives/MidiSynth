@@ -13,6 +13,7 @@
 #include "View.h"
 
 #include <Catalog.h>
+#include <ControlLook.h>
 #include <LayoutBuilder.h>
 #include <SeparatorView.h>
 #include <SplitView.h>
@@ -310,8 +311,9 @@ View::PitchBendChanged()
 	SetPitchBend(channel, pitch);
 
 	rgb_color high = { 0, 0, 255, 255 };
-	rgb_color low = { 200, 0, 0, 255 };
-	rgb_color bar = ui_color(B_PANEL_BACKGROUND_COLOR);
+	rgb_color low = { 255, 0, 0, 255 };
+	rgb_color bar = be_control_look->SliderBarColor(
+		ui_color(B_PANEL_BACKGROUND_COLOR));
 
 	if (pitch > 64)
 		bar = mix_color(ui_color(B_PANEL_BACKGROUND_COLOR), high, pitch);
@@ -330,8 +332,9 @@ View::PanChanged()
 	SetPan(channel, pan);
 
 	rgb_color left = { 0, 255, 0, 255 };
-	rgb_color right = { 200, 0, 0, 255 };
-	rgb_color bar = ui_color(B_PANEL_BACKGROUND_COLOR);
+	rgb_color right = { 255, 0, 0, 255 };
+	rgb_color bar = be_control_look->SliderBarColor(
+		ui_color(B_PANEL_BACKGROUND_COLOR));
 
 	if (pan > 64)
 		bar = mix_color(ui_color(B_PANEL_BACKGROUND_COLOR), left, pan);
