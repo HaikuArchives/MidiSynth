@@ -599,6 +599,7 @@ View::PitchBend(uchar channel, uchar lsb, uchar msb, bigtime_t time)
 		if (ANIMATE_KEYS && (channel == this->channel) && Window()->Lock()) {
 			pitchBendSlider->SetValue(msb);
 			Window()->Unlock();
+			Window()->PostMessage(MSG_PITCH_BEND_CHANGED);
 		}
 	}
 }
@@ -646,6 +647,7 @@ View::ControlChange(
 		if (ANIMATE_KEYS && (channel == this->channel) && Window()->Lock()) {
 			panSlider->SetValue(127 - controlValue);
 			Window()->Unlock();
+			Window()->PostMessage(MSG_PAN_CHANGED);
 		}
 	}
 }
