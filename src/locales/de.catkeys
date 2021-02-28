@@ -1,195 +1,197 @@
-1	English	application/x-vnd.midisynth	2156118450
-Seashore	Instruments		Seashore
-Sitar	Instruments		Sitar
-Synth brass 2	Instruments		Synth brass 2
-Couldn't save key map file. Please try another file name or click on 'Cancel' in the save panel.	Application		Datei für Tastenbelegung konnte nicht gespeichert werden. Bitte mit einem anderen Dateinamen probieren, oder Speicherdialog abbrechen.
-Whistle	Instruments		Whistle
-Pipes	Groups		Flöten
-Agogo	Instruments		Agogo
-Electric guitar muted	Instruments		Electric guitar muted
-Max	Sliders		Max
-Overdriven guitar	Instruments		Overdriven guitar
-Fx8	Instruments		Fx8
-Soprano sax	Instruments		Soprano sax
-Harmonica	Instruments		Harmonica
-Enable synthesizer	Application		Synthesizer aktivieren
-Synth brass 1	Instruments		Synth brass 1
-Fret noise	Instruments		Fret noise
-Bass lead	Instruments		Bass lead
-Voice aah	Instruments		Voice aah
-Pan flute	Instruments		Pan flute
-Channel	Application		Kanal
-Fx7	Instruments		Fx7
-Banjo	Instruments		Banjo
-Rock organ	Instruments		Rock organ
-Voice	Instruments		Voice
-Orchestral strings	Instruments		Orchestral strings
-Trumpet	Instruments		Trumpet
-Chord:	Application		Akkord:
-Vibraphone	Instruments		Vibraphone
-Electric grand	Instruments		Electric grand
-Right	Sliders		Rechts
-Timpani	Instruments		Timpani
-Shakuhachi	Instruments		Shakuhachi
-MidiSynth status	StatusWindow		MidiSynth Status
-Loading SoundFont: %file%	StatusWindow		Lade SoundFont: %file%
-Midi in	Application		Midi in
-Electric guitar jazz	Instruments		Electric guitar jazz
-Recorder	Instruments		Recorder
-Applause	Instruments		Applause
-Chiff	Instruments		Chiff
-Tubular bells	Instruments		Tubular bells
-Min	Sliders		Min
-Tinkle bell	Instruments		Tinkle bell
-Electric guitar clean	Instruments		Electric guitar clean
-Bagpipe	Instruments		Bagpipe
-Fx6	Instruments		Fx6
-Charang	Instruments		Charang
-Keyboard octaves	Application		Tastatur Oktaven
-Reset Midi	Application		Reset Midi
-Drawbar organ	Instruments		Drawbar organ
-Celesta	Instruments		Celesta
-Halo	Instruments		Halo
-Sound effects	Groups		Klangeffekte
-This is no valid key map file.	Application		Dies ist keine gültige Tastenbelegungsdatei.
-Tango Accordion	Instruments		Tango Accordion
-Calliope	Instruments		Calliope
-Tuned idiophones	Groups		Gestimmte Idiophone
-Warm	Instruments		Warm
-SoundFont	Application		SoundFont
-Acoustic bass	Instruments		Acoustic bass
-Church Organ	Instruments		Church Organ
-Left	Sliders		Links
-Ethnic	Groups		Ethno
-Distortion guitar	Instruments		Distortion guitar
-Shamisen	Instruments		Shamisen
-Choir	Instruments		Choir
-Synth pads	Groups		Synth Pads
-Fx5	Instruments		Fx5
-Reverse cymbal	Instruments		Reverse cymbal
-Tuba	Instruments		Tuba
-Guitars	Groups		Gitarren
-Helicopter	Instruments		Helicopter
-Square wave	Instruments		Square wave
-Viola	Instruments		Viola
-Voice ooh	Instruments		Voice ooh
-Off	Application		Aus
-Brass	Groups		Blechbläser
-To remap a key, first click with your mouse on a key on the graphical keyboard, then hit the key on the keyboard.\nYou can immediately test the changes. When you are finished, select the menu item 'Done remapping' from the 'MidiSynth' menu.	Application		Für eine neue Tastenbelegung, zuerst mit der Maus auf eine Taste klicken, dann die entsprechende Taste auf der Tastatur drücken.\n
-Xylophone	Instruments		Xylophone
-Accordion	Instruments		Accordion
-Synth voice	Instruments		Synth voice
-Fx4	Instruments		Fx4
-High	Sliders		Hoch
-Tremolo strings	Instruments		Tremolo strings
-Muted trumpet	Instruments		Muted trumpet
-Reeds	Groups		Holzbläser
-Brass section	Instruments		Brass section
-Music box	Instruments		Music box
-Garage	Application		Garage
-Harpsichord	Instruments		Harpsichord
-Steel drums	Instruments		Steel drums
-Kalimba	Instruments		Kalimba
-Pitch	Sliders		Pitch
-Disable synthesizer	Application		Synthesizer deaktivieren
-Off	Sliders		Aus
-New age	Instruments		New age
-Guitar harmonics	Instruments		Guitar harmonics
-Violin	Instruments		Violin
-Fx3	Instruments		Fx3
-Remap keys	Application		Tastenbelegung ändern
-Koto	Instruments		Koto
-Error opening key map file.	Application		Fehler beim Öffnen der Tastenbelegungsdatei.
-Electric bass pick	Instruments		Electric bass pick
-Gunshot	Instruments		Gunshot
-English horn	Instruments		English horn
-File error	Application		Dateifehler
-Sawtooth wave	Instruments		Sawtooth wave
-Michael Pfeiffer (original author)	Application		Michael Pfeiffer (ursprünglicher Autor)
-Metallic	Instruments		Metallic
-Ballroom	Application		Ballsaal
-OK	Application		OK
-Default	Application	Default SoundFont	Standard
-Pizzicato strings	Instruments		Pizzicato strings
-Glockenspiel	Instruments		Glockenspiel
-Fx2	Instruments		Fx2
-Dungeon	Application		Verlies
-Woodblock	Instruments		Woodblock
-Off	Application	Chord off	Aus
-Acoustic grand	Instruments		Acoustic grand
-About…	Application		Über…
-Closet	Application		Schrank
-Scope	Application		Oszilloskop
-Fiddle	Instruments		Fiddle
-Bright grand	Instruments		Bright grand
-Honky tonk	Instruments		Honky tonk
-Cello	Instruments		Cello
-Melodic tom	Instruments		Melodic tom
-Fx1	Instruments		Fx1
-String ensemble 2	Instruments		String ensemble 2
-Flute	Instruments		Flute
-Clarinet	Instruments		Clarinet
-Dulcimer	Instruments		Dulcimer
-Synth strings 2	Instruments		Synth strings 2
-Shanai	Instruments		Shanai
-Acoustic guitar steel	Instruments		Acoustic guitar steel
-Orchestra hit	Instruments		Orchestra hit
-Ensemble strings and voices	Groups		Streicher und Chöre
-Sampling rate	Application		Abtastrate
-MidiSynth	System name		MidiSynth
-Telephone	Instruments		Telephone
-Velocity	Sliders		Anschlag
-Basses	Groups		Bässe
-Fretless bass	Instruments		Fretless bass
-Musical effects	Groups		Musikalische Effekte
-Breath noise	Instruments		Breath noise
-Midi out	Application		Midi out
-Quit	Application		Beenden
-Percussion	Groups		Percussion
-Max synth voices	Application		Max Synth Stimmen
-String ensemble 1	Instruments		String ensemble 1
-Slap bass 2	Instruments		Slap bass 2
-Electric bass finger	Instruments		Electric bass finger
-Help	Application		Hilfe
-Synth bass 2	Instruments		Synth bass 2
-Alto sax	Instruments		Alto sax
-Baritone sax	Instruments		Baritone sax
-Fifths	Instruments		Fifths
-Synth strings 1	Instruments		Synth strings 1
-Scope	Scope		Oszilloskop
-Keyboard rows	Application		Tastaturebenen
-Contrabass	Instruments		Contrabass
-French horn	Instruments		French horn
-Volume	Sliders		Lautstärke
-Polysynth	Instruments		Polysynth
-Low	Sliders		Tief
-Blown bottle	Instruments		Blown bottle
-Piccolo	Instruments		Piccolo
-Pianos	Groups		Pianos
-Cavern	Application		Höhle
-Sweep	Instruments		Sweep
-Octave	Application		Oktave
-Slap bass 1	Instruments		Slap bass 1
-Reed organ	Instruments		Reed organ
-Synth bass 1	Instruments		Synth bass 1
-Bassoon	Instruments		Bassoon
-Organs	Groups		Orgeln
-Bird tweet	Instruments		Bird tweet
-Electric piano	Instruments		Electric piano
-Trombone	Instruments		Trombone
-Reverb	Application		Hall
-Ocarina	Instruments		Ocarina
-Clavichord	Instruments		Clavichord
+1	German	application/x-vnd.midisynth	3364170094
 <Default>	Application	Default SoundFont	<Standard>
-Acoustic guitar nylon	Instruments		Acoustic guitar nylon
-Tenor sax	Instruments		Tenor sax
-Marimba	Instruments		Marimba
-Bowed	Instruments		Bowed
+About…	Application		Über…
+Ballroom	Application		Ballsaal
+Cavern	Application		Höhle
+Channel	Application		Kanal
+Chord:	Application		Akkord:
+Closet	Application		Schrank
+Couldn't save key map file. Please try another file name or click on 'Cancel' in the save panel.	Application		Datei für Tastenbelegung konnte nicht gespeichert werden. Bitte mit einem anderen Dateinamen probieren, oder Speicherdialog abbrechen.
+Default	Application	Default SoundFont	Standard
+Disable synthesizer	Application		Synthesizer deaktivieren
+Done remapping	Application		Neubelegung abschließen
+Dungeon	Application		Verlies
+Enable synthesizer	Application		Synthesizer aktivieren
+Error opening key map file.	Application		Fehler beim Öffnen der Tastenbelegungsdatei.
+F1 - Off	Application	Function key 1 for Chord off	F1 - Aus
+File error	Application		Dateifehler
+Garage	Application		Garage
+Help	Application		Hilfe
 Key mappings	Application		Tastenbelegung
-Electric piano 2	Instruments		Electric piano 2
+Keyboard octaves	Application		Tastatur Oktaven
+Keyboard rows	Application		Tastaturebenen
+Max synth voices	Application		Max Synth Stimmen
+Michael Pfeiffer (original author)	Application		Michael Pfeiffer (ursprünglicher Autor)
+Midi in	Application		Midi in
+Midi out	Application		Midi out
+Octave	Application		Oktave
+Off	Application		Aus
+Off	Application	Chord off	Aus
+OK	Application		OK
+Quit	Application		Beenden
+Remap keys	Application		Tastenbelegung ändern
+Reset Midi	Application		Midi zurücksetzen
+Reverb	Application		Hall
+Sampling rate	Application		Abtastrate
+Scope	Application		Oszilloskop
+SoundFont	Application		SoundFont
+This is no valid key map file.	Application		Dies ist keine gültige Tastenbelegungsdatei.
+To remap a key, first click with your mouse on a key on the graphical keyboard, then hit the key on the keyboard.\nYou can immediately test the changes. When you are finished, select the menu item 'Done remapping' from the 'MidiSynth' menu.	Application		Für eine neue Tastenbelegung, zuerst mit der Maus auf eine Taste klicken, dann die entsprechende Taste auf der Tastatur drücken.\nDie neue Belegung kann direkt ausprobiert werden. Zum Übernehmen, den Menüpunkt 'Neubelegung abschließen' aus dem 'MidiSynth' Menü wählen.
+Accordion	Instruments		Akkordion
+Acoustic bass	Instruments		Akustischer Bass
+Acoustic grand	Instruments		Konzertflügel
+Acoustic guitar nylon	Instruments		Akustische Gitarre (Nylon)
+Acoustic guitar steel	Instruments		Akustische Gitarre (Stahl)
+Agogo	Instruments		Agogo
+Alto sax	Instruments		Altsaxophon
+Applause	Instruments		Applaus
+Bagpipe	Instruments		Dudelsack
+Banjo	Instruments		Banjo
+Baritone sax	Instruments		Baritonsaxophon
+Bass lead	Instruments		Lead mit Bass
+Bassoon	Instruments		Fagott
+Bird tweet	Instruments		Vogelgezwitscher
+Blown bottle	Instruments		Geblasene Flasche
+Bowed	Instruments		Streicher
+Brass section	Instruments		Blechbläser Ensemble
+Breath noise	Instruments		Atemgeräusch
+Bright grand	Instruments		Heller Flügel
+Calliope	Instruments		Dampforgel
+Celesta	Instruments		Celesta
+Cello	Instruments		Cello
+Charang	Instruments		Charang
+Chiff	Instruments		Chiff
+Choir	Instruments		Chor
+Church Organ	Instruments		Kirchenorgel
+Clarinet	Instruments		Klarinette
+Clavichord	Instruments		Clavichord
+Contrabass	Instruments		Kontrabass
+Distortion guitar	Instruments		Verzerrte Gitarre
+Drawbar organ	Instruments		Elektr. Orgel (Zugriegel)
+Dulcimer	Instruments		Hackbrett
+Electric bass finger	Instruments		E-Bass (Finger)
+Electric bass pick	Instruments		E-Bass (Plektrum)
+Electric grand	Instruments		Elektr. Flügel
+Electric guitar clean	Instruments		E-Gitarre (klar)
+Electric guitar jazz	Instruments		E-Gitarre (Jazz)
+Electric guitar muted	Instruments		E-Gitarre (gedämpft)
+Electric piano	Instruments		Elektr. Piano 1
+Electric piano 2	Instruments		Elektr. Piano 2
+English horn	Instruments		Englisch-Horn
+Fiddle	Instruments		Fiddle
+Fifths	Instruments		Lead mit Quinten
+Flute	Instruments		Flöte
+French horn	Instruments		Horn
+Fret noise	Instruments		Bundgeräusche
+Fretless bass	Instruments		Bundloser Bass
+Fx1	Instruments		Fx1 Regen
+Fx2	Instruments		Fx2 Soundtrack
+Fx3	Instruments		Fx3 Kristall
+Fx4	Instruments		Fx4 Atmosphäre
+Fx5	Instruments		Fx5 Brightness
+Fx6	Instruments		Fx6 Kobolde
+Fx7	Instruments		Fx7 Echos
+Fx8	Instruments		Fx8 Science Fiction
+Glockenspiel	Instruments		Glockenspiel
+Guitar harmonics	Instruments		Gitarre mit Harmonischen
+Gunshot	Instruments		Pistolenschuss
+Halo	Instruments		Halo
+Harmonica	Instruments		Mundharmonika
+Harpsichord	Instruments		Cembalo
+Helicopter	Instruments		Helikopter
+Honky tonk	Instruments		Honky Tonk Klavier
+Kalimba	Instruments		Lamellophon
+Koto	Instruments		Koto
+Marimba	Instruments		Marimba
+Melodic tom	Instruments		Tomtom
+Metallic	Instruments		Metallisch
+Music box	Instruments		Spieldose
+Muted trumpet	Instruments		Gedämpfte Trompete
+New age	Instruments		New Age
 Oboe	Instruments		Oboe
-Taiko drums	Instruments		Taiko drums
-Synth leads	Groups		Synth Leads
-Percussive organ	Instruments		Percussive organ
-Synth drum	Instruments		Synth drum
+Ocarina	Instruments		Okarina
+Orchestra hit	Instruments		Orchestra Hit
+Orchestral strings	Instruments		Orchesterharfe
+Overdriven guitar	Instruments		Übersteuerte Gitarre
+Pan flute	Instruments		Panflöte
+Percussive organ	Instruments		Elektr. Orgel (Percussion)
+Piccolo	Instruments		Piccoloflöte
+Pizzicato strings	Instruments		Pizzicato Streicher
+Polysynth	Instruments		Polysynth
+Recorder	Instruments		Blockflöte
+Reed organ	Instruments		Harmonium
+Reverse cymbal	Instruments		Becken (rückwärts)
+Rock organ	Instruments		Hammond-Orgel
+Sawtooth wave	Instruments		Sägezahnschwingung
+Seashore	Instruments		Meeresgeräusche
+Shakuhachi	Instruments		Shakuhachi
+Shamisen	Instruments		Shamisen
+Shanai	Instruments		Shenai
+Sitar	Instruments		Sitar
+Slap bass 1	Instruments		Geschlagener Bass 1
+Slap bass 2	Instruments		Geschlagener Bass 2
+Soprano sax	Instruments		Sopransaxophon
+Square wave	Instruments		Rechteckschwingung
+Steel drums	Instruments		Stahltrommel
+String ensemble 1	Instruments		Streicher Ensemble 1
+String ensemble 2	Instruments		Streicher Ensemble 2
+Sweep	Instruments		Sweep
+Synth bass 1	Instruments		Synth Bass 1
+Synth bass 2	Instruments		Synth Bass 2
+Synth brass 1	Instruments		Synth Blechbläser 1
+Synth brass 2	Instruments		Synth Blechbläser 2
+Synth drum	Instruments		Synth Trommel
+Synth strings 1	Instruments		Synth Streicher 1
+Synth strings 2	Instruments		Synth Streicher 2
+Synth voice	Instruments		Synth Stimme
+Taiko drums	Instruments		Taiko Trommeln
+Tango Accordion	Instruments		Bandoneon
+Telephone	Instruments		Telefon
+Tenor sax	Instruments		Tenorsaxophon
+Timpani	Instruments		Pauke
+Tinkle bell	Instruments		Glöckchen
+Tremolo strings	Instruments		Tremolo Streicher
+Trombone	Instruments		Posaune
+Trumpet	Instruments		Trompete
+Tuba	Instruments		Tuba
+Tubular bells	Instruments		Röhrenglocken
+Vibraphone	Instruments		Vibraphon
+Viola	Instruments		Bratsche
+Violin	Instruments		Violine
+Voice	Instruments		Stimme
+Voice aah	Instruments		Stimme Aah
+Voice ooh	Instruments		Stimme Ooh
+Warm	Instruments		Warm
+Whistle	Instruments		Pfeifen
+Woodblock	Instruments		Holzblock
+Xylophone	Instruments		Xylophon
+Basses	Groups		Bässe
+Brass	Groups		Blechbläser
+Ensemble strings and voices	Groups		Streicher und Chöre
+Ethnic	Groups		Ethno
+Guitars	Groups		Gitarren
+Musical effects	Groups		Musikalische Effekte
+Organs	Groups		Orgeln
+Percussion	Groups		Percussion
+Pianos	Groups		Pianos
+Pipes	Groups		Flöten
+Reeds	Groups		Holzbläser
+Sound effects	Groups		Klangeffekte
 Strings and timpani	Groups		Streicher und Pauken
+Synth leads	Groups		Synth Leads
+Synth pads	Groups		Synth Pads
+Tuned idiophones	Groups		Gestimmte Idiophone
+High	Sliders		Hoch
+Left	Sliders		Links
+Low	Sliders		Tief
+Max	Sliders		Max
+Min	Sliders		Min
+Off	Sliders		Aus
+Pitch	Sliders		Pitch
+Right	Sliders		Rechts
+Velocity	Sliders		Anschlag
+Volume	Sliders		Lautstärke
+Loading SoundFont: %file%	StatusWindow		Lade SoundFont: %file%
+MidiSynth status	StatusWindow		MidiSynth Status
+MidiSynth	System name		MidiSynth
+Scope	Scope		Oszilloskop

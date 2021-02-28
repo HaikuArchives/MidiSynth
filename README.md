@@ -18,11 +18,13 @@ take effect, you currently have to close and re-open the Scope window).
 
 You can select the MIDI channel to be used, and which GM instrument a patch 
 should sound. Velocity, Pan, and Pitchbend MIDI parameters are adjusted with
-sliders, as well as the synth output volume,
+sliders, as well as the synth output volume.    
+Sliders react to the mouse wheel, just park your mouse pointer over the slider 
+you'd like to control.
 
 MidiSynth supports chords, which are defined in a file and can be enabled by 
-selecting a chord from a the Chords menu. You can even remap the keys on your 
-keyboard.    
+selecting a chord from a the Chords menu (or with via F-keys). You can even 
+remap the keys on your keyboard.    
 Chords, KeyMappings and MidiSynth's settings are stored at `~/config/settings/MidiSynth/`.
 
 If you plan to ouput to Haiku's synthesizer instead of controling another MIDI 

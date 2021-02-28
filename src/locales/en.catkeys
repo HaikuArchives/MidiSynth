@@ -1,4 +1,4 @@
-1	English	application/x-vnd.midisynth	2156118450
+1	English	application/x-vnd.midisynth	3364170094
 Seashore	Instruments		Seashore
 Sitar	Instruments		Sitar
 Synth brass 2	Instruments		Synth brass 2
@@ -32,6 +32,7 @@ Right	Sliders		Right
 Timpani	Instruments		Timpani
 Shakuhachi	Instruments		Shakuhachi
 MidiSynth status	StatusWindow		MidiSynth status
+F1 - Off	Application	Function key 1 for Chord off	F1 - Off
 Loading SoundFont: %file%	StatusWindow		Loading SoundFont: %file%
 Midi in	Application		Midi in
 Electric guitar jazz	Instruments		Electric guitar jazz
@@ -98,6 +99,7 @@ Guitar harmonics	Instruments		Guitar harmonics
 Violin	Instruments		Violin
 Fx3	Instruments		Fx3
 Remap keys	Application		Remap keys
+Done remapping	Application		Done remapping
 Koto	Instruments		Koto
 Error opening key map file.	Application		Error opening key map file.
 Electric bass pick	Instruments		Electric bass pick

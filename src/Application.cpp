@@ -829,12 +829,12 @@ AppWindow::OnRemapKeys()
 				"from the 'MidiSynth' menu."),
 				B_TRANSLATE("OK"));
 			help->Go();
-			item->SetLabel("Done remapping");
+			item->SetLabel(B_TRANSLATE("Done remapping"));
 			item->SetShortcut('D', 0);
 			view->BeginRemapKeys();
 		} else {
 			savePanel->Show();
-			item->SetLabel("Remap keys");
+			item->SetLabel(B_TRANSLATE("Remap keys"));
 			item->SetShortcut('R', 0);
 			view->EndRemapKeys();
 		}
