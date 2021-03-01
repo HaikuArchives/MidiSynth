@@ -157,7 +157,7 @@ View::MessageReceived(BMessage* message)
 			if (pitchBendSlider->Frame().Contains(pt)) {
 				// round to multiple of 8, or we won't hit the hash marks
 				// if the slider knob was manually put between hash marks
-				int32 pitch = (pitchBendSlider->Value() & (-8));
+				int pitch = (pitchBendSlider->Value() & (-8));
 				if (deltaY < 0)
 					std::min(pitch += 8, 128);
 				else
@@ -167,7 +167,7 @@ View::MessageReceived(BMessage* message)
 				Window()->PostMessage(MSG_PITCH_BEND_CHANGED);
 				break;
 			} else if (velocitySlider->Frame().Contains(pt)) {
-				int32 velocity = (velocitySlider->Value() & (-8));;
+				int velocity = (velocitySlider->Value() & (-8));;
 				if (deltaY < 0)
 					std::min(velocity += 8, 128);
 				else
@@ -177,7 +177,7 @@ View::MessageReceived(BMessage* message)
 				Window()->PostMessage(MSG_VELOCITY_CHANGED);
 				break;
 			} else if (volumeSlider->Frame().Contains(pt)) {
-				int32 volume = volumeSlider->Value();
+				int volume = volumeSlider->Value();
 				int32 a = (volume / 10) * 10; // round to nearest multiple of 10
 				int32 b = a + 10;
 				volume = (volume - a > b - volume)? b : a;
@@ -190,7 +190,7 @@ View::MessageReceived(BMessage* message)
 				Window()->PostMessage(MSG_VOLUME_CHANGED);
 				break;
 			} else if (panSlider->Frame().Contains(pt)) {
-				int32 pan = (panSlider->Value() & (-8));
+				int pan = (panSlider->Value() & (-8));
 				if (deltaY < 0)
 					std::min(pan += 8, 128);
 				else
@@ -230,8 +230,6 @@ View::SetKeyboard(int index)
 #endif
 		delete keyboard;
 		currentKeyboard = index;
-		BRect rect = Bounds();
-		rect.top = subViewTop;
 		if (currentKeyboard == 0) {
 			Keyboard2D* k2d = new Keyboard2D(this, 3, 2);
 			keyboard = k2d;
@@ -239,6 +237,8 @@ View::SetKeyboard(int index)
 		}
 #if 0
 	    else {
+			BRect rect = Bounds();
+			rect.top = subViewTop;
 			Keyboard3D *k3d = new Keyboard3D(this, rect);
 			keyboard = k3d;
 			AddChild(k3d);

@@ -21,6 +21,7 @@ protected:
 
 public:
 	Keyboard(View* view);
+	virtual ~Keyboard() {};
 	virtual void NoteOn(uchar note) = 0;
 	virtual void NoteOff(uchar note) = 0;
 };

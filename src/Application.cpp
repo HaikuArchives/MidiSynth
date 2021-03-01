@@ -608,7 +608,6 @@ void
 AppWindow::LoadPatch()
 {
 	BEntry* entry;
-	int i;
 	const char* patchname = NULL;
 	// try patch name from settings file
 	patchname = settings.GetPatch();
