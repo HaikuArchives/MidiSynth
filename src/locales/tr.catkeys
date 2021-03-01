@@ -1,0 +1,197 @@
+1	Turkish	application/x-vnd.midisynth	3364170094
+<Default>	Application	Default SoundFont	<Öntanımlı>
+About…	Application		Hakkında…
+Ballroom	Application		Balo salonu
+Cavern	Application		İn
+Channel	Application		Kanal
+Chord:	Application		Akor:
+Closet	Application		Dolap
+Couldn't save key map file. Please try another file name or click on 'Cancel' in the save panel.	Application		Eşlem dosyası kaydedilemedi. Başka bir ad deneyin veya kaydetme panelinde 'İptal'e tıklayın.
+Default	Application	Default SoundFont	Öntanımlı
+Disable synthesizer	Application		Sentezleyiciyi devre dışı bırak
+Done remapping	Application		Eşlemleme tamamlandı
+Dungeon	Application		Zindan
+Enable synthesizer	Application		Sentezleyiciyi etkinleştir
+Error opening key map file.	Application		Düğme eşlem dosyası açılırken hata.
+F1 - Off	Application	Function key 1 for Chord off	F1 - Kapalı
+File error	Application		Dosya hatası
+Garage	Application		Garaj
+Help	Application		Yardım
+Key mappings	Application		Düğme eşlemler
+Keyboard octaves	Application		Klavye oktavları
+Keyboard rows	Application		Klavye sıraları
+Max synth voices	Application		En çok sentez sesleri
+Michael Pfeiffer (original author)	Application		Michael Pfeiffer (ilk yazar)
+Midi in	Application		MIDI Giriş
+Midi out	Application		MIDI Çıkış
+Octave	Application		Oktav
+Off	Application		Kapalı
+Off	Application	Chord off	Kapalı
+OK	Application		Tamam
+Quit	Application		Çık
+Remap keys	Application		Düğmeleri yeniden eşlemle
+Reset Midi	Application		MIDI'yi sıfırla
+Reverb	Application		Yankı
+Sampling rate	Application		Örnekleme oranı
+Scope	Application		Osiloskop
+SoundFont	Application		SoundFont
+This is no valid key map file.	Application		Bu, geçerli bir düğme eşlem dosyası değil.
+To remap a key, first click with your mouse on a key on the graphical keyboard, then hit the key on the keyboard.\nYou can immediately test the changes. When you are finished, select the menu item 'Done remapping' from the 'MidiSynth' menu.	Application		Bir düğmeyi yeniden eşlemlemek için, grafik klavyede önce fare düğmesi ile tıklayın, sonra klavyede aynı düğmeye basın.\nDeğişiklikleri anında sınayabilirsiniz. İşiniz bittiğinde 'MidiSynth' menüsünden 'Eşlemleme bitti' menü ögesine tıklayın.
+Accordion	Instruments		Akordiyon
+Acoustic bass	Instruments		Akustik bas
+Acoustic grand	Instruments		Akustik kuyruklu piyano
+Acoustic guitar nylon	Instruments		Akustik gitar
+Acoustic guitar steel	Instruments		Akustik gitar (çelik tel)
+Agogo	Instruments		Agogo
+Alto sax	Instruments		Alto saksafon
+Applause	Instruments		Alkış
+Bagpipe	Instruments		Gayda
+Banjo	Instruments		Banjo
+Baritone sax	Instruments		Bariton saksafon
+Bass lead	Instruments		Öncü bas
+Bassoon	Instruments		Fagot
+Bird tweet	Instruments		Kuş cıvıltısı
+Blown bottle	Instruments		Şişe üfleme
+Bowed	Instruments		Eğri yaylılar
+Brass section	Instruments		Bando bölümü
+Breath noise	Instruments		Soluk sesi
+Bright grand	Instruments		Bright kuyruklu piyano
+Calliope	Instruments		Buharlı org
+Celesta	Instruments		Çelesta
+Cello	Instruments		Çello
+Charang	Instruments		Charang
+Chiff	Instruments		Esinti
+Choir	Instruments		Koro
+Church Organ	Instruments		Kilise orgu
+Clarinet	Instruments		Klarnet
+Clavichord	Instruments		Klavsen
+Contrabass	Instruments		Kontrabas
+Distortion guitar	Instruments		Cızırtılı gitar
+Drawbar organ	Instruments		Çekmeceli org
+Dulcimer	Instruments		Santur
+Electric bass finger	Instruments		Elektrik parmak bas
+Electric bass pick	Instruments		Elektrik pena bas
+Electric grand	Instruments		Elektrikli kuyruklu piyano
+Electric guitar clean	Instruments		Temiz elektrik gitar
+Electric guitar jazz	Instruments		Jazz elektrik gitar
+Electric guitar muted	Instruments		Boğuk elektrik gitar
+Electric piano	Instruments		Elektrik piyano
+Electric piano 2	Instruments		Elektrik piyano 2
+English horn	Instruments		İngiliz borusu
+Fiddle	Instruments		Keman
+Fifths	Instruments		Beşli aralığı
+Flute	Instruments		Flüt
+French horn	Instruments		Fransız borusu
+Fret noise	Instruments		Perde sesi
+Fretless bass	Instruments		Perdesiz bas
+Fx1	Instruments		Fx1
+Fx2	Instruments		Fx2
+Fx3	Instruments		Fx3
+Fx4	Instruments		Fx4
+Fx5	Instruments		Fx5
+Fx6	Instruments		Fx6
+Fx7	Instruments		Fx7
+Fx8	Instruments		Fx8
+Glockenspiel	Instruments		Orkestra çanı
+Guitar harmonics	Instruments		Harmonik gitar
+Gunshot	Instruments		Silah sesi
+Halo	Instruments		Halo
+Harmonica	Instruments		Harmonika
+Harpsichord	Instruments		Harpsikord
+Helicopter	Instruments		Helikopter
+Honky tonk	Instruments		Pavyon
+Kalimba	Instruments		Kalimba
+Koto	Instruments		Koto
+Marimba	Instruments		Marimba
+Melodic tom	Instruments		Melodik tom
+Metallic	Instruments		Metalik
+Music box	Instruments		Müzik kutusu
+Muted trumpet	Instruments		Boğuk trompet
+New age	Instruments		Yeni çağ
+Oboe	Instruments		Oboe
+Ocarina	Instruments		Okarina
+Orchestra hit	Instruments		Orkestra vuruşu
+Orchestral strings	Instruments		Orkestra yaylılar
+Overdriven guitar	Instruments		Yüklenilmiş gitar
+Pan flute	Instruments		Pan flüt
+Percussive organ	Instruments		Perküsyon orgu
+Piccolo	Instruments		Pikolo
+Pizzicato strings	Instruments		Pizzicato yaylıları
+Polysynth	Instruments		Çoklu sentez
+Recorder	Instruments		Blokflüt
+Reed organ	Instruments		Reed orgu
+Reverse cymbal	Instruments		Ters zil
+Rock organ	Instruments		Rock orgu
+Sawtooth wave	Instruments		Testere dişi dalgası
+Seashore	Instruments		Deniz kıyısı
+Shakuhachi	Instruments		Şakuhaçi
+Shamisen	Instruments		Shamisen
+Shanai	Instruments		Shanai
+Sitar	Instruments		Sitar
+Slap bass 1	Instruments		Vurmalı bas 1
+Slap bass 2	Instruments		Vurmalı bas 2
+Soprano sax	Instruments		Soprano saksafon
+Square wave	Instruments		Kare dalga
+Steel drums	Instruments		Çelik davullar
+String ensemble 1	Instruments		Yaylılar korosu 1
+String ensemble 2	Instruments		Yaylılar korosu 2
+Sweep	Instruments		Süprüntü
+Synth bass 1	Instruments		Sentez bas 1
+Synth bass 2	Instruments		Sentez bas 2
+Synth brass 1	Instruments		Sentez korosu 1
+Synth brass 2	Instruments		Sentez korosu 2
+Synth drum	Instruments		Sentez davul
+Synth strings 1	Instruments		Sentez yaylılar 1
+Synth strings 2	Instruments		Sentez yaylılar 2
+Synth voice	Instruments		Sentez ses
+Taiko drums	Instruments		Taiko davulları
+Tango Accordion	Instruments		Tango akordiyon
+Telephone	Instruments		Telefon
+Tenor sax	Instruments		Tenor saksafon
+Timpani	Instruments		Timpani
+Tinkle bell	Instruments		Çıngıraklı zil
+Tremolo strings	Instruments		Titrek yaylılar
+Trombone	Instruments		Trombon
+Trumpet	Instruments		Trompet
+Tuba	Instruments		Tuba
+Tubular bells	Instruments		Boru çanlar
+Vibraphone	Instruments		Vibrafon
+Viola	Instruments		Viyola
+Violin	Instruments		Keman
+Voice	Instruments		Ses
+Voice aah	Instruments		Ah sesi
+Voice ooh	Instruments		Oh sesi
+Warm	Instruments		Ilık
+Whistle	Instruments		Islık
+Woodblock	Instruments		Tahta basma kalıbı
+Xylophone	Instruments		Ksilofon
+Basses	Groups		Baslar
+Brass	Groups		Bando
+Ensemble strings and voices	Groups		Koro yaylılar ve sesler
+Ethnic	Groups		Etnik
+Guitars	Groups		Gitarlar
+Musical effects	Groups		Müzikal efektler
+Organs	Groups		Orglar
+Percussion	Groups		Perküsyon
+Pianos	Groups		Piyanolar
+Pipes	Groups		Borular
+Reeds	Groups		Üflemeliler
+Sound effects	Groups		Ses efektleri
+Strings and timpani	Groups		Yaylılar ve timpani
+Synth leads	Groups		Öncü sentezler
+Synth pads	Groups		Sentez pedler
+Tuned idiophones	Groups		Akorlu idyofonlar
+High	Sliders		Yüksek
+Left	Sliders		Sol
+Low	Sliders		Alçak
+Max	Sliders		En çok
+Min	Sliders		En az
+Off	Sliders		Kapalı
+Pitch	Sliders		Frekans
+Right	Sliders		Sağ
+Velocity	Sliders		Hız
+Volume	Sliders		Ses düzeyi
+Loading SoundFont: %file%	StatusWindow		SoundFont yükleniyor: %file%
+MidiSynth status	StatusWindow		MidiSynth durumu
+MidiSynth	System name		MidiSynth
+Scope	Scope		Osiloskop

@@ -11,7 +11,7 @@
 #define MSG_CONSTS_H
 
 #define APPLICATION "MidiSynth"
-#define VERSION "1.7 (Haiku)"
+#define VERSION "1.8 (Haiku)"
 #define SIGNATURE "application/x-vnd.midisynth"
 
 #define MSG_INVALIDATE 1000
