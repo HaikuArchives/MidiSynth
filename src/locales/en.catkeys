@@ -1,4 +1,4 @@
-1	English	application/x-vnd.midisynth	3364170094
+1	English	application/x-vnd.midisynth	480064415
 Seashore	Instruments		Seashore
 Sitar	Instruments		Sitar
 Synth brass 2	Instruments		Synth brass 2
@@ -52,7 +52,6 @@ Drawbar organ	Instruments		Drawbar organ
 Celesta	Instruments		Celesta
 Halo	Instruments		Halo
 Sound effects	Groups		Sound effects
-This is no valid key map file.	Application		This is no valid key map file.
 Tango Accordion	Instruments		Tango Accordion
 Calliope	Instruments		Calliope
 Tuned idiophones	Groups		Tuned idiophones
@@ -88,6 +87,7 @@ Reeds	Groups		Reeds
 Brass section	Instruments		Brass section
 Music box	Instruments		Music box
 Garage	Application		Garage
+This isn't a valid key map file.	Application		This isn't a valid key map file.
 Harpsichord	Instruments		Harpsichord
 Steel drums	Instruments		Steel drums
 Kalimba	Instruments		Kalimba

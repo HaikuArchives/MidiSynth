@@ -874,7 +874,7 @@ AppWindow::LoadKeyMap(const char* map)
 	if (file.InitCheck() == B_OK) {
 		if (!view->GetKeyTable()->Read(file)) {
 			BAlert* help = new BAlert(B_TRANSLATE("File error"), B_TRANSLATE(
-				"This is no valid key map file."),
+				"This isn't a valid key map file."),
 				B_TRANSLATE("OK"));
 			help->Go();
 			view->GetKeyTable()->DefaultKeyTable();

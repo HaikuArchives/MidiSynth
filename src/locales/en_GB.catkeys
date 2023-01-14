@@ -1,0 +1,197 @@
+1	English (British)	application/x-vnd.midisynth	480064415
+<Default>	Application	Default SoundFont	<Default>
+About…	Application		About…
+Ballroom	Application		Ballroom
+Cavern	Application		Cavern
+Channel	Application		Channel
+Chord:	Application		Chord:
+Closet	Application		Closet
+Couldn't save key map file. Please try another file name or click on 'Cancel' in the save panel.	Application		Couldn't save key map file. Please try another file name or click on 'Cancel' in the save panel.
+Default	Application	Default SoundFont	Default
+Disable synthesizer	Application		Disable synthesiser
+Done remapping	Application		Done remapping
+Dungeon	Application		Dungeon
+Enable synthesizer	Application		Enable synthesiser
+Error opening key map file.	Application		Error opening key map file.
+F1 - Off	Application	Function key 1 for Chord off	F1 - Off
+File error	Application		File error
+Garage	Application		Garage
+Help	Application		Help
+Key mappings	Application		Key mappings
+Keyboard octaves	Application		Keyboard octaves
+Keyboard rows	Application		Keyboard rows
+Max synth voices	Application		Max synth voices
+Michael Pfeiffer (original author)	Application		Michael Pfeiffer (original author)
+Midi in	Application		MIDI in
+Midi out	Application		Midi out
+Octave	Application		Octave
+Off	Application		Off
+Off	Application	Chord off	Off
+OK	Application		OK
+Quit	Application		Quit
+Remap keys	Application		Remap keys
+Reset Midi	Application		Reset MIDI
+Reverb	Application		Reverb
+Sampling rate	Application		Sampling rate
+Scope	Application		Scope
+SoundFont	Application		SoundFont
+This isn't a valid key map file.	Application		This is no valid key map file.
+To remap a key, first click with your mouse on a key on the graphical keyboard, then hit the key on the keyboard.\nYou can immediately test the changes. When you are finished, select the menu item 'Done remapping' from the 'MidiSynth' menu.	Application		To remap a key, first click with your mouse on a key on the graphical keyboard, then hit the key on the keyboard.\nYou can immediately test the changes. When you are finished, select the menu item 'Done remapping' from the 'MidiSynth' menu.
+Accordion	Instruments		Accordion
+Acoustic bass	Instruments		Acoustic bass
+Acoustic grand	Instruments		Acoustic grand
+Acoustic guitar nylon	Instruments		Acoustic guitar nylon
+Acoustic guitar steel	Instruments		Acoustic guitar steel
+Agogo	Instruments		Agogo
+Alto sax	Instruments		Alto sax
+Applause	Instruments		Applause
+Bagpipe	Instruments		Bagpipe
+Banjo	Instruments		Banjo
+Baritone sax	Instruments		Baritone sax
+Bass lead	Instruments		Bass lead
+Bassoon	Instruments		Bassoon
+Bird tweet	Instruments		Bird tweet
+Blown bottle	Instruments		Blown bottle
+Bowed	Instruments		Bowed
+Brass section	Instruments		Brass section
+Breath noise	Instruments		Breath noise
+Bright grand	Instruments		Bright grand
+Calliope	Instruments		Calliope
+Celesta	Instruments		Celesta
+Cello	Instruments		Cello
+Charang	Instruments		Charang
+Chiff	Instruments		Chiff
+Choir	Instruments		Choir
+Church Organ	Instruments		Church Organ
+Clarinet	Instruments		Clarinet
+Clavichord	Instruments		Clavichord
+Contrabass	Instruments		Contrabass
+Distortion guitar	Instruments		Distortion guitar
+Drawbar organ	Instruments		Drawbar organ
+Dulcimer	Instruments		Dulcimer
+Electric bass finger	Instruments		Electric bass finger
+Electric bass pick	Instruments		Electric bass pick
+Electric grand	Instruments		Electric grand
+Electric guitar clean	Instruments		Electric guitar clean
+Electric guitar jazz	Instruments		Electric guitar jazz
+Electric guitar muted	Instruments		Electric guitar muted
+Electric piano	Instruments		Electric piano
+Electric piano 2	Instruments		Electric piano 2
+English horn	Instruments		English horn
+Fiddle	Instruments		Fiddle
+Fifths	Instruments		Fifths
+Flute	Instruments		Flute
+French horn	Instruments		French horn
+Fret noise	Instruments		Fret noise
+Fretless bass	Instruments		Fretless bass
+Fx1	Instruments		Fx1
+Fx2	Instruments		Fx2
+Fx3	Instruments		Fx3
+Fx4	Instruments		Fx4
+Fx5	Instruments		Fx5
+Fx6	Instruments		Fx6
+Fx7	Instruments		Fx7
+Fx8	Instruments		Fx8
+Glockenspiel	Instruments		Glockenspiel
+Guitar harmonics	Instruments		Guitar harmonics
+Gunshot	Instruments		Gunshot
+Halo	Instruments		Halo
+Harmonica	Instruments		Harmonica
+Harpsichord	Instruments		Harpsichord
+Helicopter	Instruments		Helicopter
+Honky tonk	Instruments		Honky tonk
+Kalimba	Instruments		Kalimba
+Koto	Instruments		Koto
+Marimba	Instruments		Marimba
+Melodic tom	Instruments		Melodic tom
+Metallic	Instruments		Metallic
+Music box	Instruments		Music box
+Muted trumpet	Instruments		Muted trumpet
+New age	Instruments		New age
+Oboe	Instruments		Oboe
+Ocarina	Instruments		Ocarina
+Orchestra hit	Instruments		Orchestra hit
+Orchestral strings	Instruments		Orchestral strings
+Overdriven guitar	Instruments		Overdriven guitar
+Pan flute	Instruments		Pan flute
+Percussive organ	Instruments		Percussive organ
+Piccolo	Instruments		Piccolo
+Pizzicato strings	Instruments		Pizzicato strings
+Polysynth	Instruments		Polysynth
+Recorder	Instruments		Recorder
+Reed organ	Instruments		Reed organ
+Reverse cymbal	Instruments		Reverse cymbal
+Rock organ	Instruments		Rock organ
+Sawtooth wave	Instruments		Sawtooth wave
+Seashore	Instruments		Seashore
+Shakuhachi	Instruments		Shakuhachi
+Shamisen	Instruments		Shamisen
+Shanai	Instruments		Shanai
+Sitar	Instruments		Sitar
+Slap bass 1	Instruments		Slap bass 1
+Slap bass 2	Instruments		Slap bass 2
+Soprano sax	Instruments		Soprano sax
+Square wave	Instruments		Square wave
+Steel drums	Instruments		Steel drums
+String ensemble 1	Instruments		String ensemble 1
+String ensemble 2	Instruments		String ensemble 2
+Sweep	Instruments		Sweep
+Synth bass 1	Instruments		Synth bass 1
+Synth bass 2	Instruments		Synth bass 2
+Synth brass 1	Instruments		Synth brass 1
+Synth brass 2	Instruments		Synth brass 2
+Synth drum	Instruments		Synth drum
+Synth strings 1	Instruments		Synth strings 1
+Synth strings 2	Instruments		Synth strings 2
+Synth voice	Instruments		Synth voice
+Taiko drums	Instruments		Taiko drums
+Tango Accordion	Instruments		Tango Accordion
+Telephone	Instruments		Telephone
+Tenor sax	Instruments		Tenor sax
+Timpani	Instruments		Timpani
+Tinkle bell	Instruments		Tinkle bell
+Tremolo strings	Instruments		Tremolo strings
+Trombone	Instruments		Trombone
+Trumpet	Instruments		Trumpet
+Tuba	Instruments		Tuba
+Tubular bells	Instruments		Tubular bells
+Vibraphone	Instruments		Vibraphone
+Viola	Instruments		Viola
+Violin	Instruments		Violin
+Voice	Instruments		Voice
+Voice aah	Instruments		Voice aah
+Voice ooh	Instruments		Voice ooh
+Warm	Instruments		Warm
+Whistle	Instruments		Whistle
+Woodblock	Instruments		Woodblock
+Xylophone	Instruments		Xylophone
+Basses	Groups		Basses
+Brass	Groups		Brass
+Ensemble strings and voices	Groups		Ensemble strings and voices
+Ethnic	Groups		Ethnic
+Guitars	Groups		Guitars
+Musical effects	Groups		Musical effects
+Organs	Groups		Organs
+Percussion	Groups		Percussion
+Pianos	Groups		Pianos
+Pipes	Groups		Pipes
+Reeds	Groups		Reeds
+Sound effects	Groups		Sound effects
+Strings and timpani	Groups		Strings and timpani
+Synth leads	Groups		Synth leads
+Synth pads	Groups		Synth pads
+Tuned idiophones	Groups		Tuned idiophones
+High	Sliders		High
+Left	Sliders		Left
+Low	Sliders		Low
+Max	Sliders		Max
+Min	Sliders		Min
+Off	Sliders		Off
+Pitch	Sliders		Pitch
+Right	Sliders		Right
+Velocity	Sliders		Velocity
+Volume	Sliders		Volume
+Loading SoundFont: %file%	StatusWindow		Loading SoundFont: %file%
+MidiSynth status	StatusWindow		MidiSynth status
+MidiSynth	System name		MidiSynth
+Scope	Scope		Scope

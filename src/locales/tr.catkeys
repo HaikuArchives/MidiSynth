@@ -1,4 +1,4 @@
-1	Turkish	application/x-vnd.midisynth	3364170094
+1	Turkish	application/x-vnd.midisynth	480064415
 <Default>	Application	Default SoundFont	<Öntanımlı>
 About…	Application		Hakkında…
 Ballroom	Application		Balo salonu
@@ -35,7 +35,7 @@ Reverb	Application		Yankı
 Sampling rate	Application		Örnekleme oranı
 Scope	Application		Osiloskop
 SoundFont	Application		SoundFont
-This is no valid key map file.	Application		Bu, geçerli bir düğme eşlem dosyası değil.
+This isn't a valid key map file.	Application		Bu, geçerli bir düğme eşlem dosyası değil.
 To remap a key, first click with your mouse on a key on the graphical keyboard, then hit the key on the keyboard.\nYou can immediately test the changes. When you are finished, select the menu item 'Done remapping' from the 'MidiSynth' menu.	Application		Bir düğmeyi yeniden eşlemlemek için, grafik klavyede önce fare düğmesi ile tıklayın, sonra klavyede aynı düğmeye basın.\nDeğişiklikleri anında sınayabilirsiniz. İşiniz bittiğinde 'MidiSynth' menüsünden 'Eşlemleme bitti' menü ögesine tıklayın.
 Accordion	Instruments		Akordiyon
 Acoustic bass	Instruments		Akustik bas

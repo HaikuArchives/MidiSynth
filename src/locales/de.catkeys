@@ -1,4 +1,4 @@
-1	German	application/x-vnd.midisynth	3364170094
+1	German	application/x-vnd.midisynth	480064415
 <Default>	Application	Default SoundFont	<Standard>
 About…	Application		Über…
 Ballroom	Application		Ballsaal
@@ -35,7 +35,7 @@ Reverb	Application		Hall
 Sampling rate	Application		Abtastrate
 Scope	Application		Oszilloskop
 SoundFont	Application		SoundFont
-This is no valid key map file.	Application		Dies ist keine gültige Tastenbelegungsdatei.
+This isn't a valid key map file.	Application		Dies ist keine gültige Tastenbelegungsdatei.
 To remap a key, first click with your mouse on a key on the graphical keyboard, then hit the key on the keyboard.\nYou can immediately test the changes. When you are finished, select the menu item 'Done remapping' from the 'MidiSynth' menu.	Application		Für eine neue Tastenbelegung, zuerst mit der Maus auf eine Taste klicken, dann die entsprechende Taste auf der Tastatur drücken.\nDie neue Belegung kann direkt ausprobiert werden. Zum Übernehmen, den Menüpunkt 'Neubelegung abschließen' aus dem 'MidiSynth' Menü wählen.
 Accordion	Instruments		Akkordion
 Acoustic bass	Instruments		Akustischer Bass

@@ -1,0 +1,197 @@
+1	Spanish	application/x-vnd.midisynth	480064415
+<Default>	Application	Default SoundFont	<Predeterminado>
+About…	Application		Acerca de…
+Ballroom	Application		Salón de baile
+Cavern	Application		Caverna
+Channel	Application		Canal
+Chord:	Application		Acorde:
+Closet	Application		Armario
+Couldn't save key map file. Please try another file name or click on 'Cancel' in the save panel.	Application		No se pudo guardar el archivo de mapeo de teclas. Intente con otro nombre de archivo o haga clic en "Cancelar" en el panel de guardado.
+Default	Application	Default SoundFont	Predeterminado
+Disable synthesizer	Application		Deshabilitar sintetizador
+Done remapping	Application		Remapeo finalizado
+Dungeon	Application		Mazmorra
+Enable synthesizer	Application		Habilitar sintetizador
+Error opening key map file.	Application		Error al abrir archivo de mapeo de teclas.
+F1 - Off	Application	Function key 1 for Chord off	F1 - Apagado
+File error	Application		Error de archivo
+Garage	Application		Garaje
+Help	Application		Ayuda
+Key mappings	Application		Distribuciones de teclas
+Keyboard octaves	Application		Octavas de teclado
+Keyboard rows	Application		Filas de teclado
+Max synth voices	Application		Máximo de voces sintetizadas
+Michael Pfeiffer (original author)	Application		Michael Pfeiffer (autor original)
+Midi in	Application		Entrada de midi
+Midi out	Application		Salida de midi
+Octave	Application		Octava
+Off	Application		Apagado
+Off	Application	Chord off	Apagado
+OK	Application		Aceptar
+Quit	Application		Salir
+Remap keys	Application		Redistribuir teclas
+Reset Midi	Application		Restablecer Midi
+Reverb	Application		Reverberación
+Sampling rate	Application		Frecuencia de muestreo
+Scope	Application		Osciloscopio
+SoundFont	Application		Fuente de sonido
+This isn't a valid key map file.	Application		Este no es un archivo de distribución de teclas válido.
+To remap a key, first click with your mouse on a key on the graphical keyboard, then hit the key on the keyboard.\nYou can immediately test the changes. When you are finished, select the menu item 'Done remapping' from the 'MidiSynth' menu.	Application		Para redistribuir una tecla, primero haga clic con su ratón sobre una tecla en el teclado gráfico, después pulse la tecla en el teclado.\nPodrá probar inmediatamente los cambios. Cuando haya terminado, seleccione el elemento de menú 'Finalizar redistribución' desde el menú 'MidiSynth'.
+Accordion	Instruments		Acordeón
+Acoustic bass	Instruments		Bajo acústico
+Acoustic grand	Instruments		Gran piano acústico
+Acoustic guitar nylon	Instruments		Guitarra acústica (nylon)
+Acoustic guitar steel	Instruments		Guitarra acústica (metal)
+Agogo	Instruments		Agogo
+Alto sax	Instruments		Saxofón alto
+Applause	Instruments		Aplauso
+Bagpipe	Instruments		Gaita
+Banjo	Instruments		Banjo
+Baritone sax	Instruments		Saxofón barítono
+Bass lead	Instruments		Bajo y solo
+Bassoon	Instruments		Fagot
+Bird tweet	Instruments		Vocalización de pájaros
+Blown bottle	Instruments		Botella soplada
+Bowed	Instruments		Arcos
+Brass section	Instruments		Sección de metales
+Breath noise	Instruments		Respiración
+Bright grand	Instruments		Piano brillante acústico 
+Calliope	Instruments		Calíope
+Celesta	Instruments		Celesta
+Cello	Instruments		Violonchelo
+Charang	Instruments		Charango
+Chiff	Instruments		Siseo
+Choir	Instruments		Coro
+Church Organ	Instruments		Órgano de iglesia
+Clarinet	Instruments		Clarinete
+Clavichord	Instruments		Clavicordio
+Contrabass	Instruments		Contrabajo
+Distortion guitar	Instruments		Guitarra de distorsión
+Drawbar organ	Instruments		Órgano Hammond
+Dulcimer	Instruments		Dulcémele
+Electric bass finger	Instruments		Bajo eléctrico pulsado
+Electric bass pick	Instruments		Bajo eléctrico con plectro
+Electric grand	Instruments		Piano de cola eléctrico
+Electric guitar clean	Instruments		Guitarra eléctrica limpia
+Electric guitar jazz	Instruments		Guitarra eléctrica de jazz
+Electric guitar muted	Instruments		Guitarra eléctrica tapada
+Electric piano	Instruments		Piano eléctrico
+Electric piano 2	Instruments		Piano eléctrico 2
+English horn	Instruments		Corno inglés
+Fiddle	Instruments		Fídula
+Fifths	Instruments		Quintas
+Flute	Instruments		Flauta
+French horn	Instruments		Trompa
+Fret noise	Instruments		Trasteo de guitarra
+Fretless bass	Instruments		Bajo sin trastes
+Fx1	Instruments		Efecto de sonido 1
+Fx2	Instruments		Efecto de sonido 2
+Fx3	Instruments		Efecto de sonido 3
+Fx4	Instruments		Efecto de sonido 4
+Fx5	Instruments		Efecto de sonido 5
+Fx6	Instruments		Efecto de sonido 6
+Fx7	Instruments		Efecto de sonido 7
+Fx8	Instruments		Efecto de sonido 8
+Glockenspiel	Instruments		Glockenspiel
+Guitar harmonics	Instruments		Armónicos de guitarra eléctrica
+Gunshot	Instruments		Disparo
+Halo	Instruments		Celestial
+Harmonica	Instruments		Armónica
+Harpsichord	Instruments		Clavecín
+Helicopter	Instruments		Helicóptero
+Honky tonk	Instruments		Piano honky tonk
+Kalimba	Instruments		Kalimba
+Koto	Instruments		Koto
+Marimba	Instruments		Marimba
+Melodic tom	Instruments		Tom melódico
+Metallic	Instruments		Metálico
+Music box	Instruments		Caja de música
+Muted trumpet	Instruments		Trompeta sorda
+New age	Instruments		Nueva era
+Oboe	Instruments		Oboe
+Ocarina	Instruments		Ocarina
+Orchestra hit	Instruments		Tutti de orquesta
+Orchestral strings	Instruments		Arpa de orquesta
+Overdriven guitar	Instruments		Guitarra saturada
+Pan flute	Instruments		Flauta de pan
+Percussive organ	Instruments		Órgano percusivo
+Piccolo	Instruments		Flautín
+Pizzicato strings	Instruments		Cuerdas en pizzicato
+Polysynth	Instruments		Polisintetizador
+Recorder	Instruments		Flauta dulce
+Reed organ	Instruments		Armonio
+Reverse cymbal	Instruments		Plato invertido
+Rock organ	Instruments		Órgano de rock
+Sawtooth wave	Instruments		Onda de sierra
+Seashore	Instruments		Costa de mar
+Shakuhachi	Instruments		Shakuhachi
+Shamisen	Instruments		Shamisen
+Shanai	Instruments		Shehnai
+Sitar	Instruments		Sitar
+Slap bass 1	Instruments		Bajo en slap 1
+Slap bass 2	Instruments		Bajo en slap 2
+Soprano sax	Instruments		Saxofón soprano
+Square wave	Instruments		Onda cuadrada
+Steel drums	Instruments		Tambor metálico
+String ensemble 1	Instruments		Sección de cuerdas 1
+String ensemble 2	Instruments		Sección de cuerdas 2
+Sweep	Instruments		Barrido
+Synth bass 1	Instruments		Bajo sintetizado 1
+Synth bass 2	Instruments		Bajo sintetizado 2
+Synth brass 1	Instruments		Metales sintetizados 1
+Synth brass 2	Instruments		Metales sintetizados 2
+Synth drum	Instruments		Batería electrónica
+Synth strings 1	Instruments		Cuerdas sintetizadas 1
+Synth strings 2	Instruments		Cuerdas sintetizadas 2
+Synth voice	Instruments		Coro sintetizado (voz sintetizada)
+Taiko drums	Instruments		Tambores taiko
+Tango Accordion	Instruments		Bandoneón
+Telephone	Instruments		Teléfono
+Tenor sax	Instruments		Saxofón tenor
+Timpani	Instruments		Timbales
+Tinkle bell	Instruments		Campanillas
+Tremolo strings	Instruments		Cuerdas en trémolo
+Trombone	Instruments		Trombón
+Trumpet	Instruments		Trompeta
+Tuba	Instruments		Tuba
+Tubular bells	Instruments		Campanas tubulares
+Vibraphone	Instruments		Vibráfono
+Viola	Instruments		Viola
+Violin	Instruments		Violín
+Voice	Instruments		Voz
+Voice aah	Instruments		Voz aah
+Voice ooh	Instruments		Voz ooh
+Warm	Instruments		Cálido
+Whistle	Instruments		Silbato
+Woodblock	Instruments		Caja china
+Xylophone	Instruments		Xilófono
+Basses	Groups		Bajos
+Brass	Groups		Metales
+Ensemble strings and voices	Groups		Conjunto de cuerdas y voces
+Ethnic	Groups		Étnicos
+Guitars	Groups		Guitarras
+Musical effects	Groups		Efectos musicales
+Organs	Groups		Órganos
+Percussion	Groups		Percusión
+Pianos	Groups		Pianos
+Pipes	Groups		Maderas (sopladas)
+Reeds	Groups		Maderas (cañas)
+Sound effects	Groups		Efectos de sonido
+Strings and timpani	Groups		Cuerdas y timbales
+Synth leads	Groups		Sintetizador solista
+Synth pads	Groups		Sintetizador de acompañamiento
+Tuned idiophones	Groups		Percusión cromática
+High	Sliders		Alto
+Left	Sliders		Izquierda
+Low	Sliders		Bajo
+Max	Sliders		Máx
+Min	Sliders		Mín
+Off	Sliders		Apagado
+Pitch	Sliders		Altura
+Right	Sliders		Derecha
+Velocity	Sliders		Velocidad
+Volume	Sliders		Volumen
+Loading SoundFont: %file%	StatusWindow		Cargando fuente de sonido: %file%
+MidiSynth status	StatusWindow		Estado de MidiSynth
+MidiSynth	System name		MidiSynth
+Scope	Scope		Osciloscopio

@@ -1,0 +1,197 @@
+1	Catalan	application/x-vnd.midisynth	480064415
+<Default>	Application	Default SoundFont	<Per defecte>
+About…	Application		Quant a...
+Ballroom	Application		Sala de ball
+Cavern	Application		Caverna
+Channel	Application		Canal
+Chord:	Application		Acord:
+Closet	Application		Armari
+Couldn't save key map file. Please try another file name or click on 'Cancel' in the save panel.	Application		No s'ha pogut desar el fitxer de mapa de tecles. Proveu un altre nom de fitxer o feu clic a Cancel·la al tauler de desar.
+Default	Application	Default SoundFont	Per defecte
+Disable synthesizer	Application		Desactiva el sintetitzador
+Done remapping	Application		Remapatge fet
+Dungeon	Application		Calabós
+Enable synthesizer	Application		Activa el sintetitzador
+Error opening key map file.	Application		Error en obrir el fitxer de mapa de tecles.
+F1 - Off	Application	Function key 1 for Chord off	F1 - Inactiu
+File error	Application		Error del fixer
+Garage	Application		Garatge
+Help	Application		Ajuda
+Key mappings	Application		Mapatges de tecles
+Keyboard octaves	Application		Otaves del teclat
+Keyboard rows	Application		Files del teclat
+Max synth voices	Application		Veus màximes de sintetitzador
+Michael Pfeiffer (original author)	Application		Michael Pfeiffer (autor original)
+Midi in	Application		Midi dins
+Midi out	Application		Midi fora
+Octave	Application		Octava
+Off	Application		Inactiu
+Off	Application	Chord off	Inactiu
+OK	Application		D'acord
+Quit	Application		Surt
+Remap keys	Application		Torna a mapar les tecles
+Reset Midi	Application		Restableix el Midi
+Reverb	Application		Reverbera
+Sampling rate	Application		Taxa de mostratge
+Scope	Application		Abast
+SoundFont	Application		Font de so
+This isn't a valid key map file.	Application		Aquest no és un fitxer de mapa de tecles vàlid.
+To remap a key, first click with your mouse on a key on the graphical keyboard, then hit the key on the keyboard.\nYou can immediately test the changes. When you are finished, select the menu item 'Done remapping' from the 'MidiSynth' menu.	Application		Per tornar a mapar una tecla, primer feu clic amb el ratolí sobre una tecla del teclat gràfic i, a continuació, premeu la tecla del teclat.\nPodeu provar els canvis immediatament. Quan hàgiu acabat, seleccioneu l'element de menú Remapatge fet, al menú MidiSynth.
+Accordion	Instruments		Acordió
+Acoustic bass	Instruments		Baix acústic
+Acoustic grand	Instruments		Gran acústic
+Acoustic guitar nylon	Instruments		Guitarra acústica de niló
+Acoustic guitar steel	Instruments		Guitarra acústica d'acer
+Agogo	Instruments		Agogo
+Alto sax	Instruments		Saxo alt
+Applause	Instruments		Aplaudiments
+Bagpipe	Instruments		Gaita
+Banjo	Instruments		Banjo
+Baritone sax	Instruments		Saxo baríton
+Bass lead	Instruments		Baix principal
+Bassoon	Instruments		Fagot
+Bird tweet	Instruments		Piulet d'ocell
+Blown bottle	Instruments		Ampolla bufada
+Bowed	Instruments		Arcat
+Brass section	Instruments		Secció de metall
+Breath noise	Instruments		Soroll de respiració
+Bright grand	Instruments		Gran brillant
+Calliope	Instruments		Cal·líope
+Celesta	Instruments		Celesta
+Cello	Instruments		Violoncel
+Charang	Instruments		Xaranga
+Chiff	Instruments		Chiff
+Choir	Instruments		Cor
+Church Organ	Instruments		Orgue d'església
+Clarinet	Instruments		Clarinet
+Clavichord	Instruments		Clavicordi
+Contrabass	Instruments		Contrabaix
+Distortion guitar	Instruments		Guitarra de distorsió
+Drawbar organ	Instruments		Orgue de barra de tracció
+Dulcimer	Instruments		Dulcimer
+Electric bass finger	Instruments		Dit de baix elèctric
+Electric bass pick	Instruments		Pic de baix elèctric
+Electric grand	Instruments		Gran elèctric
+Electric guitar clean	Instruments		Guitarra elèctrica neta
+Electric guitar jazz	Instruments		Guitarra elèctrica de jazz
+Electric guitar muted	Instruments		Guitarra elèctrica silenciada
+Electric piano	Instruments		Piano elèctric
+Electric piano 2	Instruments		Piano elèctric 2
+English horn	Instruments		Trompa anglesa
+Fiddle	Instruments		Violí
+Fifths	Instruments		Cinquens
+Flute	Instruments		Flauta
+French horn	Instruments		Trompa francesa
+Fret noise	Instruments		Soroll de trast
+Fretless bass	Instruments		Baix sense trast
+Fx1	Instruments		Fx1
+Fx2	Instruments		Fx2
+Fx3	Instruments		Fx3
+Fx4	Instruments		Fx4
+Fx5	Instruments		Fx5
+Fx6	Instruments		Fx6
+Fx7	Instruments		Fx7
+Fx8	Instruments		Fx8
+Glockenspiel	Instruments		Glockenspiel
+Guitar harmonics	Instruments		Harmònics de guitarra
+Gunshot	Instruments		Tret
+Halo	Instruments		Halo
+Harmonica	Instruments		Harmònica
+Harpsichord	Instruments		Clavicèmbal
+Helicopter	Instruments		Helicòpter
+Honky tonk	Instruments		Honky tonk
+Kalimba	Instruments		Kalimba
+Koto	Instruments		Koto
+Marimba	Instruments		Marimba
+Melodic tom	Instruments		Tom melòdic
+Metallic	Instruments		Metàl·lic
+Music box	Instruments		Caixa de música
+Muted trumpet	Instruments		Trompeta silenciada
+New age	Instruments		Nova era
+Oboe	Instruments		Oboè
+Ocarina	Instruments		Ocarina
+Orchestra hit	Instruments		Èxit d’orquestra
+Orchestral strings	Instruments		Cordes orquestrals
+Overdriven guitar	Instruments		Guitarra saturada
+Pan flute	Instruments		Flauta de Pan
+Percussive organ	Instruments		Orgue percussiu
+Piccolo	Instruments		Flautí
+Pizzicato strings	Instruments		Cordes de pizzicato
+Polysynth	Instruments		Polisintetitzador
+Recorder	Instruments		Gravadora
+Reed organ	Instruments		Orgue de canya
+Reverse cymbal	Instruments		Címbal invers
+Rock organ	Instruments		Orgue de rock
+Sawtooth wave	Instruments		Ona de serra
+Seashore	Instruments		Litoral
+Shakuhachi	Instruments		Shakuhachi
+Shamisen	Instruments		Shamisen
+Shanai	Instruments		Shanai
+Sitar	Instruments		Sitar
+Slap bass 1	Instruments		Baix de cop 1
+Slap bass 2	Instruments		Baix de cop 2
+Soprano sax	Instruments		Saxo soprano
+Square wave	Instruments		Ona quadrada
+Steel drums	Instruments		Tambors d’acer
+String ensemble 1	Instruments		Conjunt de corda 1
+String ensemble 2	Instruments		Conjunt de corda 2
+Sweep	Instruments		Escombratge
+Synth bass 1	Instruments		Sintetitzador baix 1
+Synth bass 2	Instruments		Sintetitzador baix 2
+Synth brass 1	Instruments		Sintetitzador de metall 1
+Synth brass 2	Instruments		Sintetitzador de metall 2
+Synth drum	Instruments		Sintetitzador de tambor
+Synth strings 1	Instruments		Sintetitzador de cordes 1
+Synth strings 2	Instruments		Sintetitzador de cordes 2
+Synth voice	Instruments		Sintetitzador de veu
+Taiko drums	Instruments		Tambors Taiko
+Tango Accordion	Instruments		Acordió de tango
+Telephone	Instruments		Telèfon
+Tenor sax	Instruments		Saxo tenor
+Timpani	Instruments		Timpani
+Tinkle bell	Instruments		Campaneta
+Tremolo strings	Instruments		Tremolor de cordes
+Trombone	Instruments		Trombó
+Trumpet	Instruments		Trompeta
+Tuba	Instruments		Tuba
+Tubular bells	Instruments		Campanes tubulars
+Vibraphone	Instruments		Vibració telefònica
+Viola	Instruments		Viola
+Violin	Instruments		Violí
+Voice	Instruments		Veu
+Voice aah	Instruments		Veu ah
+Voice ooh	Instruments		Veu oh
+Warm	Instruments		Calidesa
+Whistle	Instruments		Xiulet
+Woodblock	Instruments		Bloc de fusta
+Xylophone	Instruments		Xilòfon
+Basses	Groups		Baixos
+Brass	Groups		Metall
+Ensemble strings and voices	Groups		Conjunt de cordes i veus
+Ethnic	Groups		Ètnic
+Guitars	Groups		Guitarres
+Musical effects	Groups		Efectes musicals
+Organs	Groups		Orgues
+Percussion	Groups		Percussió
+Pianos	Groups		Pianos
+Pipes	Groups		Tubs
+Reeds	Groups		Canyes
+Sound effects	Groups		Efectes de so
+Strings and timpani	Groups		Cordes i timbals
+Synth leads	Groups		Sintetitzadors principals
+Synth pads	Groups		Elements de sintetitzador
+Tuned idiophones	Groups		Idiòfons afinats
+High	Sliders		Alt
+Left	Sliders		Esquerra
+Low	Sliders		Baix
+Max	Sliders		Màx.
+Min	Sliders		Mín.
+Off	Sliders		Inactiu
+Pitch	Sliders		Gradient
+Right	Sliders		Dreta
+Velocity	Sliders		Velocitat
+Volume	Sliders		Volum
+Loading SoundFont: %file%	StatusWindow		Es carrega la font de so %file%
+MidiSynth status	StatusWindow		Estat del Sintetitzador Midi
+MidiSynth	System name		Sintetitzador Midi
+Scope	Scope		Abast

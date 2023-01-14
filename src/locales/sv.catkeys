@@ -1,0 +1,197 @@
+1	Swedish	application/x-vnd.midisynth	480064415
+<Default>	Application	Default SoundFont	<Standard>
+About…	Application		Handla om…
+Ballroom	Application		Balsal
+Cavern	Application		Grotta
+Channel	Application		Kanal
+Chord:	Application		Ackord:
+Closet	Application		Garderob
+Couldn't save key map file. Please try another file name or click on 'Cancel' in the save panel.	Application		Det gick inte att spara nyckelkartfilen. Försök med ett annat filnamn eller klicka på 'Avbryt' i spara panelen.
+Default	Application	Default SoundFont	Standard
+Disable synthesizer	Application		Inaktivera synthesizer
+Done remapping	Application		Ommappningen är klar
+Dungeon	Application		Dungeon
+Enable synthesizer	Application		Aktivera synthesizer
+Error opening key map file.	Application		Fel vid öppning av nyckelkartfil.
+F1 - Off	Application	Function key 1 for Chord off	F1 - Av
+File error	Application		Filfel
+Garage	Application		Garage
+Help	Application		Hjälp
+Key mappings	Application		Viktiga mappningar
+Keyboard octaves	Application		Tangentbordoktaver
+Keyboard rows	Application		Tangentbord rader
+Max synth voices	Application		Max synth-röster
+Michael Pfeiffer (original author)	Application		Michael Pfeiffer (originalförfattare)
+Midi in	Application		Midi in
+Midi out	Application		Midi ut
+Octave	Application		Oktav
+Off	Application		Av
+Off	Application	Chord off	Av
+OK	Application		OK
+Quit	Application		Avsluta
+Remap keys	Application		Gör om knapparna
+Reset Midi	Application		Återställ Midi
+Reverb	Application		Reverb
+Sampling rate	Application		Samplingshastighet
+Scope	Application		Omfattning
+SoundFont	Application		Ljud typsnitt
+This isn't a valid key map file.	Application		Detta är ingen giltig nyckelmappsfil.
+To remap a key, first click with your mouse on a key on the graphical keyboard, then hit the key on the keyboard.\nYou can immediately test the changes. When you are finished, select the menu item 'Done remapping' from the 'MidiSynth' menu.	Application		För att mappa om en tangent, klicka först med musen på en tangent på det grafiska tangentbordet och tryck sedan på tangenten på tangentbordet.\nDu kan omedelbart testa ändringarna. När du är klar, välj menyalternativet 'Klar ommappning' från 'MidiSynth'-menyn.
+Accordion	Instruments		Dragspel
+Acoustic bass	Instruments		Akustisk bas
+Acoustic grand	Instruments		Akustisk grand
+Acoustic guitar nylon	Instruments		Akustisk gitarr nylon
+Acoustic guitar steel	Instruments		Akustisk gitarr stål
+Agogo	Instruments		Agogo
+Alto sax	Instruments		Altsax
+Applause	Instruments		Applåder
+Bagpipe	Instruments		Säckpipa
+Banjo	Instruments		Banjo
+Baritone sax	Instruments		Barytonsax
+Bass lead	Instruments		Basled
+Bassoon	Instruments		Fagott
+Bird tweet	Instruments		Fågelkvitter
+Blown bottle	Instruments		Blåsa i flaska
+Bowed	Instruments		Böjd
+Brass section	Instruments		Sektion i mässing
+Breath noise	Instruments		Andningsljud
+Bright grand	Instruments		Ljust grand
+Calliope	Instruments		Calliope
+Celesta	Instruments		Celesta
+Cello	Instruments		Cello
+Charang	Instruments		Charang
+Chiff	Instruments		Chiff
+Choir	Instruments		Kör
+Church Organ	Instruments		Kyrkans orgel
+Clarinet	Instruments		Klarinett
+Clavichord	Instruments		Klavikord
+Contrabass	Instruments		Kontrabas
+Distortion guitar	Instruments		Distortion gitarr
+Drawbar organ	Instruments		Dragstång orgel
+Dulcimer	Instruments		Cymbal
+Electric bass finger	Instruments		Elektriskt basfinger
+Electric bass pick	Instruments		Elbasval
+Electric grand	Instruments		Elektrisk grand
+Electric guitar clean	Instruments		Rengör elgitarr
+Electric guitar jazz	Instruments		Elgitarr jazz
+Electric guitar muted	Instruments		Elgitarr dämpad
+Electric piano	Instruments		Elektriskt piano
+Electric piano 2	Instruments		Elpiano 2
+English horn	Instruments		engelskt horn
+Fiddle	Instruments		Fiol
+Fifths	Instruments		Femtedelar
+Flute	Instruments		Flöjt
+French horn	Instruments		Fransk horn
+Fret noise	Instruments		Oroljud
+Fretless bass	Instruments		Fretless bas
+Fx1	Instruments		Fx1
+Fx2	Instruments		Fx2
+Fx3	Instruments		Fx3
+Fx4	Instruments		Fx4
+Fx5	Instruments		Fx5
+Fx6	Instruments		Fx6
+Fx7	Instruments		Fx7
+Fx8	Instruments		Fx8
+Glockenspiel	Instruments		Klockspel
+Guitar harmonics	Instruments		Gitarr övertoner
+Gunshot	Instruments		Vapenskott
+Halo	Instruments		Halo
+Harmonica	Instruments		Munspel
+Harpsichord	Instruments		Cembalo
+Helicopter	Instruments		Helikopter
+Honky tonk	Instruments		Honky tonk
+Kalimba	Instruments		Kalimba
+Koto	Instruments		Koto
+Marimba	Instruments		Marimba
+Melodic tom	Instruments		Melodisk tom
+Metallic	Instruments		Metallisk
+Music box	Instruments		Speldosa
+Muted trumpet	Instruments		Dämpad trumpet
+New age	Instruments		Ny tid
+Oboe	Instruments		Oboe
+Ocarina	Instruments		Okarina
+Orchestra hit	Instruments		Orkesterhit
+Orchestral strings	Instruments		Orkestersträngar
+Overdriven guitar	Instruments		Överdriven gitarr
+Pan flute	Instruments		Panflöjt
+Percussive organ	Instruments		Slagorgan
+Piccolo	Instruments		Piccolo
+Pizzicato strings	Instruments		Pizzicato-strängar
+Polysynth	Instruments		Polysynth
+Recorder	Instruments		Inspelare
+Reed organ	Instruments		Reed orgel
+Reverse cymbal	Instruments		Omvänd cymbal
+Rock organ	Instruments		Rockorgel
+Sawtooth wave	Instruments		Sågtandsvåg
+Seashore	Instruments		Stranden
+Shakuhachi	Instruments		Shakuhachi
+Shamisen	Instruments		Shamisen
+Shanai	Instruments		Shanai
+Sitar	Instruments		Sitar
+Slap bass 1	Instruments		Slappbas 1
+Slap bass 2	Instruments		Slappbas 2
+Soprano sax	Instruments		Sopransax
+Square wave	Instruments		Fyrkantig våg
+Steel drums	Instruments		Stål trummor
+String ensemble 1	Instruments		Stråkensemble 1
+String ensemble 2	Instruments		Stråkensemble 2
+Sweep	Instruments		Sopa
+Synth bass 1	Instruments		Synthbas 1
+Synth bass 2	Instruments		Synthbas 2
+Synth brass 1	Instruments		Synthmässing 1
+Synth brass 2	Instruments		Synthmässing 2
+Synth drum	Instruments		Synttrumma
+Synth strings 1	Instruments		Synthsträngar 1
+Synth strings 2	Instruments		Synthsträngar 2
+Synth voice	Instruments		Synth röst
+Taiko drums	Instruments		Applicera trummor
+Tango Accordion	Instruments		Tango dragspel
+Telephone	Instruments		Telefon
+Tenor sax	Instruments		Tenorsax
+Timpani	Instruments		Pukor
+Tinkle bell	Instruments		Pingel klocka
+Tremolo strings	Instruments		Tremolo strängar
+Trombone	Instruments		Trombon
+Trumpet	Instruments		Trumpet
+Tuba	Instruments		Tuba
+Tubular bells	Instruments		Rörformade klockor
+Vibraphone	Instruments		Vibrafon
+Viola	Instruments		Altfiol
+Violin	Instruments		Fiol
+Voice	Instruments		Röst
+Voice aah	Instruments		Röst aah
+Voice ooh	Instruments		Röst ooh
+Warm	Instruments		Värma
+Whistle	Instruments		Vissla
+Woodblock	Instruments		Trä block
+Xylophone	Instruments		Xylofon
+Basses	Groups		Basar
+Brass	Groups		Mässing
+Ensemble strings and voices	Groups		Ensemble stråkar och röster
+Ethnic	Groups		Etnisk
+Guitars	Groups		Gitarrer
+Musical effects	Groups		Musikaliska effekter
+Organs	Groups		Organ
+Percussion	Groups		Slagverk
+Pianos	Groups		Pianon
+Pipes	Groups		Rör
+Reeds	Groups		Redan
+Sound effects	Groups		Vass
+Strings and timpani	Groups		Stråkar och timpani
+Synth leads	Groups		Synth leder
+Synth pads	Groups		Synthpads
+Tuned idiophones	Groups		Stämda idiofoner
+High	Sliders		Hög
+Left	Sliders		Vänster
+Low	Sliders		Låg
+Max	Sliders		Max
+Min	Sliders		Min
+Off	Sliders		Av
+Pitch	Sliders		Tonhöjd
+Right	Sliders		Höger
+Velocity	Sliders		Hastighet
+Volume	Sliders		Volym
+Loading SoundFont: %file%	StatusWindow		Laddar ljudteckensnitt: %file%
+MidiSynth status	StatusWindow		MidiSynth status
+MidiSynth	System name		MidiSynth
+Scope	Scope		Omfattning
