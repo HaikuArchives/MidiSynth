@@ -151,5 +151,8 @@ public:
 	virtual void TempoChange(int32 bpm, bigtime_t time);
 
 	virtual void AllNotesOff(bool justChannel, bigtime_t time);
+
+private:
+	void _SetEndpointsIcons();
 };
 #endif

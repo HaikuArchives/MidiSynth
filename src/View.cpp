@@ -12,9 +12,13 @@
 #include "MsgConsts.h"
 #include "View.h"
 
+#include <Application.h>
 #include <Catalog.h>
 #include <ControlLook.h>
 #include <LayoutBuilder.h>
+#include <Message.h>
+#include <Resources.h>
+#include <Roster.h>
 #include <SeparatorView.h>
 #include <SplitView.h>
 
@@ -28,10 +32,13 @@
 View::View(int16 octaves, int16 rows, BView* popView)
 	:
 	BView("options", B_WILL_DRAW | B_SUPPORTS_LAYOUT),
-	BMidiLocalConsumer(APPLICATION " " VERSION)
+	BMidiLocalConsumer(kAppName)
 {
 	SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));
-	midiOut = new MidiOut(APPLICATION " " VERSION);
+	midiOut = new MidiOut(kAppName);
+
+	_SetEndpointsIcons();
+
 	midiOut->Register();
 	Register();
 
@@ -700,4 +707,40 @@ void
 View::TempoChange(int32 bpm, bigtime_t time)
 {
 	midiOut->SprayTempoChange(bpm, time);
+}
+
+
+// #pragma -
+
+
+void
+View::_SetEndpointsIcons()
+{
+	// setup out Midi Endpoints icons from app icon
+	app_info info;
+	be_app->GetAppInfo(&info);
+	BFile file(&info.ref, B_READ_ONLY);
+
+	BResources resources;
+	if (resources.SetTo(&file) != B_OK)
+		return;
+
+	size_t dataSize;
+	// Load app vector icon data
+	const uint8* data = (const uint8*)resources.LoadResource(
+		B_VECTOR_ICON_TYPE,	"BEOS:ICON", &dataSize);
+
+	if (data == NULL || dataSize <= 0)
+		return;
+
+	BMessage properties;
+	if (GetProperties(&properties) == B_OK) {
+		properties.AddData("icon", B_VECTOR_ICON_TYPE, data, dataSize);
+		SetProperties(&properties);
+	}
+
+	if (midiOut->GetProperties(&properties) == B_OK) {
+		properties.AddData("icon", B_VECTOR_ICON_TYPE, data, dataSize);
+		midiOut->SetProperties(&properties);
+	}
 }

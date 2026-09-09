@@ -36,6 +36,9 @@
 #define INSTR_GROUPS 16
 #define INSTRUMENTS 128
 
+const char* kAppName = B_TRANSLATE_SYSTEM_NAME("MidiSynth");
+const char* kAppSignature = "application/x-vnd.midisynth";
+
 static const char settingsFolder[] = "MidiSynth";
 static const char settingsFilename[] = "MidiSynth";
 
@@ -166,12 +169,11 @@ AddMenuItem(
 
 AppWindow::AppWindow(BRect aRect)
 	:
-	BWindow(aRect, B_TRANSLATE_SYSTEM_NAME("MidiSynth"), B_TITLED_WINDOW,
-		B_ASYNCHRONOUS_CONTROLS | B_NOT_ZOOMABLE),
+	BWindow(aRect, kAppName, B_TITLED_WINDOW, B_ASYNCHRONOUS_CONTROLS | B_NOT_ZOOMABLE),
 	scopeWindow(NULL)
 {
 	SetSizeLimits(460, 10000, 330, 10000);
-	midiSynth = new CInternalSynth(B_TRANSLATE_SYSTEM_NAME("MidiSynth"));
+	midiSynth = new CInternalSynth(kAppName);
 	midiSynth->Init();
 
 	// Save Panel
@@ -206,7 +208,7 @@ AppWindow::AppWindow(BRect aRect)
 
 	GetSynthEntries();
 
-	midiSynthMenu = menu = new BMenu(B_TRANSLATE_SYSTEM_NAME("MidiSynth"));
+	midiSynthMenu = menu = new BMenu(kAppName);
 
 	// Reset
 	menu->AddItem(new BMenuItem(B_TRANSLATE("Reset Midi"),
@@ -1291,8 +1293,7 @@ AppWindow::QuitRequested()
 void
 AppWindow::AboutRequested()
 {
-	BAboutWindow* about = new BAboutWindow(
-		B_TRANSLATE_SYSTEM_NAME("MidiSynth"), SIGNATURE);
+	BAboutWindow* about = new BAboutWindow(kAppName, kAppSignature);
 	const char* extraCopyrights[] = {
 		"2013 Pete Goodeve",
 		"2020 Humdinger",
@@ -1313,7 +1314,7 @@ AppWindow::AboutRequested()
 
 App::App()
 	:
-	BApplication(SIGNATURE)
+	BApplication(kAppSignature)
 {
 	BRect aRect;
 	// set up a rectangle and instantiate a new window

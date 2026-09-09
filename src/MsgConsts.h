@@ -10,10 +10,11 @@
 #ifndef MSG_CONSTS_H
 #define MSG_CONSTS_H
 
-#define APPLICATION "MidiSynth"
-#define VERSION "1.8 (Haiku)"
-#define SIGNATURE "application/x-vnd.midisynth"
+extern const char* kAppName;
+extern const char* kAppSignature;
 
+#define VERSION "1.8"
+	
 #define MSG_INVALIDATE 1000
 #define MSG_SCOPE_CLOSED_NOTIFY 'SClN'
 
