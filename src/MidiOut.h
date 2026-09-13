@@ -15,7 +15,7 @@
 class MidiOut : public BMidiLocalProducer
 {
 public:
-	MidiOut(const char* name = "MidiSynth");
+	MidiOut(const char* name = "");
 /*
 	void ChannelPressure(uchar channel, uchar pressure, bigtime_t time = system_time());
 	void PitchBend(uchar channel, uchar lsb, uchar msb, bigtime_t time = system_time());

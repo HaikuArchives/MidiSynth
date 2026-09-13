@@ -14,9 +14,12 @@
 #include "Scope.h"
 #include "Settings.h"
 #include "View.h"
+
 #include <Application.h>
 #include <Directory.h>
 #include <FilePanel.h>
+#include <MidiEndpoint.h>
+#include <Mime.h>	// for icon_size B_MINI_ICON
 #include <Window.h>
 
 class AppWindow : public BWindow
@@ -80,6 +83,7 @@ public:
 	// Misc.
 	void PopulateInstrumentMenus();
 	void PopulatePortMenus();
+	static BBitmap* GetEndpointIcon(BMidiEndpoint* endpoint, icon_size which = B_MINI_ICON);
 	void OnSynthesizerEnabled();
 	bool OnInstrumentChanged(BMessage* msg);
 	bool OnProgramChanged(BMessage* msg);
