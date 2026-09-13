@@ -1211,7 +1211,7 @@ AppWindow::MessageReceived(BMessage* message)
 			BMidiRoster* midiManager = BMidiRoster::MidiRoster();
 			int32 id = message->FindInt32("port_id");
 			BMidiProducer* producer = midiManager->FindProducer(id);
-			if (producer) {
+			if (producer != NULL) {
 				if (producer->IsConnected(view))
 					producer->Disconnect(view);
 				else
@@ -1224,7 +1224,7 @@ AppWindow::MessageReceived(BMessage* message)
 			BMidiRoster* midiManager = BMidiRoster::MidiRoster();
 			int32 id = message->FindInt32("port_id");
 			BMidiConsumer* consumer = midiManager->FindConsumer(id);
-			if (consumer) {
+			if (consumer != NULL) {
 				if (view->midiOut->IsConnected(consumer))
 					view->midiOut->Disconnect(consumer);
 				else
