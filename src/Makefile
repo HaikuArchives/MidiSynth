@@ -35,6 +35,7 @@ SRCS = Application.cpp \
 	ChordMenuItem.cpp \
 	ChordParser.cpp \
 	FKeyCatcher.cpp \
+	IconMenuItem.cpp \
 	InternalSynth.cpp \
 	Keyboard.cpp \
 	Keyboard2d.cpp \

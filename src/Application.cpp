@@ -12,6 +12,7 @@
 #include "ChordMenuItem.h"
 #include "ChordParser.h"
 #include "FKeyCatcher.h"
+#include "IconMenuItem.h"
 #include "InternalSynth.h"
 #include "Keyboard2d.h"
 #include "MsgConsts.h"
@@ -21,6 +22,7 @@
 #include <AboutWindow.h>
 #include <Catalog.h>
 #include <LayoutBuilder.h>
+#include <IconUtils.h>
 #include <MidiRoster.h>
 #include <PathFinder.h>
 #include <Roster.h>
@@ -318,9 +320,9 @@ AppWindow::AppWindow(BRect aRect)
 	*/
 
 	// Port
-	midiInPortMenu = new BMenu(B_TRANSLATE("Midi in"));
+	midiInPortMenu = new BMenu(B_TRANSLATE("MIDI in"));
 	menubar->AddItem(midiInPortMenu);
-	midiOutPortMenu = new BMenu(B_TRANSLATE("Midi out"));
+	midiOutPortMenu = new BMenu(B_TRANSLATE("MIDI out"));
 	menubar->AddItem(midiOutPortMenu);
 
 	// Chords
@@ -454,31 +456,82 @@ AppWindow::PopulatePortMenus()
 	}
 
 	int32 id = 0;
-	BMidiConsumer* con = NULL;
-	BMidiProducer* pro = NULL;
-	while ((con = midiManager->NextConsumer(&id)) != NULL) {
-		if (con->IsValid()) {
+	BMidiConsumer* consumer = NULL;
+	while ((consumer = midiManager->NextConsumer(&id)) != NULL) {
+		if (consumer->IsValid()) {
 			BMessage* msg = new BMessage(MENU_OUTPORT);
 			msg->AddInt32("port_id", id);
-			BMenuItem* item = new BMenuItem(con->Name(), msg);
+			BBitmap* icon = GetEndpointIcon(consumer);
+			BMenuItem* item = new IconMenuItem(consumer->Name(), msg, icon);
 			midiOutPortMenu->AddItem(item);
-			if (view->midiOut->IsConnected(con))
+			if (view->midiOut->IsConnected(consumer))
 				item->SetMarked(true);
+			delete icon;
 		}
+		consumer->Release();
 	}
-	id = 0;
 
-	while ((pro = midiManager->NextProducer(&id)) != NULL) {
-		if (pro->IsValid()) {
+	id = 0;
+	BMidiProducer* producer = NULL;
+	while ((producer = midiManager->NextProducer(&id)) != NULL) {
+		if (producer->IsValid()) {
 			BMessage* msg = new BMessage(MENU_INPORT);
 			msg->AddInt32("port_id", id);
-			BMenuItem* item = new BMenuItem(pro->Name(), msg);
+			BBitmap* icon = GetEndpointIcon(producer);
+			BMenuItem* item = new IconMenuItem(producer->Name(), msg, icon);
 			midiInPortMenu->AddItem(item);
-			if (pro->IsConnected(view))
+			if (producer->IsConnected(view))
 				item->SetMarked(true);
+			delete icon;
 		}
+		producer->Release();
 	}
 }
+
+
+/* static */ BBitmap*
+AppWindow::GetEndpointIcon(BMidiEndpoint* endpoint, icon_size which)
+{
+	BMessage properties;
+	if (endpoint == NULL || endpoint->GetProperties(&properties) != B_OK)
+		return NULL;
+
+	uint32 iconType = 'VICN';
+	const char* iconName = "icon";
+	const void* data;
+	ssize_t dataSize;
+	BRect bitmapRect(BPoint(0, 0), be_control_look->ComposeIconSize(which));
+	BBitmap* bitmap = new BBitmap(bitmapRect, B_RGBA32);
+
+	// See if a Vector Icon is available
+	if (properties.FindData(iconName, iconType, &data, &dataSize) == B_OK) {
+		if (BIconUtils::GetVectorIcon((const uint8*)data, dataSize, bitmap) == B_OK) {
+			return bitmap;
+		}
+	}
+
+	// if not, look for old BeOS style icon
+	uint32 iconSize = 0;
+	if (which == B_LARGE_ICON) {
+		iconType = 'ICON';
+		iconName = "be:large_icon";
+		iconSize = 32;
+	} else if (which == B_MINI_ICON) {
+		iconType = 'MICN';
+		iconName = "be:mini_icon";
+		iconSize = 16;
+	};
+
+	if (iconSize != 0 && properties.FindData(iconName, iconType, &data, &dataSize) == B_OK) {
+		if (BIconUtils::ConvertFromCMAP8((const uint8*)data, iconSize, iconSize, iconSize, bitmap) == B_OK)
+			return bitmap;
+	}
+
+	// none found: return a transparent bitmap, so IconMenuItem labels will keep align
+	memset(bitmap->Bits(), 0, bitmap->BitsLength());
+	return bitmap;
+}
+
 
 // Synth Defintion File Handling
 void
@@ -1157,24 +1210,26 @@ AppWindow::MessageReceived(BMessage* message)
 		{
 			BMidiRoster* midiManager = BMidiRoster::MidiRoster();
 			int32 id = message->FindInt32("port_id");
-			BMidiProducer* pro = midiManager->FindProducer(id);
-			if (pro) {
-				if (pro->IsConnected(view))
-					pro->Disconnect(view);
+			BMidiProducer* producer = midiManager->FindProducer(id);
+			if (producer != NULL) {
+				if (producer->IsConnected(view))
+					producer->Disconnect(view);
 				else
-					pro->Connect(view);
+					producer->Connect(view);
+				producer->Release();
 			}
 		} break;
 		case MENU_OUTPORT:
 		{
 			BMidiRoster* midiManager = BMidiRoster::MidiRoster();
 			int32 id = message->FindInt32("port_id");
-			BMidiConsumer* con = midiManager->FindConsumer(id);
-			if (con) {
-				if (view->midiOut->IsConnected(con))
-					view->midiOut->Disconnect(con);
+			BMidiConsumer* consumer = midiManager->FindConsumer(id);
+			if (consumer != NULL) {
+				if (view->midiOut->IsConnected(consumer))
+					view->midiOut->Disconnect(consumer);
 				else
-					view->midiOut->Connect(con);
+					view->midiOut->Connect(consumer);
+				consumer->Release();
 			}
 		} break;
 		case MENU_SYNTH_ENABLED:

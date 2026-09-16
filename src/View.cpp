@@ -32,10 +32,18 @@
 View::View(int16 octaves, int16 rows, BView* popView)
 	:
 	BView("options", B_WILL_DRAW | B_SUPPORTS_LAYOUT),
-	BMidiLocalConsumer(kAppName)
+	BMidiLocalConsumer()
 {
 	SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));
-	midiOut = new MidiOut(kAppName);
+	BString portName(B_TRANSLATE_COMMENT("%appName% In", "MidiSynth MIDI input port name, short as possible"));
+	portName.ReplaceAll("%appName%", kAppName);
+	BMidiEndpoint::SetName(portName.String());  // Explicit class name, due to BHandler::SetName()
+
+	midiOut = new MidiOut();
+
+	portName.SetTo(B_TRANSLATE_COMMENT("%appName% Out", "MidiSynth MIDI output port name, short as possible"));
+	portName.ReplaceAll("%appName%", kAppName);
+	midiOut->SetName(portName.String());
 
 	_SetEndpointsIcons();
 
